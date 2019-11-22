@@ -1,0 +1,42 @@
+/* pages/manage-phone/manage-phone.wxss */
+.i-m-btn{
+  width:100rpx;
+  height:50rpx;
+  text-align: center;
+  line-height:50rpx;
+  color:#fff;
+  background:#05ce60;
+  border-radius: 40rpx;
+  float:right;
+  font-size:26rpx;
+  margin:20rpx;
+}
+.i-m-tel-list{
+  width:90%;
+  float:right;
+}
+.i-m-tel-list view{
+  width:100%;
+  height:112rpx;
+  border-bottom:1px solid #e5e5e5;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size:28rpx;
+  color:#000;
+}
+.i-m-tel-list view image{
+  width:40rpx;
+  height:33rpx;
+  margin-right:40rpx;
+}
+.i-m-tel-list view text:nth-of-type(2){
+  color:#b2b2b2;
+  width:50%;
+}
+.i-m-add-tel{
+  color:#4e7cff;
+  font-size:28rpx;
+  float:left;
+  margin:42rpx 0 0 10%;
+}

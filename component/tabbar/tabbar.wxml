@@ -1,0 +1,7 @@
+<view style='position:fixed;bottom:0;left:0;width:100%;'>
+  <i-tab-bar current="{{ current }}" bindchange="handleChange">
+    <block wx:for="{{list}}"  wx:for-index="idx" wx:for-item="item">
+      <i-tab-bar-item data-url="{{item.pagePath}}" key="{{item.pagePath}}" img="{{item.iconPath}}" current-img="{{item.selectedIconPath}}" title="{{item.text}}"></i-tab-bar-item>
+    </block>
+  </i-tab-bar>
+</view>

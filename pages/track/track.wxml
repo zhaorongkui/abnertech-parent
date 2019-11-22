@@ -1,0 +1,83 @@
+<!--pages/track/track.wxml-->
+<wxs src="../../utils/filter.wxs" module="filter" />
+<view class="i-t-wrap">
+  <view class="cav-w" style="width:100%;height:0"></view>
+  <view class="i-t-banner " wx:if="{{t_id==1}}">
+    <view wx:if="{{!isShowline}}">
+      <i-canvas-l class="margin-l ll" finishRate="{{finishRate}}" id="canvas"></i-canvas-l>
+      <i-canvas-r class="margin-l rr" tureRate="{{tureRate}}" id="canvas_"></i-canvas-r>
+    </view>
+    <view wx:else class="i-t-null-data">{{studentName}}同学暂时还没有可统计的数据</view>
+  </view>
+  <view class="i-t-banner" wx:else>
+    <view wx:if="{{!isShowline}}">
+      <i-canvas-l class="margin-l ll " finishRate="{{finishRate}}" id="canvas"></i-canvas-l>
+      <i-canvas-r class="margin-l rr " tureRate="{{tureRate}}" id="canvas_"></i-canvas-r>
+    </view>
+    <view wx:else class="i-t-null-data">{{studentName}}同学暂时还没有可统计的数据</view>
+  </view>
+   <i-nav bind:_self="self_event" t_id="{{t_id}}" wx:if="{{show}}"></i-nav>
+  <view class="i-t-lead " wx:if="{{isShow_z}}">
+    <image src="../../assets/bd.png"></image>
+    <view>
+      超过了
+      <text>{{rankRate}}%</text> 的学生
+    </view>
+  </view>
+  <view class="i-t-s-line" wx:if="{{!isShow_z}}">
+    <view class="i-t-panel">
+      <text></text>
+      <text>综合学科情况曲线图</text>
+      <image src="../../assets/help.png" bindtap='showTip'></image>
+      <view wx:if="{{tips}}">
+          <text></text>
+          <text>根据学生各科作业的作答情况，综合统计的数据表</text>
+        </view>
+    </view>
+    <view class="container_">
+      <ec-canvas id="mychart" canvas-id="mychart-dom-bar" ec="{{ec}}" style="width:100%;height:100%"  wx:if="{{statisticalMonthPoint}}"></ec-canvas>
+      <view wx:else  class="i-t-null-line">暂无数据</view>
+    </view>
+  </view>
+  <view class="i-t-s-detail">
+    <view class="i-t-panel">
+      <text></text>
+      <text>科目详情</text>
+    </view>
+    <view class="i-t-s-types" bindtap='nav_to' wx:for="{{subjectStatisticals}}" data-idx="{{index}}" data-subject="{{item.subjectAbbreviation}}">
+      <view>
+        <image src="../../assets/shuxue.png" wx:if="{{item.subjectAbbreviation == 'shuxue'}}"></image>
+        <image src="../../assets/yingyu.png" wx:if="{{item.subjectAbbreviation == 'yingyu'}}"></image>
+        <image src="../../assets/yuwen.png" wx:if="{{item.subjectAbbreviation == 'yuwen'}}"></image>
+        <image src="../../assets/huaxue.png" wx:if="{{item.subjectAbbreviation == 'huaxue'}}"></image>
+        <image src="../../assets/wuli.png" wx:if="{{item.subjectAbbreviation == 'wuli'}}"></image>
+        <image src="../../assets/zhengzhi.png" wx:if="{{item.subjectAbbreviation == 'zhengzhi'}}"></image>
+        <image src="../../assets/shengwu.png" wx:if="{{item.subjectAbbreviation == 'shengwu'}}"></image>
+        <image src="../../assets/lishi.png" wx:if="{{item.subjectAbbreviation == 'lishi'}}"></image>
+        <image src="../../assets/dili.png" wx:if="{{item.subjectAbbreviation == 'dili'}}"></image>
+        <text>{{filter.homeworkName(item.subjectAbbreviation)}}</text>
+      </view>
+      <view>
+        <text>{{item.finishRate ? item.finishRate : 0}}%</text>
+        <text>完成率</text>
+      </view>
+      <view>
+        <text>{{item.tureRate ? item.tureRate : 0}}%</text>
+        <text>正确率</text>
+      </view>
+      <view class="i-t-tip">
+        <image src="../../assets/goto1.png"></image>
+      </view>
+    </view>
+    <!-- <view wx:if="{{subjectStatisticals == []}}" style="width:100%;text-align:center;color:#ccc;font-size:28rpx;margin-top:90rpx">暂无数据1</view> -->
+    <view wx:if="{{isShowline || subjectStatisticals == []}}" style="width:100%;text-align:center;color:#ccc;font-size:28rpx;margin-top:90rpx">暂无数据</view>
+  </view>
+  <i-tel></i-tel>
+  <view style='position:fixed;bottom:0;left:0;width:100%;'>
+    <i-tab-bar current="{{ current_router }}" bindchange="handleChange_router">
+      <i-tab-bar-item key="index" data-url="../index/index" img="../../../assets/zy-1.png" current-img="../../../assets/zy.png" title="作业"></i-tab-bar-item>
+      <i-tab-bar-item key="track" data-url="../track/track" img="../../../assets/zygz-1.png" current-img="../../../assets/zygz.png" title="作业跟踪"></i-tab-bar-item>
+      <i-tab-bar-item key="personal" data-url="../personal/personal" img="../../../assets/grzx-1.png" current-img="../../../assets/grzx.png" title="个人中心"></i-tab-bar-item>
+    </i-tab-bar>
+  </view>
+</view>

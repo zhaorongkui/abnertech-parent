@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "i-tip": "../../component/select_role/select_role"
+  },
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "关联学生",
+  "backgroundColor": "#fff",
+  "backgroundTextStyle": "light"
+}

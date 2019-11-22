@@ -1,0 +1,30 @@
+<wxs src="../../utils/filter.wxs" module="filter" />
+<view class="i-sd-s-detail">
+  <view>
+    <text></text>
+    <text>科目详情</text>
+  </view>
+  <view class="i-sd-s-types"  wx:for="{{homeworkPageSubjectData}}">
+    <view>
+      <image src="../../assets/shuxue.png" wx:if="{{item.subjectAbbreviation == 'shuxue'}}"></image>
+      <image src="../../assets/yingyu.png" wx:if="{{item.subjectAbbreviation == 'yingyu'}}"></image>
+      <image src="../../assets/yuwen.png" wx:if="{{item.subjectAbbreviation == 'yuwen'}}"></image>
+      <image src="../../assets/huaxue.png" wx:if="{{item.subjectAbbreviation == 'huaxue'}}"></image>
+      <image src="../../assets/wuli.png" wx:if="{{item.subjectAbbreviation == 'wuli'}}"></image>
+      <image src="../../assets/zhengzhi.png" wx:if="{{item.subjectAbbreviation == 'zhengzhi'}}"></image>
+      <image src="../../assets/shengwu.png" wx:if="{{item.subjectAbbreviation == 'shengwu'}}"></image>
+      <image src="../../assets/lishi.png" wx:if="{{item.subjectAbbreviation == 'lishi'}}"></image>
+      <image src="../../assets/dili.png" wx:if="{{item.subjectAbbreviation == 'dili'}}"></image>
+      <text>{{filter.homeworkName(item.subjectAbbreviation)}}</text>
+    </view>
+    <view>
+      <text>{{item.finishRate ? item.finishRate : 0}}%</text>
+      <text>完成率</text>
+    </view>
+    <view>
+      <text>{{item.tureRate ? item.tureRate : 0}}%</text>
+      <text>正确率</text>
+    </view>
+  </view>
+  <view wx:if="{{homeworkPageSubjectData == []}}" style="width:100%;text-align:center;color:#e5e5e5;font-size:28rpx;">暂无数据</view>
+</view>

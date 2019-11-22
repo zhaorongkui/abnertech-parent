@@ -1,0 +1,30 @@
+<view class="i-b-phone">
+  <form bindsubmit='formSubmit'>
+    <view class="formItemPhone">
+      <label>手机号</label>
+      <input name="phone" placeholder="输入有效手机号" data-id="phone" placeholder-class='inputClass' bindinput='Input' value="{{inputValP}}" />
+      <button class='codeBtn' wx:if="{{!isGetCode}}" catchtap='getPhoneCode'>{{btnTxt}}</button>
+      <text class='code_toast' wx:else>验证码已发送 {{countDown}}s</text>
+      <image src="../../assets/intc.png" bindtap='clearIntP' class="clearInt" wx:if="{{showClearP}}"></image>
+    </view>
+    <view class="formItemPhone">
+      <label>验证码</label>
+      <input name="code" placeholder="输入4位验证码" data-id="code" placeholder-class='inputClass' bindinput='Input_' value="{{inputValV}}" />
+      <button class='codeBtn' style="border:0"></button>
+      <image src="../../assets/intc.png" bindtap='clearIntV' class="clearInt clearInt_" wx:if="{{showClearV}}"></image>
+    </view>
+    <!-- <view class="formItemSet formItemPhone">
+      <label>保存此号码供以后授权使用</label>
+      <switch checked="{{formData.switchChecked}}" bindchange="switchChange"/>
+    </view> -->
+
+    <button class='formBtn {{formData.phone&&formData.code?"active":""}}' formType="submit" type='primary'>完成</button>
+
+    <view class="checkBox">
+      <checkbox-group bindchange="checkboxChange">
+        <checkbox checked="{{checkboxChecked}}" class="checkbox"  />
+      </checkbox-group>
+      <navigator url="../agreement/agreement" hover-class="navigator-hover">我已经阅读并同意《用户服务协议》</navigator>
+    </view>
+  </form>
+</view>

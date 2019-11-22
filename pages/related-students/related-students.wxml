@@ -1,0 +1,30 @@
+<view class="i-r-wrap">
+ <i-tip right='{{23}}' top='{{460}}' wx:if="{{show_tip}}" bind:_self="self_event" bind:_self_="self_event_" bool="true" role_id="{{role_id}}" role_name="{{role_text}}"></i-tip>
+  <view class="i-r-stu-info">
+    <view>
+      账号：{{studentsInfo.studentCode}}
+    </view>
+    <view>
+      姓名：{{studentsInfo.studentName}}
+    </view>
+    <view>
+      学校：{{studentsInfo.schoolName}} {{studentsInfo.grade}}年级 {{studentsInfo.className}}
+    </view>
+  </view>
+
+  <view class="i-m-select" bindtap="role_s">
+    <view>
+      <image></image>
+      <text>选择关联关系</text>
+    </view>
+    <view>
+      <text>{{role_text}}</text>
+      <image src="../../assets/goto1.png"></image>
+    </view>
+  </view>
+
+  <view class="i-m-con-btn">
+    <view class="cancel" bindtap='cancel'>取消</view>
+    <view bindtap="submit">确认</view>
+  </view>
+</view>

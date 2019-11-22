@@ -1,0 +1,31 @@
+/* pages/massage/massage.wxss */
+.i-m-wrap{
+  width:100%;
+  background:#f6f6f6;
+  height:100%;
+}
+.i-m-list{
+  width:90%;
+  margin:0 auto;
+  height:auto;
+  background:#fff;
+  padding:20rpx;
+  border-radius: 20rpx;
+  margin-top:20rpx;
+}
+.i-m-list view:nth-of-type(1){
+  display:flex;
+  justify-content: space-between;
+}
+.i-m-list view:nth-of-type(2){
+  color:#999;
+  font-size:28rpx;
+}
+.i-m-list view:nth-of-type(1) text:nth-of-type(1){
+  color:#000;
+  font-size:34rpx;
+}
+.i-m-list view:nth-of-type(1) text:nth-of-type(2){
+  color:#999;
+  font-size:28rpx;
+}

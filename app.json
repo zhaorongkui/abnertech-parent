@@ -1,0 +1,27 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/read-detail/read-detail",
+    "pages/word-detail/word-detail",
+    "pages/work-detail-error/work-detail-error",
+    "pages/track-detail/track-detail",
+    "pages/track/track",
+    "pages/related-students/related-students",
+    "pages/personal/personal",
+    "pages/manage-phone/manage-phone",
+    "pages/bind-phone/bind-phone",
+    "pages/message/message",
+    "pages/subject-detail/subject-detail",
+    "pages/agreement/agreement",
+    "pages/about/about",
+    "pages/zuowen/zuowen",
+    "pages/english-detail/english-detail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}

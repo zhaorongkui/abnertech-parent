@@ -1,0 +1,19 @@
+<!--pages/blog1/canvas.wxml-->
+
+<view class='canvas-wrap'>
+  <view class='progress_box'>
+    <view>
+      <!-- 绘制圆环背景 -->
+      <canvas class="progress_bg" canvas-id="canvasProgressbg" />
+      <!-- 绘制加载中圆弧 -->
+      <canvas class="progress_canvas" canvas-id="canvasProgress" />
+      <!-- 绘制圆弧中心提示文字 -->
+    </view>
+    <view class="progress_text">
+      <view class='progress_info' >
+        <text>{{finishRate ? finishRate : 0}}%</text>
+        <text>完成率</text>
+      </view>
+    </view>
+  </view>
+</view>

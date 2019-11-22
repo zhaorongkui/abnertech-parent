@@ -1,0 +1,49 @@
+
+/**app.wxss**/
+page {
+  width:100%;
+  height:100%;
+  background:#f6f6f6;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background:#f6f6f6;
+} 
+
+.menu-item {
+  width: 33.3%;
+  float: left;
+  text-align: center;
+  padding-top: 8px;
+}
+.menu-item2{
+  border-right:none;
+}
+ 
+.img {
+  width: 23px;
+  height: 23px;
+  display: block;
+  margin: auto;
+}
+ 
+.clear {
+  clear: both;
+}
+ 
+.tab-bar {
+  background-color:#fff;
+  opacity: .8;
+  position: fixed;
+  width: 100%;
+  display:flex;
+  justify-content: space-around;
+  /* padding: 0px 2%; */
+}
+
+

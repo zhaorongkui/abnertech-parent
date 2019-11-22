@@ -1,0 +1,7 @@
+<canvas class="ec-canvas" canvas-id="{{ canvasId }}"
+bindinit="init"
+bindtouchstart="{{ ec.disableTouch ? '' : 'touchStart' }}"  bindtouchend="{{ ec.disableTouch ? '' : 'touchEnd' }}"
+>
+</canvas>
+<!-- bindtouchmove="{{ ec.disableTouch ? '' : 'touchMove' }}" -->
+<!-- bindtouchstart="{{ ec.disableTouch ? '' : 'touchStart' }}"  bindtouchend="{{ ec.disableTouch ? '' : 'touchEnd' }}" -->

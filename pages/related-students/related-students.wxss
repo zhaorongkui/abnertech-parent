@@ -1,0 +1,79 @@
+/* pages/related-students/related-students.wxss */
+.i-r-stu-info{
+  display: flex;
+  justify-content: space-around;
+  flex-flow: column;
+  width: 680rpx;
+  height: 253rpx;
+  opacity: 0.9;
+  background-image: linear-gradient(270deg, #4b97ff 0%, #5869ff 100%);
+  border-radius: 20rpx;
+  margin: 25rpx auto 0;
+  color:#fff;
+}
+
+.i-r-stu-info view:nth-child(even){
+  font-size:44rpx;
+  margin-left:35rpx;
+}
+.i-r-stu-info view:nth-child(odd){
+  font-size:24rpx;
+  margin-left:35rpx;
+}
+.i-m-select{
+  width:680rpx;
+  height:100rpx;
+  background:#fff;
+  border-radius: 20rpx;
+  margin:55rpx auto 0;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size:32rpx;
+  color:#333;
+}
+.i-m-select view:nth-of-type(1){
+  margin-left:33rpx;
+}
+.i-m-select view:nth-of-type(2){
+  width:auto;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right:33rpx;
+}
+.i-m-select view:nth-of-type(1) image{
+  width:10rpx;
+  height:10rpx;
+}
+.i-m-select view:nth-of-type(2) image{
+  width:13rpx;
+  height:27rpx;
+}
+.i-m-select view:nth-of-type(2) text{
+  color:#999;
+  display:block;
+  margin-right:20rpx;
+}
+.i-m-con-btn{
+  width:680rpx;
+  margin:110rpx auto 0;
+  display:flex;
+  justify-content: space-around;
+}
+.i-m-con-btn view{
+  width:320rpx;
+  height:80rpx;
+  border-radius: 47rpx;
+  font-size:32rpx;
+  text-align: center;
+  line-height: 80rpx;
+}
+.i-m-con-btn view:nth-of-type(1){
+  background:#ededed;
+  color:#333;
+}
+.i-m-con-btn view:nth-of-type(2){
+ background-image: linear-gradient(-225deg, #4B97FF 0%, #5869FF 100%);
+  color:#fff;
+}

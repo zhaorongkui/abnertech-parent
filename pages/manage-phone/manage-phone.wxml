@@ -1,0 +1,21 @@
+<view class="i-m-tel">
+   <view class="i-m-btn">
+     管理
+   </view>
+
+   <view class="i-m-tel-list">
+       <view>
+           <text>18210284849</text>
+           <text>微信绑定手机号</text>
+           <image src="../../assets/zy.png"></image>
+       </view>
+       <view>
+           <text>13331127227</text>
+           <text></text>
+           <image src="../../assets/zy.png"></image>
+       </view>
+   </view>
+   <view class="i-m-add-tel">
+     添加其他手机号
+   </view>
+</view>

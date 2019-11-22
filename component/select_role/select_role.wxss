@@ -1,0 +1,125 @@
+/* component/tip/tip.wxss */
+
+.i-c-wrap {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 20rpx;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99999;
+}
+
+.i-c-w {
+  width: 0rpx;
+  height: 0rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0rpx 26rpx 0rpx 26rpx;
+  
+}
+
+.i-c-w-list {
+  width: 654rpx;
+  height: 445rpx;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+  opacity: 0;
+  padding: 0rpx 26rpx 0rpx 26rpx;
+}
+
+.i-c-w-list view.i-c-role {
+  display: block;
+  width: 150rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  background: #f7f7f7;
+  color: #999;
+  font-size: 30rpx;
+  border-radius: 30rpx;
+  margin-left: 45rpx;
+  float: left;
+  margin-top: 44rpx;
+  padding: 0 10rpx;
+}
+
+.i-c-w-list view.role-hover {
+  background: #4489ff;
+  color: #fff;
+}
+
+.i-c-out, .i-c-in {
+  position: absolute;
+  width: 0;
+  height: 0px;
+}
+
+.i-c-out {
+  border: 25rpx solid transparent;
+  border-bottom-color: #fff;
+  top: -46rpx;
+  right: 50rpx;
+}
+
+.i-c-con-btn {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  float: left;
+  margin: 40rpx 0 0 10%;
+}
+
+.i-c-c-btn, .i-c-q-btn {
+  display: block;
+  width: 200rpx;
+  height: 70rpx;
+  background: #4489ff;
+  text-align: center;
+  line-height: 70rpx;
+  color: #fff;
+  font-size: 28rpx;
+  border-radius: 50rpx;
+}
+
+.i-c-q-btn {
+  background: #ddd;
+}
+
+.ani {
+  animation: viewlinear 1s linear;
+}
+
+.ani_ {
+  animation: linear 1s linear 3s;
+}
+
+@keyframes viewlinear {
+  0% {
+    width: 0;
+    height: 0;
+  }
+
+  100% {
+    width: 654rpx;
+    height: 445rpx;
+  }
+}
+
+@keyframes linear {
+  0% {
+    opacity: 0;
+    
+  }
+
+  100% {
+    opacity: 1;
+    
+  }
+}

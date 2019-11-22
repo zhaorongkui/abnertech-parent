@@ -1,0 +1,70 @@
+<!--pages/track/track.wxml-->
+<wxs src="../../utils/filter.wxs" module="filter" />
+<view class="i-t-wrap">
+  <view class="cav-w" style="width:100%;height:0"></view>
+  <view class="i-t-banner " wx:if="{{t_id==1}}">
+    <view class="i-title-infos">
+      <text>{{homeworkName}}</text>
+      <text wx:if="{{submitType != 1}}">{{filter.time(submitTime)}}</text>
+      <view class="aa">
+        <image src="../../assets/shiz.png"></image>
+        <text wx:if="{{(submitType == 2 || submitType == 1 || submitType == '') && currentTime < homeworkEndTime}}">进行中</text>
+         <text wx:if="{{(submitType == 2 || submitType == 1 || submitType == '') && currentTime > homeworkEndTime}}">过期未交</text>
+        <text wx:if="{{submitType == 3 && submitTime <= homeworkEndTime}}">按时提交</text>
+        <text wx:if="{{submitType == 3 && submitTime > homeworkEndTime}}">晚交</text>
+      </view>
+      <view class="i-state" wx:if="{{submitType == 3 && reviewType == 0}}">
+        <image src="../../assets/quejiao.png" class="i-tips"></image>
+        <text>待批阅</text>
+      </view>
+    </view>
+    <view class="i-subject">{{filter.homeworkName(subjectName)}}</view>
+    <image src="../../assets/shuaxin.png" class="i-shuaxin" bindtap="loadPage"></image>
+    <view wx:if="{{!isShowline}}">
+      <i-canvas-l class="margin-l ll" finishRate="{{finishRate}}" finishRates="{{finishRates}}" text="{{text}}" id="canvas"></i-canvas-l>
+      <i-canvas-r class="margin-l rr" tureRate="{{tureRate}}" id="canvas_"></i-canvas-r>
+    </view>
+  </view>
+  <view class="i-error-list">
+    <view wx:for="{{dailyWrongList}}">
+      <view class="i-num">
+        <view>
+          <view></view>
+          <text>篇目{{index+1}}</text>
+        </view>
+        <view>
+          <view   wx:if="{{item.submitType == 3 && item.reviewType !=0 }}" class="score">
+           <text>正确率</text>
+           <text>{{item.trueRate != undefined ? item.trueRate:0}}%</text>
+          </view>
+         
+          <text wx:if="{{item.submitType == 3 && item.reviewType == 0 }}" class="dpf">待批阅</text>
+          <text wx:if="{{item.submitType == 1 || item.submitType == 2 || item.submitType == undefined}}" class="wwc">未完成</text>
+        </view>
+      </view>
+      <view class="i-work-from">
+        <text></text>
+        <text>{{item.textbookName}}</text>
+      </view>
+      <view class="i-work-infos">
+        <view>
+          <text>页码</text>
+          <text>{{item.pageNum}}</text>
+        </view>
+        <view>
+          <text>题号</text>
+          <text>{{item.questionNum}}</text>
+        </view>
+        <view>
+          <text>文体类型</text>
+          <text>{{item.questionTextTypeName}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+   <view style="font-size:24rpx;color:#999;marign:10rpx auto 0;width:100%;display:flex;justify-content: center;align-items: center;" wx:if="{{dailyWrongList.length != 0}}">
+    <text style="color:#e5e5e5">—————————</text>
+    <text style="margin:0 25rpx">我就是底线</text>
+    <text style="color:#e5e5e5">—————————</text>
+  </view>
+</view>

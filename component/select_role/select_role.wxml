@@ -1,0 +1,17 @@
+<view class="i-c-wrap">
+  <view class="i-c-w" style="right:{{right}}rpx;top:{{top}}rpx;" animation="{{animationData}}">
+    <view class="i-c-out"></view>
+    <view class="i-c-in"></view>
+  </view>
+  <view class="i-c-w-list" style="right:{{right}}rpx;top:{{top}}rpx;" animation="{{animationData_}}">
+    <block wx:for="{{list}}">
+      <view data-name="{{item.name}}" data-id="{{item.id}}" bindtap="role_s" class="i-c-role {{role_id == (index+1) ? 'role-hover' : '' }}">
+        {{item.name}}
+      </view>
+    </block>
+    <view class="i-c-con-btn">
+      <button class="i-c-q-btn" bindtap="cancel">取消</button>
+      <button class="i-c-c-btn" bindtap="confirm">确认</button>
+    </view>
+  </view>
+</view>

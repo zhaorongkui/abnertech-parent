@@ -1,0 +1,138 @@
+<!--pages/track/track.wxml-->
+<wxs src="../../utils/filter.wxs" module="filter" />
+<view class="i-t-wrap">
+  <view class="cav-w" style="width:100%;height:0"></view>
+  <view class="i-t-banner " wx:if="{{t_id==1}}">
+    <view class="i-title-infos">
+      <text>{{homeworkName}}</text>
+      <text wx:if="{{submitType == 3}}">{{filter.time(submitTime)}}</text>
+      <view class="aa">
+        <image src="../../assets/shiz.png"></image>
+         <text wx:if="{{(submitType == 2 || submitType == 1 || submitType == '') && currentTime < homeworkEndTime}}">进行中</text>
+         <text wx:if="{{(submitType == 2 || submitType == 1 || submitType == '') && currentTime > homeworkEndTime}}">过期未交</text>
+        <text wx:if="{{submitType == 3 && submitTime <= homeworkEndTime}}">按时完成</text>
+        <text wx:if="{{submitType == 3 && submitTime > homeworkEndTime}}">晚交</text>
+      </view>
+      <view class="i-state" wx:if="{{submitType == 3 && reviewType == 0}}">
+        <image src="../../assets/quejiao.png" class="i-tips"></image>
+        <text>待评分</text>
+      </view>
+    </view>
+    <view class="i-subject">{{filter.homeworkName(subjectName)}}</view>
+    <image src="../../assets/shuaxin.png" class="i-shuaxin" bindtap="loadPage"></image>
+    <view wx:if="{{!isShowline}}">
+      <i-canvas-l class="margin-l ll" finishRate="{{finishRate}}" finishRates="{{finishRates}}" text="{{text}}" id="canvas"></i-canvas-l>
+      <i-canvas-r class="margin-l rr" finishRate="{{score}}" finishRates="{{score1}}" text="{{texts}}" id="canvas_"></i-canvas-r>
+    </view>
+  </view>
+  <view class="i-error-list">
+    <view class="sp-list" wx:for="{{listenList}}">
+      <view class="sp-title">
+        <view class="sp-title-l">
+          <image src="../../assets/beifen.png"></image>
+          <text>{{index+1}}</text>
+        </view>
+        <view class="sp-title-r">
+          <view>
+            <text>课本单元</text>
+            <text>{{item.textbookChapterName}}</text>
+          </view>
+          <view>
+            <text>小节</text>
+            <text>{{item.unitModelName}}</text>
+          </view>
+          <view>
+            <text>题号</text>
+            <text>{{item.questionTitle}}</text>
+          </view>
+        </view>
+      </view>
+      <block wx:if="{{item.questionType == 1}}">
+        <block wx:if="{{item.videoQuestionStemList[0].videoHomeworkAnswerVideoList != undefined}}">
+          <block wx:for="{{item.videoQuestionStemList[0].videoHomeworkAnswerVideoList}}" wx:for-item="i">
+            <view class="yw" wx:if="{{i.isTopScore == 0}}">
+              <text>原文</text>
+              <view>
+                <text>得分</text>
+                <text>{{filter.parse(i.evaluatingResult).result.overall !=undefined ? filter.parse(i.evaluatingResult).result.overall : 0}}</text>
+              </view>
+            </view>
+          </block>
+        </block>
+      </block>
+      <!-- <block wx:if="item.questionType == 1 && item.videoQuestionStemList[0].videoHomeworkAnswerVideoList == undefined">
+        <view class="yw" wx:if="{{item.questionType == 1}}">
+          <text>原文</text>
+          <view>
+            <text>得分</text>
+            <text>0</text>
+          </view>
+        </view>
+      </block> -->
+      <view class="content" wx:if="{{item.questionType == 2}}" wx:for="{{listenList[index].videoQuestionStemList}}" wx:for-item="items" wx:for-index="idx">
+
+        <view>
+          <rich-text nodes="{{items.questionStemContent}}"></rich-text>
+          <rich-text nodes="{{items.questionStemTranslate}}"></rich-text>
+        </view>
+        <text></text>
+        <block wx:if="{{items.videoHomeworkAnswerVideoList != undefined}}">
+          <block wx:if="{{items.videoHomeworkAnswerVideoList.length < item.readNumber}}">
+            <view>
+              <text></text>
+              <text style="color:#FF8F00">未完成</text>
+            </view>
+          </block>
+          <block wx:else>
+            <block wx:if="{{items.videoHomeworkAnswerVideoList.length != 1}}">
+              <block wx:for="{{items.videoHomeworkAnswerVideoList}}" wx:for-item="cell">
+                <view wx:if="{{cell.isTopScore == 0}}">
+                  <text>{{filter.parse(cell.evaluatingResult).result.overall}}</text>
+                  <text>得分</text>
+                </view>
+              </block>
+            </block>
+            <block wx:else>
+               <block wx:for="{{items.videoHomeworkAnswerVideoList}}" wx:for-item="cell">
+                <view>
+                  <text>{{filter.parse(cell.evaluatingResult).result.overall}}</text>
+                  <text>得分</text>
+                </view>
+              </block>
+            </block>
+          </block>
+        </block>
+
+        <block wx:else>
+          <view>
+            <text></text>
+            <text style="color:#FF8F00">未完成</text>
+          </view>
+        </block>
+      </view>
+      <view class="content1" wx:if="{{item.questionType == 1}}">
+        <view class="{{item.upshow ?'hover':''}}">
+          <rich-text nodes="{{item.videoQuestionStemList[0].questionStemContent}}"></rich-text>
+          <rich-text nodes="{{item.videoQuestionStemList[0].questionStemTranslate}}"></rich-text>
+        </view>
+        <view>
+
+          <view bindtap='spread' data-id="{{item.questionId}}" wx:if="{{!item.upshow}}">
+            <text>展开</text>
+            <image src="../../assets/zhankai.png"></image>
+          </view>
+
+          <view bindtap='spread' data-id="{{item.questionId}}" wx:if="{{item.upshow}}">
+            <text>收起</text>
+            <image src="../../assets/shouqi.png"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view style="font-size:24rpx;color:#999;marign:10rpx auto 0;width:100%;display:flex;justify-content: center;align-items: center;" wx:if="{{listenList.length != 0}}">
+    <text style="color:#e5e5e5">—————————</text>
+    <text style="margin:0 25rpx">我就是底线</text>
+    <text style="color:#e5e5e5">—————————</text>
+  </view>
+</view>

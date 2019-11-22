@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "i-canvas-l": "../../component/cvs_2/cvs_2",
+    "ec-canvas": "../../ec-canvas/ec-canvas"
+  }
+}

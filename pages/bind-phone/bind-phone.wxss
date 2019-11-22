@@ -1,0 +1,162 @@
+/* pages/bind-phone/bind-phone.wxss */
+
+.i-b-phone {
+  margin-top: 30rpx;
+}
+
+.bindPhoneTitle {
+  width: 90%;
+  padding: 50rpx 5% 127rpx;
+  font-size: 48rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+}
+
+.formItemPhone {
+  width: 94%;
+  margin: 0 0 0 6%;
+  padding: 0 20rpx 0 0;
+  border-bottom: 1px solid rgba(226, 228, 232, 1);
+  position: relative;
+  height: 100rpx;
+  /* display: flex;
+  justify-content: space-around;
+  align-items: center; */
+}
+
+switch {
+  display: block;
+  margin-right: 30rpx;
+  width: 102rpx;
+  height: 50rpx;
+}
+.formItemSet {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.formItemSet label {
+  width: 60% !important;
+  font-size: 34rpx !important;
+}
+.formItemPhone{
+  position:relative;
+}
+.formItemPhone label {
+  display: inline-block;
+  width: 23%;
+  vertical-align: middle;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+  margin-top:24rpx;
+}
+
+.formItemPhone input {
+  display: inline-block;
+  width: 30%;
+  vertical-align: middle;
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium;
+  color: rgba(51, 51, 51, 1);
+  margin-top:24rpx
+}
+
+.formItemPhone input::-webkit-input-placeholder {
+  font-size: 26rpx;
+  color: #b2b2b2;
+}
+.clearInt{
+  width:30rpx;
+  height:30rpx;
+  position:absolute;
+  right:42%;
+  top:34%;
+  z-index:99;
+}
+.clearInt_{
+  right:10%;
+  z-index:10000
+}
+.inputClass {
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: #b2b2b2;
+  margin-top: 5rpx;
+}
+
+.codeBtn {
+  position:absolute;
+  right:50rpx;
+  bottom:30rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: #1aad19;
+  background: transparent;
+  padding: 0;
+  outline: medium;
+  z-index: 1000;
+  width: 177rpx;
+  height: 46rpx;
+  line-height: 44rpx;
+  border: 1px solid #1aad19;
+  border-radius: 10rpx;
+}
+
+.codeBtn::after {
+  border: none;
+  outline: medium;
+  border-radius: 0;
+}
+
+.code_toast {
+  position:absolute;
+  right:50rpx;
+  bottom:25rpx;
+  padding:0 10rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: #1aad19;
+  background: transparent;
+  outline: medium;
+  z-index: 1000;
+  width: 200rpx;
+  height: 46rpx;
+  line-height: 46rpx;
+  border: 1px solid #1aad19;
+  border-radius: 10rpx;
+  text-align: center;
+  opacity: 0.6;
+}
+
+.formBtn {
+  margin-top: 106rpx;
+  width: 670rpx;
+  height: 94rpx;
+}
+
+.checkBox {
+  width: 430rpx;
+  color: #4e7cff;
+  font-size: 24rpx;
+  text-align: center;
+  margin: 60rpx auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+navigator {
+  text-decoration: underline;
+}
+
+checkbox .wx-checkbox-input {
+  width: 30rpx;
+  height: 30rpx;
+}

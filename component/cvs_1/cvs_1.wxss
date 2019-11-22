@@ -1,0 +1,63 @@
+/* component/cvs_1/cvs_1.wxss */
+/* pages/blog1/canvas.wxss */
+
+.canvas-wrap {
+  width: 214rpx;
+  height: 214rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  position:absolute;
+  left:0;
+  top:0;
+}
+
+.progress_box {
+  width: 214rpx;
+  height: 214rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  position:absolute;
+  left:0;
+  top:0;
+}
+
+.progress_bg {
+  width: 214rpx;
+  height: 214rpx;
+  position:absolute;
+  left:0;
+  top:0;
+}
+
+.progress_canvas {
+  width: 214rpx;
+  height: 214rpx;
+  position:absolute;
+  left:0;
+  top:0;
+}
+
+.progress_text {
+  left: 62rpx;
+  text-align: center;
+  top: 58rpx;
+}
+
+.progress_info {
+  color: white;
+}
+
+.progress_info text {
+  display: block;
+  font-size: 46rpx;
+}
+
+.progress_info text:nth-of-type(2) {
+  font-size: 28rpx;
+}
+

@@ -1,0 +1,88 @@
+<!--pages/track/track.wxml-->
+<wxs src="../../utils/filter.wxs" module="filter" />
+<view class="i-t-wrap">
+  <view class="cav-w" style="width:100%;height:0"></view>
+  <view class="i-t-banner " wx:if="{{t_id==1}}">
+    <view class="i-title-infos">
+      <text>{{homeworkName}}</text>
+      <text wx:if="{{submitType == 3 && reviewType == 0}}" style="font-size:50rpx;margin-top:5rpx">等待批阅</text>
+      <text wx:if="{{submitType == 3 && reviewType != 0}}" style="font-size:100rpx;margin-top:-10rpx">{{score}}</text>
+      <text>分数 (满分{{totalScore}}分)</text>
+    </view>
+    <view class="i-subject" wx:if="{{displayWallId != ''}}">优秀作文</view>
+    <view class="i-subject-1" wx:else>作文</view>
+    <image src="../../assets/shuaxin.png" class="i-shuaxin" bindtap="loadPage"></image>
+    <view class="cov-l">
+      <image src="../../assets/eeee.png"></image>
+      <text wx:if="{{(submitType == 2 || submitType == 1 || submitType == '') && currentTime < homeworkEndTime}}">进行中</text>
+      <text wx:if="{{(submitType == 2 || submitType == 1 || submitType == '') && currentTime > homeworkEndTime}}">过期未交</text>
+      <text wx:if="{{submitType == 3 && submitTime <= homeworkEndTime}}">按时提交</text>
+      <text wx:if="{{submitType == 3 && submitTime > homeworkEndTime}}">晚交</text>
+    </view>
+    <view class="cov-ls cov-l">
+      <image src="../../assets/riqi.png"></image>
+      <text wx:if="{{submitType != 1}}">{{filter.time(submitTime)}}</text>
+    </view>
+  </view>
+  <view class="i-error-list">
+    <view class="title">
+      <view class="titile-pj">
+        <image src="../../assets/zuowen1.png"></image>
+        <text class="text">评价/建议</text>
+      </view>
+      <view class="title-tx" wx:if="{{compositionComment.teacherComment != '' && compositionComment.teacherComment != undefined}}">
+        <image src="../../assets/touxiang.png"></image>
+        <view>
+          <text></text>
+          <text>{{compositionComment.teacherComment}}</text>
+        </view>
+      </view>
+      <view class="content">
+        <block wx:for="{{compositionComment.studentCommentMap}}" wx:for-index="key" wx:for-item="com">
+          <view wx:if="{{key != ''}}">
+            <text>{{key}}</text>
+            <view wx:if="{{com > 1}}">
+              <image src="../../assets/dzan.png"></image>
+              <text class="kuku">x{{com}}</text>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class="zw">
+      <view class="titile-pj titile-pj1">
+        <image src="../../assets/zuowenzw.png"></image>
+        <text class="text">作文正文</text>
+      </view>
+      <view>
+        {{filter.compositionType(zuowenlist.compositionType)}} | {{filter.compositionRequire(zuowenlist.compostionRequire)}} | 作文字数不少于{{zuowenlist.wordNum}}字
+      </view>
+      <view>
+        <block wx:for="{{zuowenlist.urlList}}" wx:for-item="img">
+          <image src="{{img}}" bindload='imageLoad' bindtap='prveimg' data-img="{{img}}" data-index="{{index}}"></image>
+        </block>
+      </view>
+    </view>
+  </view>
+
+  <view class="prive-img" wx:if="{{prveimgUrlFlag}}">
+    <!-- style="width: {{imagewidth}}rpx; height: {{imageheight}}rpx;" -->
+    <image src="{{prveimgUrl}}" animation="{{animation}}" mode="scaleToFill"></image>
+    <image src="../../assets/xuanzhuan.png" class="xuanzhuan" bindtap='routate'></image>
+    <image src="../../assets/close.png" class="close" bindtap='close'></image>
+    <view>
+      <image src="../../assets/left.png" bindtap='handel_left'></image>
+      <view>
+        <text>{{prveiCount + 1}}</text>
+        <text>/{{zuowenlist.urlList.length}}</text>
+      </view>
+      <image src="../../assets/right.png" bindtap='handel_right'></image>
+    </view>
+  </view>
+
+  <view style="font-size:24rpx;color:#999;marign:10rpx auto 0;width:100%;display:flex;justify-content: center;align-items: center;">
+    <text style="color:#e5e5e5">—————————</text>
+    <text style="margin:0 25rpx">我就是底线</text>
+    <text style="color:#e5e5e5">—————————</text>
+  </view>
+</view>

@@ -1,0 +1,215 @@
+<!--pages/track/track.wxml-->
+<wxs src="../../utils/filter.wxs" module="filter" />
+<view class="i-t-wrap">
+  <view class="cav-w" style="width:100%;height:0"></view>
+  <view class="i-t-banner " wx:if="{{t_id==1}}">
+    <view class="i-title-infos">
+      <text>{{homeworkName}}</text>
+      <text wx:if="{{submitType == 3}}">{{filter.time(submitTime)}}</text>
+      <view class="aa">
+        <image src="../../assets/shiz.png"></image>
+        <text wx:if="{{(submitType == 2 || submitType == 1 || submitType == '') && currentTime < homeworkEndTime}}">进行中</text>
+         <text wx:if="{{(submitType == 2 || submitType == 1 || submitType == '') && currentTime > homeworkEndTime}}">过期未交</text>
+        <text wx:if="{{submitType == 3 && submitTime <= homeworkEndTime}}">按时完成</text>
+        <text wx:if="{{submitType == 3 && submitTime > homeworkEndTime}}">晚交</text>
+      </view>
+      <view class="i-state" wx:if="{{submitType == 3 && reviewType == 0}}">
+        <image src="../../assets/quejiao.png" class="i-tips"></image>
+        <text>待批阅</text>
+      </view>
+    </view>
+    <view class="i-subject">英语</view>
+    <image src="../../assets/shuaxin.png" class="i-shuaxin" bindtap="loadPage"></image>
+    <view wx:if="{{!isShowline}}">
+      <i-canvas-l class="margin-l ll" finishRate="{{finishRate}}" finishRates="{{finishRates}}" text="{{text}}" id="canvas"></i-canvas-l>
+    </view>
+  </view>
+  <view class="i-error-list">
+    <view wx:for="{{wordList}}">
+      <view class="i-num">
+        <view>
+          <view></view>
+          <text>{{index+1}}</text>
+        </view>
+        <view>
+          <text>{{item.textbookChapterNum}}</text>
+          <view>
+            <text>页码</text>
+            <text>{{item.wordPage}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="i-work-from">
+        <text>{{item.word}}</text>
+      </view>
+      <view class="i-work-infos">
+        <!-- 跟读 -->
+        <view class="i-flowread" wx:if="{{item.wordReadFollow != undefined && item.isWord != 2}}">
+          <view>
+            <text>单词跟读</text>
+            <block wx:if="{{wordList[index].answerList != undefined}}">
+              <block wx:for="{{wordList[index].answerList}}" wx:for-item="items">
+                <view wx:if="{{items.homeworkQuestionType == 3}}">
+                  <text wx:if="{{ items.score <= 100 && items.score >= 85}}">真棒！百尺杠头更进一步！ Excellent~</text>
+                  <text wx:if="{{ items.score <= 84 && items.score >=70}}">很好！继续努力会更棒！Nice~</text>
+                  <text wx:if="{{ items.score <= 69 &&  items.score >= 60}}">加油！一分耕耘一分收获 ! Come On~</text>
+                  <text wx:if="{{ items.score <= 59}}">努力！和小伙伴的差距有点大哦！Believe In Yourself~</text>
+                </view>
+              </block>
+            </block>
+          </view>
+
+          <block wx:if="{{wordList[index].answerList != undefined}}">
+
+            <view wx:if="{{wordList[index].answerList[0].homeworkQuestionType == 3}}">
+              <text>
+                <text>{{wordList[index].answerList[0].score != undefined ? wordList[index].answerList[0].score : 0}}</text>
+              <text>/100</text>
+              </text>
+              <text>得分</text>
+            </view>
+
+            <view wx:if="{{wordList[index].answerList[0].homeworkQuestionType != 3 && wordList[index].answerList[1] !=undefined &&wordList[index].answerList[1].homeworkQuestionType == 3}}">
+              <text>
+                <text>{{wordList[index].answerList[1].score != undefined ? wordList[index].answerList[1].score : 0}}</text>
+              <text>/100</text>
+              </text>
+              <text>得分</text>
+            </view>
+
+
+             <view wx:if="{{wordList[index].answerList[0]!=undefined && wordList[index].answerList[0].homeworkQuestionType != 3 &&  wordList[index].answerList[1].homeworkQuestionType == undefined}}">
+              <text>
+                <text></text>
+              <text></text>
+              </text>
+              <text style="color:#FF8F00;margin-top:0;">未完成</text>
+            </view>
+
+
+            <view wx:if="{{ wordList[index].answerList[0].homeworkQuestionType != 3 && wordList[index].answerList[1] !=undefined && wordList[index].answerList[1].homeworkQuestionType != 3 && wordList[index].answerList[2]!=undefined && wordList[index].answerList[2].homeworkQuestionType == 3}}">
+              <text>
+                <text>{{wordList[index].answerList[2].score != undefined ? wordList[index].answerList[2].score : 0}}</text>
+              <text>/100</text>
+              </text>
+              <text>得分</text>
+            </view>
+
+
+             <view wx:if="{{ wordList[index].answerList[0]!=undefined && wordList[index].answerList[0].homeworkQuestionType != 3 &&  wordList[index].answerList[1].homeworkQuestionType != undefined && wordList[index].answerList[1].homeworkQuestionType != 3 && wordList[index].answerList[2].homeworkQuestionType == undefined }}">
+              <text>
+                <text></text>
+              <text></text>
+              </text>
+              <text style="color:#FF8F00;margin-top:0;">未完成</text>
+            </view>
+           
+          </block>
+          <block wx:if="{{wordList[index].answerList == undefined}}">
+            <view>
+              <text>
+                <text></text>
+              <text></text>
+              </text>
+              <text style="color:#FF8F00;margin-top:0;">未完成</text>
+            </view>
+          </block>
+        </view>
+        <!-- 听写 -->
+        <view class="i-write" wx:if="{{item.wordListenWrite != undefined && item.isWord != 2}}">
+          <view>
+            <view>
+              <text>单词听写</text>
+              <text>正确</text>
+              <text>错误</text>
+            </view>
+            <block wx:if="{{wordList[index].answerList != undefined}}">
+              <view wx:for="{{wordList[index].answerList}}" wx:for-item="word">
+                <block wx:if="{{word.homeworkQuestionType == 4}}">
+                  <text style="font-size:24rpx;color:#999" wx:for="{{word.answerContent}}" wx:for-item="w" wx:for-index="j">
+                   <text class="{{item.word[j] == w ? 'green':'red'}}">{{w}}</text>
+                  </text>
+                </block>
+              </view>
+            </block>
+          </view>
+          <block wx:if="{{wordList[index].answerList != undefined }}">
+            <view wx:if="{{wordList[index].answerList[0].homeworkQuestionType == 4}}">
+              <image src="../../assets/cuo.png" wx:if="{{wordList[index].answerList[0].isTrue == 1}}" ></image>
+              <image src="../../assets/dui.png" wx:if="{{wordList[index].answerList[0].isTrue == 0}}" class="dui"></image>
+            </view>
+
+            <view wx:if="{{wordList[index].answerList[0].homeworkQuestionType != 4 && wordList[index].answerList[1] != undefined && wordList[index].answerList[1].homeworkQuestionType == 4}}">
+              <image src="../../assets/cuo.png" wx:if="{{wordList[index].answerList[1].isTrue == 1}}"></image>
+              <image src="../../assets/dui.png" wx:if="{{wordList[index].answerList[1].isTrue == 0}}" class="dui"></image>
+            </view>
+
+           <view style="color:#FF8F00;margin-top:0;font-size:24rpx;" wx:if="{{ wordList[index].answerList[0]!=undefined && wordList[index].answerList[0].homeworkQuestionType != 4 && wordList[index].answerList[1]==undefined }}">
+              未完成
+            </view>
+
+            <view wx:if="{{wordList[index].answerList[0].homeworkQuestionType != 4 && wordList[index].answerList[1] != undefined && wordList[index].answerList[1].homeworkQuestionType != 4 && wordList[index].answerList[2] != undefined && wordList[index].answerList[2].homeworkQuestionType == 4}}">
+              <image src="../../assets/cuo.png" wx:if="{{wordList[index].answerList[2].isTrue == 1}}"></image>
+              <image src="../../assets/dui.png" wx:if="{{wordList[index].answerList[2].isTrue == 0}}" class="dui"></image>
+            </view>
+
+            <view style="color:#FF8F00;margin-top:0;font-size:24rpx;" wx:if="{{wordList[index].answerList[0]!=undefined && wordList[index].answerList[0].homeworkQuestionType != 4 && wordList[index].answerList[1]!=undefined && wordList[index].answerList[1].homeworkQuestionType != 4 && wordList[index].answerList[2]==undefined  }}">
+              未完成
+            </view>
+          </block>
+          <block wx:if="{{wordList[index].answerList == undefined }}">
+            <view style="color:#FF8F00;margin-top:0;font-size:24rpx;">
+              未完成
+            </view>
+          </block>
+        </view>
+        <!-- 英译汉 -->
+        <view class="i-china" wx:if="{{item.wordEnglishChina != undefined }}">
+          <view>
+            <text>英译汉</text>
+            <block wx:if="{{wordList[index].answerList != undefined}}">
+              <block wx:for="{{wordList[index].answerList}}" wx:for-item="items">
+                <text wx:if="{{items.homeworkQuestionType == 5}}">学生答案</text>
+                <text wx:if="{{items.homeworkQuestionType == 5}}">{{items.answerContent}}</text>
+              </block>
+            </block>
+          </view>
+         <block wx:if="{{wordList[index].answerList != undefined }}">
+            <view wx:if="{{wordList[index].answerList[0].homeworkQuestionType == 5}}">
+              <image src="../../assets/cuo.png" wx:if="{{wordList[index].answerList[0].isTrue == 1}}" ></image>
+              <image src="../../assets/dui.png" wx:if="{{wordList[index].answerList[0].isTrue == 0}}" class="dui"></image>
+            </view>
+
+            <view wx:if="{{wordList[index].answerList[0].homeworkQuestionType != 5 && wordList[index].answerList[1] != undefined && wordList[index].answerList[1].homeworkQuestionType == 5}}">
+              <image src="../../assets/cuo.png" wx:if="{{wordList[index].answerList[1].isTrue == 1}}"></image>
+              <image src="../../assets/dui.png" wx:if="{{wordList[index].answerList[1].isTrue == 0}}" class="dui"></image>
+            </view>
+
+           <view style="color:#FF8F00;margin-top:0;font-size:24rpx;" wx:if="{{ wordList[index].answerList[0]!=undefined && wordList[index].answerList[0].homeworkQuestionType != 5 && wordList[index].answerList[1]==undefined }}">
+              未完成
+            </view>
+
+            <view wx:if="{{wordList[index].answerList[0].homeworkQuestionType != 5 && wordList[index].answerList[1] != undefined && wordList[index].answerList[1].homeworkQuestionType != 5 && wordList[index].answerList[2] != undefined && wordList[index].answerList[2].homeworkQuestionType == 5}}">
+              <image src="../../assets/cuo.png" wx:if="{{wordList[index].answerList[2].isTrue == 1}}"></image>
+              <image src="../../assets/dui.png" wx:if="{{wordList[index].answerList[2].isTrue == 0}}" class="dui"></image>
+            </view>
+
+            <view style="color:#FF8F00;margin-top:0;font-size:24rpx;" wx:if="{{wordList[index].answerList[0]!=undefined && wordList[index].answerList[0].homeworkQuestionType != 5 && wordList[index].answerList[1]!=undefined && wordList[index].answerList[1].homeworkQuestionType != 5 && wordList[index].answerList[2]==undefined  }}">
+              未完成
+            </view>
+          </block>
+          <block wx:if="{{wordList[index].answerList == undefined }}">
+            <view style="color:#FF8F00;margin-top:0;font-size:24rpx;">
+              未完成
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view style="font-size:24rpx;color:#999;marign:10rpx auto 0;width:100%;display:flex;justify-content: center;align-items: center;" wx:if="{{wordList.length != 0}}">
+    <text style="color:#e5e5e5">—————————</text>
+    <text style="margin:0 25rpx">我就是底线</text>
+    <text style="color:#e5e5e5">—————————</text>
+  </view>
+</view>

@@ -1,0 +1,17 @@
+/* pages/agreement/agreement.wxss */
+.i-a-agreement{
+  font-size:26rpx;
+  color:#999;
+}
+.i-a-agreement view:nth-of-type(1){
+  width:100%;
+  text-align: center;
+  font-size:32rpx;
+  color:#000;
+  margin-top:30rpx;
+}
+.i-a-agreement view:nth-of-type(2){
+  padding:30rpx 40rpx;
+  line-height: 42rpx;
+  text-indent:52rpx;
+}

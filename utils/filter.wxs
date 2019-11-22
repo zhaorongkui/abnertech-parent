@@ -1,0 +1,233 @@
+function time(my_time) {
+  var EndTime = my_time;
+  
+    var date = getDate(my_time);
+    var y = date.getFullYear();
+    var m = date.getMonth() + 1;
+    m = m < 10 ? ('0' + m) : m;
+    var d = date.getDate();
+    d = d < 10 ? ('0' + d) : d;
+    var h = date.getHours();
+    h = h < 10 ? ('0' + h) : h;
+    var minute = date.getMinutes();
+    //var second = date.getSeconds();
+    minute = minute < 10 ? ('0' + minute) : minute;
+    //second = second < 10 ? ('0' + second) : second;
+    return  y+'/'+m+'/'+d+' '+ h + ':' + minute;
+  
+  // else {
+  //   var days = total_micro_second / 1000 / 60 / 60 / 24;
+  //   var daysRound = Math.floor(days);
+  //   var hours = total_micro_second / 1000 / 60 / 60 - (24 * daysRound);
+  //   var hoursRound = Math.floor(hours);
+  //   var minutes = total_micro_second / 1000 / 60 - (24 * 60 * daysRound) - (60 * hoursRound);
+  //   var minutesRound = Math.floor(minutes);
+  //   var seconds = total_micro_second / 1000 - (24 * 60 * 60 * daysRound) - (60 * 60 * hoursRound) - (60 * minutesRound);
+  //   if (daysRound < 1) {
+  //     var time = hoursRound + '时' + minutesRound + '分'
+  //   } else {
+  //     var time = daysRound + '天' + hoursRound + '时' + minutesRound + '分'
+  //   }
+  //    console.log(time)
+  //   return time;
+  // }
+}
+
+function times(my_time) {
+  var EndTime = my_time;
+  var date = getDate();
+  var NowTime = date.getTime();
+  var total_micro_second = EndTime - NowTime;
+  // if (total_micro_second <= 0) {
+  //   var date = getDate(my_time);
+  //   var y = date.getFullYear();
+  //   var m = date.getMonth() + 1;
+  //   m = m < 10 ? ('0' + m) : m;
+  //   var d = date.getDate();
+  //   d = d < 10 ? ('0' + d) : d;
+  //   var h = date.getHours();
+  //   h = h < 10 ? ('0' + h) : h;
+  //   var minute = date.getMinutes();
+  //   //var second = date.getSeconds();
+  //   minute = minute < 10 ? ('0' + minute) : minute;
+  //   //second = second < 10 ? ('0' + second) : second;
+  //   return y + '/' + m + '/' + d + ' ' + h + ':' + minute;
+  // } else {
+    var days = total_micro_second / 1000 / 60 / 60 / 24;
+    var daysRound = Math.floor(days);
+    var hours = total_micro_second / 1000 / 60 / 60 - (24 * daysRound);
+    var hoursRound = Math.floor(hours);
+    var minutes = total_micro_second / 1000 / 60 - (24 * 60 * daysRound) - (60 * hoursRound);
+    var minutesRound = Math.floor(minutes);
+    var seconds = total_micro_second / 1000 - (24 * 60 * 60 * daysRound) - (60 * 60 * hoursRound) - (60 * minutesRound);
+    if (daysRound < 1) {
+      var time = hoursRound + '时' + minutesRound + '分'
+    } else {
+      var time = daysRound + '天' + hoursRound + '时' + minutesRound + '分'
+    }
+    return time;
+  //}
+}
+
+
+
+function timetype(my_time) {
+  var timetype;
+  var EndTime = my_time;
+  var date = getDate();
+  var NowTime = date.getTime();
+  var total_micro_second = EndTime - NowTime;
+  if (total_micro_second <= 0) {
+    timetype = '距离作业开始'
+    return timetype;
+  }else{
+    timetype = '提交倒计时'
+    return timetype;
+  }
+}
+
+function homeworkName(type) {
+  var name;
+  switch (type) {
+    case 'yingyu':
+      name = '英语'
+      break;
+    case 'shuxue':
+      name = '数学'
+      break;
+    case 'yuwen':
+      name = '语文'
+      break;
+    case 'huaxue':
+      name = '化学'
+      break;
+    case 'wuli':
+      name = '物理'
+      break;
+    case 'dili':
+      name = '地理'
+      break;
+    case 'zhengzhi':
+      name = '政治'
+      break;
+    case 'lishi':
+      name = '历史'
+      break;
+    case 'shengwu':
+      name = '生物'
+      break;
+  }
+  return name;
+}
+
+function homeworkType(num) {
+  var type;
+  switch (num) {
+    case 1:
+      type = '日常作业'
+      break;
+    case 2:
+      type = '错题作业'
+      break;
+    case 3:
+      type = '听说作业'
+      break;
+    case 4:
+      type = '单词作业'
+      break;
+    case 5:
+      type = '阅读训练'
+      break;
+    case 6:
+      type = '作文任务'
+      break;
+  }
+  return type;
+}
+function compositionRequire(t) {
+  var type;
+  switch (t) {
+    case 1:
+      type =  "文体不限"
+      break;
+    case 2:
+      type =  "记叙文"
+      break;
+    case 3:
+      type =  "议论文"
+      break;
+  }
+  return type;
+}
+function compositionType(t) {
+  var type;
+  switch (t) {
+    case 1:
+      type = "命题作文"
+      break;
+    case 2:
+      type = "半命题作文"
+      break;
+    case 3:
+      type = "材料作文"
+      break;
+  }
+  return type;
+}
+function resourceType(num) {
+  var type;
+  switch (num) {
+    case 1:
+      type = '视频资源'
+      break;
+    case 2:
+      type = '音频资源'
+      break;
+    case 3:
+      type = '图片资源'
+      break;
+  }
+  return type;
+}
+
+function formatDate(time) {
+  var date = getDate(time);
+  var y = date.getFullYear();
+  var m = date.getMonth() + 1;
+  m = m < 10 ? ('0' + m) : m;
+  var d = date.getDate();
+  d = d < 10 ? ('0' + d) : d;
+  var week = date.getDay();
+  if (week == 0) {
+    str = "周日";
+  } else if (week == 1) {
+    str = "周一";
+  } else if (week == 2) {
+    str = "周二";
+  } else if (week == 3) {
+    str = "周三";
+  } else if (week == 4) {
+    str = "周四";
+  } else if (week == 5) {
+    str = "周五";
+  } else if (week == 6) {
+    str = "周六";
+  }  
+  return y + '年' + m + '月' + d + '日    ' +   str;
+}
+function parse(str) {
+  var strs = JSON.parse(str)
+  return strs;
+}
+module.exports = {
+  time: time,
+  times:times,
+  homeworkName: homeworkName,
+  homeworkType: homeworkType,
+  timetype: timetype,
+  formatDate: formatDate,
+  resourceType: resourceType,
+  compositionRequire: compositionRequire,
+  compositionType: compositionType,
+  parse: parse
+}

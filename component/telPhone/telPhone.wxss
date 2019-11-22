@@ -1,0 +1,65 @@
+/* component/telPhone/telPhone.wxss */
+.sh_tel{
+  position:fixed;
+  right:35rpx;
+  bottom:250rpx;
+  width:0rpx;
+  overflow: hidden;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  background-image: linear-gradient(-225deg, #4B97FF 0%, #5869FF 100%);
+box-shadow: 0 13px 40px 0 rgba(191,198,211,0.25);
+border-radius: 47px;
+ z-index:99;
+}
+.cl_tel{
+  width:97rpx;
+  height:97rpx;
+  position:fixed;
+  right:35rpx;
+  bottom:250rpx;
+  overflow: hidden;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(-225deg, #4B97FF 0%, #5869FF 100%);
+box-shadow: 0 13px 40px 0 rgba(191,198,211,0.25);
+border-radius: 47px;
+  z-index:999
+}
+.sh_tel .spread_tel{
+  width:500rpx;
+  height:97rpx;
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  color:#fff;
+  opacity: 0;
+}
+.sh_tel .spread_tel image{
+  width:46rpx;
+  height:48rpx;
+  margin-left:23rpx;
+}
+.sh_tel .spread_tel view{
+  height:80rpx;
+  display:flex;
+  justify-content: space-around;
+  flex-flow: column;
+}
+.sh_tel .close_tel{
+  width:97rpx;
+  height:97rpx;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.sh_tel .close_tel image{
+  width:40rpx;
+  height:40rpx;
+}
+.cl_tel image{
+  width:46rpx;
+  height:48rpx;
+}

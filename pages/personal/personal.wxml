@@ -1,0 +1,75 @@
+<view class="i-p-wrap">
+  <view>
+    <import src="../../tabbar.wxml" />
+    <template is="tabBar" data="{{tabBar}}" />
+  </view>
+  <view class="i-p-header">
+    <view class="i-p-ct">
+      <view class="i-p-info">
+        <image src="{{userInfo.avatarUrl}}"></image>
+        <view>
+          <text style="font-size:32rpx;color:#fff" wx:if="{{isStudent}}">{{studentName}}{{parentName}}</text>
+          <text style="font-size:28rpx;color:#fff" wx:if="{{!isStudent}}">{{userInfo.nickName}}</text>
+        </view>
+      </view>
+      <view class="i-p-role" bindtap="role_s" >
+        <view class="i-p-s {{ isShow ? 'hover' : ''}}">切换角色</view>
+      </view>
+    </view>
+  </view>
+  <view class="i-p-cell">
+    <!-- <view class="i-p-ms i-p-pb" bindtap="nav_to" data-url="../message/message">
+      <view>
+        <image src="../../assets/xxtz.png"></image>
+        <text>消息通知</text>
+      </view>
+      <image class="i-p-icon" src="../../assets/goto1.png"></image>
+    </view> -->
+    <view class="i-p-tel i-p-pb" bindtap="nav_to" data-url="../bind-phone/bind-phone">
+      <view>
+        <image src="../../assets/dhgh.png"></image>
+        <text>电话更换</text>
+      </view>
+      <image class="i-p-icon" src="../../assets/goto1.png"></image>
+    </view>
+    <view class="i-p-sc i-p-pb" bindtap="scancode">
+      <view>
+        <image src="../../assets/smgl.png"></image>
+        <text>扫码关联</text>
+      </view>
+      <image class="i-p-icon" src="../../assets/goto1.png"></image>
+    </view>
+    <view class="i-p-fb i-p-pb">
+      <button open-type="feedback" class="i-p-btn"></button>
+      <view>
+        <image src="../../assets/fkyj.png"></image>
+        <text>反馈建议</text>
+      </view>
+      <image class="i-p-icon" src="../../assets/goto1.png"></image>
+    </view>
+    <view class="i-p-cs i-p-pb">
+      <button open-type="contact" class="i-p-btn"></button>
+      <view>
+        <image src="../../assets/rgkf.png"></image>
+        <text>人工客服</text>
+      </view>
+      <image class="i-p-icon" src="../../assets/goto1.png"></image>
+    </view>
+     <view class="i-p-tel i-p-pb" bindtap="nav_to" data-url="../about/about">
+      <view>
+        <image src="../../assets/dhgh.png"></image>
+        <text>关于我们</text>
+      </view>
+      <image class="i-p-icon" src="../../assets/goto1.png"></image>
+    </view>
+  </view>
+  <i-tel></i-tel>
+  <view style='position:fixed;bottom:0;left:0;width:100%;'>
+    <i-tab-bar current="{{ current }}" bindchange="handleChange">
+      <i-tab-bar-item key="index" data-url="../index/index" img="../../../assets/zy-1.png" current-img="../../../assets/zy.png" title="作业"></i-tab-bar-item>
+      <i-tab-bar-item key="track" data-url="../track/track" img="../../../assets/zygz-1.png" current-img="../../../assets/zygz.png" title="作业跟踪"></i-tab-bar-item>
+      <i-tab-bar-item key="personal" data-url="../personal/personal" img="../../../assets/grzx-1.png" current-img="../../../assets/grzx.png"  title="个人中心"></i-tab-bar-item>
+    </i-tab-bar>
+  </view>
+  <i-tip right='{{24}}' top='{{180}}' wx:if="{{show_tip}}" bind:_self="self_event" bind:_self_="self_event_" bool="false" role_id="{{role_id}}" role_name="{{parentName}}"></i-tip>
+</view>

@@ -1,0 +1,9 @@
+{
+  "disableScroll": true,
+  "usingComponents": {
+    "i-canvas-l": "../../component/cvs/cvs",
+    "i-canvas-r": "../../component/cvs_1/cvs_1",
+    "ec-canvas": "../../ec-canvas/ec-canvas",
+    "i-nav": "../../component/nav/nav"
+  }
+}

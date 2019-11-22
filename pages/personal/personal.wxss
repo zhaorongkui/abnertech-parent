@@ -1,0 +1,133 @@
+/* pages/personal/personal.wxss */
+
+.i-p-wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.i-p-header {
+  height: 250rpx;
+  background-image: linear-gradient(45deg, #4b97ff 0%, #5869ff 100%);
+  overflow: auto;
+}
+
+.i-p-ct {
+  width: 90%;
+  height: 122rpx;
+  margin: 30rpx auto 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.i-p-ct image {
+  width: 122rpx;
+  height: 122rpx;
+  border: 1px solid #fff;
+  border-radius: 50%;
+}
+
+.i-p-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.i-p-info view {
+  height: 100rpx;
+  margin-top: 11rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 30rpx;
+  width: 270rpx;
+}
+
+.i-p-info view text {
+  width:100%;
+  display:block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.i-p-role {
+  position: relative;
+}
+
+.i-p-s {
+  width: 174rpx;
+  height: 60rpx;
+  border: 1px solid #fff;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 26rpx;
+  text-align: center;
+  line-height: 60rpx;
+  margin-top: 31rpx;
+}
+.hover{
+  border: 1px solid #eee;
+  color: #eee;
+}
+.i-p-cell {
+  width: 100%;
+  position: absolute;
+  top: 225rpx;
+  border-radius: 30rpx 30rpx 0 0;
+  background: #fff;
+  padding-top: 10rpx;
+}
+
+.i-p-pb {
+  width: 100%;
+  height: 122rpx;
+  border-bottom: 1px solid #f4f4f4;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.i-p-pb view {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 122rpx;
+  margin-left: 30rpx;
+}
+
+.i-p-pb view image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.i-p-pb view text {
+  margin-left: 20rpx;
+  color: #333;
+  font-size: 32rpx;
+}
+
+.i-p-pb .i-p-icon {
+  width: 17rpx;
+  height: 34rpx;
+  margin-right: 30rpx;
+}
+
+.i-p-fb, .i-p-cs {
+  position: relative;
+}
+
+button.i-p-btn {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 122rpx;
+  display: flex;
+  background: transparent;
+}
+
+button::after {
+  border: none !important;
+}

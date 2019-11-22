@@ -1,0 +1,8 @@
+<cover-view class="i-nav"  >
+  <cover-view class="{{ t_id == 1 ? 'active' : ''}}" data-id="1" bindtap="switch_tab">上周
+    <cover-view class="i-nav-b" wx:if="{{t_id ==1}}"></cover-view>
+  </cover-view>
+  <cover-view  bindtap="switch_tab" class="{{ t_id == 2 ? 'active' : ''}}" data-id="2">学期
+    <cover-view class="i-nav-b" wx:if="{{t_id ==2}}"></cover-view>
+  </cover-view>
+</cover-view>
