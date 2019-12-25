@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "question-topic": "../../component/questionTopic/questionTopic",
+    "question-answer": "../../component/questionAnswer/questionAnswer",
+     "look-answer": "../../component/lookAnswer/lookAnswer"
+  }
+}

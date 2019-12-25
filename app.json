@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/correct-judge-detail/judge-detail",
     "pages/index/index",
     "pages/read-detail/read-detail",
     "pages/word-detail/word-detail",

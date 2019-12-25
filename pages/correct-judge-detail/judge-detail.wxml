@@ -1,0 +1,3 @@
+<!--pages/correct-judge-detail/judge-detail.wxml-->
+<question-topic></question-topic>
+<question-answer></question-answer>
