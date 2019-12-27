@@ -1,12 +1,16 @@
 <view class="boday">
-    <view class="answersBody">
-      <view class="header">
-        <view class="sourcetip">{{ title }}66666</view>
-        <text class="play" wx:if="questionInfo.questionTypeCode == 1">（单选）</text>
-        <text class="play"  wx:if="questionInfo.questionTypeCode == 2">（多选）</text>
-        <!-- <span v-if="questionInfo.questionTypeCode == 4">本题包含多个子题</span> -->
-      </view>
-      <view class="content">
-      </view>
-    </view>
-  </view>
+	<view class="answersBody">
+		<view class="header">
+			<view class="sourcetip">{{ title }}66666</view>
+			<text class="play" wx:if="questionInfo.questionTypeCode == 1">（单选）</text>
+			<text class="play"  wx:if="questionInfo.questionTypeCode == 2">（多选）</text>
+			<!-- <span v-if="questionInfo.questionTypeCode == 4">本题包含多个子题</span> -->
+		</view>
+		<view class="content">
+			<judge-question>
+			</judge-question>
+      <radio-question></radio-question>
+      <checkbox-question></checkbox-question>
+		</view>
+	</view>
+</view>
