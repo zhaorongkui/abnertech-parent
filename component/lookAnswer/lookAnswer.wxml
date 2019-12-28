@@ -51,7 +51,7 @@
 				同学答案{{ index + 1 }}
 			</view>
 		</view>
-		<view class="swiper-container swiper1">
+		<!-- <view class="swiper-container swiper1">
 			<view class="swiper-wrapper">
 				<view wx:if="subjctShowe" class="swiper-slide" wx:html="questionInfo.questionAnswer"></view>
 
@@ -62,9 +62,22 @@
 			<view wx:if="!subjctShowe" class="swiper-pagination swiprRem">
 				{{ activeIndex1 + 1 }}/{{ studentShareUrlList.length }}3
 			</view>
+		</view> -->
+		<view class="page-section page-section-spacing swiper-container swiper">
+			<swiper class="swiper-wrapper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="onSliderChangeEnd" bindtransition="hotSwiperTransition">
+				<block wx:for="{{background}}" wx:key="*this">
+					<swiper-item class="swiper-slide">
+						<image src="{{item}}" class="slide-image" bindtap='tapBanner' data-indexurl='{{item}}'></image>
+					</swiper-item>
+				</block>
+			</swiper>
+			<view class="swiper-pagination swiprRem">
+				{{ current + 1}}/{{questionInfo.fileList.length}}5
+			</view>
 		</view>
 	</view>
 	<view class="questions-analysis">
+		<view class="jiexi"><image src="../../assets/img/jxbg.png" /></view>
 		<text class="span">解析</text>
 		<view wx:html="questionInfo.questionAnalysis"></view>
 	</view>
