@@ -15,7 +15,8 @@
     "pages/agreement/agreement",
     "pages/about/about",
     "pages/zuowen/zuowen",
-    "pages/english-detail/english-detail"
+    "pages/english-detail/english-detail",
+   "pages/correct-detail/correct-detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,24 +1,27 @@
 /**index.wxss**/
-.toast{
-  width:100%;
-  height:100%;
-  background:rgba(255,255,255,0);
-  position:fixed;
-  left:0;
-  top:0;
-  display:flex;
+
+.toast {
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0);
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
-.toast text{
-   background:rgba(0,0,0,0.6);
-   padding:12rpx 17rpx;
-   text-align: center;
-   color:#fff;
-   border-radius: 10rpx;
-   font-size:28rpx;
-   font-weight: 500;
+
+.toast text {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 12rpx 17rpx;
+  text-align: center;
+  color: #fff;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  font-weight: 500;
 }
+
 .i-homework-detail-rate {
   overflow: auto;
   width: 100%;
@@ -43,7 +46,7 @@
   overflow-x: scroll;
   display: flex;
   white-space: nowrap; /*不换行*/
-  height:60rpx;
+  height: 60rpx;
 }
 
 .i-subject text {
@@ -123,9 +126,11 @@
   flex-direction: column;
   justify-content: center;
 }
-.i-inform-hover{
-   height: 110rpx;
+
+.i-inform-hover {
+  height: 110rpx;
 }
+
 .i-inform view image {
   width: 22rpx;
   height: 21rpx;
@@ -285,15 +290,23 @@
   border-radius: 35px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   overflow: hidden;
 }
 
 .i-today-task .i-task-type view {
-  width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 28rpx;
+  height: 100%;
+  width: 32.5%;
+}
+
+.i-today-task .i-task-type text {
+  width: 2rpx;
+  height: 26rpx;
+  background: rgba(154, 154, 154, 1);
 }
 
 .i-today-task .i-task-type view.hover {
@@ -320,6 +333,14 @@
   font-size: 24rpx;
 }
 
+.i-wj-c {
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+  color: #ff8f00;
+  font-size: 30rpx;
+}
+
 .i-wanj {
   position: absolute;
   right: 20rpx;
@@ -328,12 +349,28 @@
   font-size: 24rpx;
 }
 
+.i-wanj-c {
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+  color: #00b57a;
+  font-size: 30rpx;
+}
+
 .i-zsj {
   position: absolute;
   right: 20rpx;
   top: 20rpx;
   color: #90c100;
   font-size: 24rpx;
+}
+
+.i-zsj-c {
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+  color: #8493a8;
+  font-size: 30rpx;
 }
 
 .i-dpy {
@@ -641,6 +678,12 @@
   margin-top: 10rpx;
 }
 
+.i-homework-info .homework_time_c {
+  font-size: 26rpx;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed #ddd;
+}
+
 .i-homework-info .homework_time text:nth-child(3) {
   float: right;
 }
@@ -670,11 +713,22 @@
   display: flex;
   justify-content: space-between;
   margin-top: 5rpx;
-  margin-bottom:10rpx;
+  margin-bottom: 10rpx;
+}
+
+.i-homework-info .rate_c {
+  align-items: center;
+  padding: 5rpx 0;
 }
 
 .i-homework-info .rate_ view.topic_ {
   width: 100%;
+}
+
+.i-homework-info .rate_ view.topic_c {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .i-homework-info .rate_ view.topic_ text:nth-of-type(odd) {
@@ -692,6 +746,40 @@
   margin-top: 15rpx;
   color: #4489ff;
   font-size: 34rpx;
+}
+
+.i-homework-info .rate_ view.topic_c text:nth-of-type(odd) {
+  font-size: 26rpx;
+}
+
+.i-homework-info .rate_ view.topic_c text:nth-of-type(even) {
+  color: #666;
+  font-size: 26rpx;
+}
+
+.i-homework-info .rate_ view.topic_c .progress {
+  width: 164rpx;
+  height: 10rpx;
+  background: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(126, 161, 255, 1);
+  border-radius: 5px;
+  margin-left: 10px;
+  overflow: hidden;
+  display: flex;
+}
+
+.i-homework-info .rate_ view.topic_c .progress>text {
+  max-width: 100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(-90deg, rgba(136, 50, 255, 1), rgba(68, 137, 255, 1));
+}
+
+.i-homework-info .rate_ view.topic_c .progress-num {
+  font-size: 24rpx !important;
+  color: #586878;
+  margin-left: 10rpx;
+  margin-top: 0 !important;
 }
 
 .i-homework-info .rate_ view.video_ {
@@ -715,6 +803,32 @@
   color: #999;
   font-size: 24rpx;
   margin-top: 10rpx;
+}
+
+.i-homework-info .rate_ view.look_c {
+  width: 230rpx;
+  height: 55rpx;
+  border: 1px solid rgba(44, 102, 255, 1);
+  box-shadow: 0px 4rpx 6rpx 0px rgba(44, 102, 255, 0.2);
+  border-radius: 32rpx;
+  color: #2c66ff !important;
+  font-size: 26rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.i-homework-info .rate_ view.tx {
+  width: 230rpx;
+  height: 55rpx;
+  background: #ff8c2f;
+  box-shadow: 0px 4rpx 6rpx 0px rgba(255, 140, 47, 0.2);
+  border-radius: 32rpx;
+  color: #fff;
+  font-size: 26rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .i-homework-resource {
@@ -761,20 +875,24 @@
 .i-homework-progress {
   width: 88%;
   margin: 15rpx auto 15rpx;
-  display:flex;
+  display: flex;
   justify-content: space-between;
 }
-.i-homework-progress progress{
-  width:86%;
+
+.i-homework-progress progress {
+  width: 86%;
 }
-.i-homework-progress view.num text:nth-child(1){
-  color:#4489ff;
-  font-size:36rpx;
+
+.i-homework-progress view.num text:nth-child(1) {
+  color: #4489ff;
+  font-size: 36rpx;
 }
-.i-homework-progress view.num text:nth-child(2){
-  color:#999;
-  font-size:24rpx;
+
+.i-homework-progress view.num text:nth-child(2) {
+  color: #999;
+  font-size: 24rpx;
 }
+
 .mask_layer {
   width: 100%;
   height: 100%;
@@ -922,18 +1040,22 @@ button::after {
   right: 80rpx;
   top: 100rpx;
 }
-.progress-text text:nth-child(1){
-  color:#4489FF;
+
+.progress-text text:nth-child(1) {
+  color: #4489ff;
 }
-.progress-text text:nth-child(2){
-  color:#999;
+
+.progress-text text:nth-child(2) {
+  color: #999;
 }
-.tuzhang{
-  position:absolute;
-  top:15rpx;
-  right:125rpx;
+
+.tuzhang {
+  position: absolute;
+  top: 15rpx;
+  right: 125rpx;
 }
-.tuzhang image{
-  width:97rpx;
-  height:97rpx;
+
+.tuzhang image {
+  width: 97rpx;
+  height: 97rpx;
 }
