@@ -3,8 +3,9 @@
 //const API_URL = "http://39.155.189.134:19081";
 //const API_URL = "https://dev-wechat.abnertech.com"
 //const API_URL = "https://plan-wechat.abnertech.com"
-const API_URL = "https://plan-wechat.abnertech.com"
+//const API_URL = "https://plan-wechat.abnertech.com"
 //const API_URL = "http://192.168.7.157:8088"
+const API_URL = "http://192.168.7.175:8088"
 function Get(url, params) {
 
   let promise = new Promise(function(resolve, reject) {

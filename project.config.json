@@ -45,7 +45,7 @@
 					"id": 0,
 					"name": "首页",
 					"pathName": "pages/index/index",
-					"query": "studentInfoId=1654&studentName=刘德华",
+					"query": "",
 					"scene": null
 				}
 			]
