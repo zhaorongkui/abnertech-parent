@@ -1,0 +1,58 @@
+<view class="sbjectiveBoday">
+	<view class="answersBody" wx:if="questionInfo.questionProperty == 1">
+		<!-- 主观题头部 -->
+		<view class="header">
+			<view class="sourcetip">最新订正结果</view>
+		</view>
+		<view class="content">
+			<view class="unable" wx:if="!questionInfo.fileList">
+				<view class="imgbox">
+					<image class="unableImg" src="../../assets/img/unable.png" alt="" />
+					<view>
+						此题标记为不会
+					</view>
+					<view class="secondp">
+						革命尚未成功，同学要认真学习哦~
+					</view>
+				</view>
+			</view>
+			<!-- 没有批阅的原图 -->
+			<view wx:if="1==2" class="zg-questions-answer">
+				<!-- <view class="swiper-container workAnswerSwiper4">
+            <view class="swiper-wrapper">
+              <view
+                class="swiper-slide"
+                wx:for="("
+                :key="index"
+              >
+              <image class="unableImg"
+              src="../../assets/img/jxbg.png"
+              alt=""
+            />
+              </view>
+            </view>
+            <view class="swiper-pagination swiprRem">
+              {{ activeIndex4 + 1 }}/{{questionInfo.fileList.length}}5
+            </view>
+          </view> -->
+          <!-- 小程序swiper -->
+				<view class="page-section page-section-spacing swiper-container swiper">
+					<swiper class="swiper-wrapper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"
+          bindchange="onSliderChangeEnd" bindtransition="hotSwiperTransition">
+						<block wx:for="{{background}}" wx:key="*this">
+							<swiper-item class="swiper-slide">
+								<image src="{{item}}" class="slide-image" bindtap='tapBanner'  data-indexurl='{{item}}' ></image>  
+							</swiper-item>
+						</block>
+					</swiper>
+          <view class="swiper-pagination swiprRem">
+              {{ current + 1}}/{{questionInfo.fileList.length}}5
+            </view>
+				</view>
+
+
+			</view>
+
+		</view>
+	</view>
+</view>
