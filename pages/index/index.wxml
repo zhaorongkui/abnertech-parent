@@ -221,7 +221,7 @@
         <!-- 订正任务 -->
         <view wx:if="{{taskType == 2}}">
           <block wx:for="{{correctworkData}}">
-            <view class="i-homework-subject" bindtap='navTo' data-id="{{item.revisionId}}
+            <view class="i-homework-subject" bindtap='navTo'  data-id="{{item.revisionId}}"
               data-ztype="0" data-submitType="{{item.submitType}}">
               <view class="i-homework-tip">
                 <text class="{{item.subjectAbbreviation == 'yingyu' ? 'yy-hover' : ''}} {{item.subjectAbbreviation == 'shuxue' ? 'sx-hover' : ''}} {{item.subjectAbbreviation == 'yuwen' ? 'yw-hover' : ''}} {{item.subjectAbbreviation == 'huaxue' ? 'hx-hover' : ''}} {{item.subjectAbbreviation == 'dili' ? 'dl-hover' : ''}} {{item.subjectAbbreviation == 'lishi' ? 'ls-hover' : ''}} {{item.subjectAbbreviation == 'shengwu' ? 'sw-hover' : ''}} {{item.subjectAbbreviation == 'wuli' ? 'wl-hover' : ''}} {{item.subjectAbbreviation == 'zhengzhi' ? 'zz-hover' : ''}}">

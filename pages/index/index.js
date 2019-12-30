@@ -188,6 +188,7 @@ Page({
       studentUnReadResourceList: [],
       historyHomeworkData: [], //作业任务
       homeworkData: [], //作业任务
+      correctworkData:[]
     })
 
     if (app.globalData.isShow) {
