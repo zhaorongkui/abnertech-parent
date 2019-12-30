@@ -1,9 +1,6 @@
-import * as echarts from '../../ec-canvas/echarts';
-import Http from '../../utils/ajax.js';
-import PublicFun from '../../utils/PublicFun.js';
-const app = getApp();
-
+// pages/correct-checkBox-detail/checkBox-detail.js
 Page({
+
   /**
    * 页面的初始数据
    */
@@ -15,13 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let obj = {
-      revisionQuestionId: Number(options.revisionQuestionId),
-      section: Number(options.section),
-      studentInfoId: Number(options.studentInfoId),
-      subjectAbbreviation: options.subjectAbbreviation
-    }
-    this.getCorrectInfos(obj);
+
   },
 
   /**
@@ -70,19 +61,6 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
-  },
-  getCorrectInfos: function (obj) {
-    Http.Get('/wechat/revision/questionDetail', obj)
-      .then(res => {
-        if (res.flag == 1) {
-          wx.stopPullDownRefresh()
-          console.log(res)
-        }
-      })
-      .catch(err => {
-        PublicFun._showToast('网络错误');
-      })
 
   }
 })

@@ -5,12 +5,12 @@ import PublicFun from '../../utils/PublicFun.js';
 const app = getApp();
 
 Page({
-  onShareAppMessage: function(res) {
+  onShareAppMessage: function (res) {
     return {
       title: 'ECharts 可以在微信小程序中使用啦！',
       path: '/pages/index/index',
-      success: function() {},
-      fail: function() {}
+      success: function () {},
+      fail: function () {}
     }
   },
   data: {
@@ -22,12 +22,53 @@ Page({
     revisionStudentInfo: {},
     revisionStudentQuestionVOList: []
   },
-  
 
+  workDetailTo: function (e, id) {
+    // console.log(e.currentTarget.dataset.item)
+    let obj = {
+      revisionQuestionId: e.currentTarget.dataset.item.revisionQuestionId,
+      section: this.data.revisionStudentInfo.section,
+      studentInfoId: this.data.studentInfoId,
+      subjectAbbreviation: this.data.revisionStudentInfo.subjectAbbreviation
+    }
+    let detailUrl = '';
+    let questionTypeCode = 3;
+    console.log(questionTypeCode)
+    if (questionTypeCode === 1) {
+      detailUrl = '/pages/correct-radio-detail/radio-detail?revisionQuestionId=' + obj.revisionQuestionId + '&section=' +
+        obj.section + '&studentInfoId=' + obj.studentInfoId + '&subjectAbbreviation=' + obj.subjectAbbreviation
+    } else if (questionTypeCode === 2) {
+      detailUrl = '/pages/correct-checkBox-detail/checkBox-detail?revisionQuestionId=' + obj.revisionQuestionId + '&section=' +
+        obj.section + '&studentInfoId=' + obj.studentInfoId + '&subjectAbbreviation=' + obj.subjectAbbreviation
+    } else if (questionTypeCode === 3) {
+      detailUrl = '/pages/correct-judge-detail/judge-detail?revisionQuestionId=' + obj.revisionQuestionId + '&section=' +
+        obj.section + '&studentInfoId=' + obj.studentInfoId + '&subjectAbbreviation=' + obj.subjectAbbreviation
+    } else if (questionTypeCode === 4) {
+      detailUrl = ''
+    } else if (questionTypeCode === 5 || questionTypeCode === 6) {
+      detailUrl = '/pages/correct-subjective-detail/subjective-detail?revisionQuestionId=' + obj.revisionQuestionId + '&section=' +
+        obj.section + '&studentInfoId=' + obj.studentInfoId + '&subjectAbbreviation=' + obj.subjectAbbreviation
+    }
+
+    var _self = this;
+    wx.navigateTo({
+      url: detailUrl
+    })
+    // Http.Get('/wechat/revision/questionDetail', obj)
+    //   .then(res => {
+    //     if (res.flag == 1) {
+    //       wx.stopPullDownRefresh()
+    //       console.log(res)
+    //     }
+    //   })
+    //   .catch(err => {
+    //     PublicFun._showToast('网络错误');
+    //   })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     this.setData({
       revisionId: options.id
     })
@@ -57,7 +98,7 @@ Page({
       title: app.globalData.studentName + '的作业'
     })
     var that = this;
-    setTimeout(function() {
+    setTimeout(function () {
       that.setData({
         show: true
       })
@@ -66,61 +107,61 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
     //this.loadPage()
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
     var shareObj = {
       title: "",
       path: '/pages/index/index',
       imageUrl: '',
-      success: function(res) {},
-      fail: function() {},
-      complete: function() {}
+      success: function (res) {},
+      fail: function () {},
+      complete: function () {}
     }
     return shareObj;
   },
 
-  homework_list: function(id, page, revisionId) {
+  homework_list: function (id, page, revisionId) {
     var _self = this;
     Http.Get('/wechat/revision/getRevisionQuestionList', {
         studentInfoId: id,
