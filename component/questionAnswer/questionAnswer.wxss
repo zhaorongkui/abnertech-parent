@@ -1,0 +1,34 @@
+/* component/questionAnswer/questionAnswer.wxss */
+.boday {
+  padding: 0 20rpx;
+}
+.answersBody {
+  overflow: auto;
+  background: #fff;
+  width: 710rpx;
+  margin: 0 auto;
+  border-radius: 15rpx;
+  padding-bottom: 28rpx;
+  margin-top: 10px;
+}
+.testTop {
+  margin: 20rpx 30rpx;
+}
+.header {
+  line-height: 82rpx;
+  height: 82rpx;
+  border-bottom: 1rpx #eeeeee solid;
+}
+.sourcetip {
+  padding-left: 29rpx;
+  color: #999999;
+  margin-left: 2rpx;
+  display: inline-block;
+  color: #586878;
+  font-size: 26rpx;
+  font-weight: 500;
+}
+.play{
+  color:#8493A8;
+  font-size: 26rpx;
+}

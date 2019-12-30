@@ -1,0 +1,84 @@
+<view class="look-answer" wx:if="lookAnswerDisplay == true">
+	<view class="header">
+		<view class="sourcetip">参考答案</view>
+	</view>
+
+	<!-- 单选 -->
+	<view class="choice-questions-answer" wx:if="questionInfo.questionTypeCode == 1">
+		<view class="answer-x">
+			<view>{{ questionInfo.questionAnswer }}、</view>
+			<view style="display:inline-block" wx:for="(" :key="index">
+				<view wx:if="i.questionOption == questionInfo.questionAnswer" wx:html="i.questionContent"></view>
+			</view>
+		</view>
+	</view>
+	<!-- 题组 -->
+	<view class="choice-questions-answer" wx:if="questionInfo.questionTypeCode == 4">
+		<view class="answer-x">
+			<view>
+				{{ questionInfo.childQuestionList[activeIndex].questionAnswer }}、
+			</view>
+			<view style="display:inline-block" wx:for="" :key="index">
+				<view wx:if="" wx:html="i.questionContent"></view>
+			</view>
+		</view>
+	</view>
+	<!-- 多选 -->
+	<view class="choice-questions-answer" wx:if="questionInfo.questionTypeCode == 2">
+		<view class="answer-m-x">
+			<view wx:for="(" :key="index">
+				<view>{{ itemAnswer }}、</view>
+				<view wx:for="(">
+					<view wx:if="i.questionOption == itemAnswer" wx:html="i.questionContent"></view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<!-- 判断 -->
+	<view class="judge-questions-answer" wx:if="1==1">
+		正确
+	</view>
+	<view class="judge-questions-answer" wx:if="1==1">
+		错误
+	</view>
+	<!-- 主观 -->
+	<view class="zg-questions-answer" wx:if="1 == 1">
+		<view class="answerlist ul">
+			<view class="li liactive" :class="{ active: shareBtnIndex === -1 }">
+				参考答案
+			</view>
+			<view class="li" :class="{ active: shareBtnIndex === index }" wx:for="item" :key="index">
+				同学答案{{ index + 1 }}
+			</view>
+		</view>
+		<!-- <view class="swiper-container swiper1">
+			<view class="swiper-wrapper">
+				<view wx:if="subjctShowe" class="swiper-slide" wx:html="questionInfo.questionAnswer"></view>
+
+				<view v-else class="swiper-slide" wx:for="(item, index) in studentShareUrlList" :key="index">
+					<image :src="item" />
+				</view>
+			</view>
+			<view wx:if="!subjctShowe" class="swiper-pagination swiprRem">
+				{{ activeIndex1 + 1 }}/{{ studentShareUrlList.length }}3
+			</view>
+		</view> -->
+		<view class="page-section page-section-spacing swiper-container swiper">
+			<swiper class="swiper-wrapper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="onSliderChangeEnd" bindtransition="hotSwiperTransition">
+				<block wx:for="{{background}}" wx:key="*this">
+					<swiper-item class="swiper-slide">
+						<image src="{{item}}" class="slide-image" bindtap='tapBanner' data-indexurl='{{item}}'></image>
+					</swiper-item>
+				</block>
+			</swiper>
+			<view class="swiper-pagination swiprRem">
+				{{ current + 1}}/{{questionInfo.fileList.length}}5
+			</view>
+		</view>
+	</view>
+	<view class="questions-analysis">
+		<view class="jiexi"><image src="../../assets/img/jxbg.png" /></view>
+		<text class="span">解析</text>
+		<view wx:html="questionInfo.questionAnalysis"></view>
+	</view>
+</view>

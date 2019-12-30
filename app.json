@@ -16,7 +16,8 @@
     "pages/about/about",
     "pages/zuowen/zuowen",
     "pages/english-detail/english-detail",
-   "pages/correct-detail/correct-detail"
+   "pages/correct-detail/correct-detail",
+   "pages/correct-judge-detail/judge-detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
