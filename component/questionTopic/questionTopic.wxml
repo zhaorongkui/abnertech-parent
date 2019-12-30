@@ -1,0 +1,34 @@
+<!--component/questionTopic/questionTopic.wxml-->
+<view class="wrap-tipBody">
+	<view class="tipBody">
+		<view class="header">
+			<view>
+				<view class="tip">
+					<text class="tipfont">{{ questionInfo.questionYytypeName }}判断题</text>
+				</view>
+			</view>
+		</view>
+		<view class="content1">
+			<question-stem></question-stem>
+		</view>
+		<view class="tipFooter">
+			<view class="sourcebox">
+				<view class="sourcetip">来源</view>
+				<view class="source fistSource" wx:if="questionInfo.questionSourceId == 1">
+					{{ questionInfo.workbookName }}
+				</view>
+				<view class="source" wx:if="questionInfo.questionSourceId == 2">
+					{{ questionInfo.paperName }}
+				</view>
+			</view>
+			<view class="page">
+				页码
+				<view>{{
+            questionInfo.workbookChapterPage != undefined
+              ? questionInfo.workbookChapterPage
+              : '--'
+          }}</view>
+			</view>
+		</view>
+	</view>
+</view>

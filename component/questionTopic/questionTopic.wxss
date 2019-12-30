@@ -1,0 +1,137 @@
+/* component/questionTopic/questionTopic.wxss */
+/* component/questionTopic.wxss */
+
+.wrap-tipBody {
+  margin-top: 0.2rpx;
+}
+
+.tipBody {
+  background: #fff;
+  width: 710rpx;
+  margin: 0 auto;
+  border-radius: 15rpx;
+  padding-top: 20rpx;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 20rpx;
+}
+
+.tip {
+  display: inline-block;
+  border-radius: 0rpx 60rpx 60rpx 0rpx;
+  background: #3a7;
+  width: auto;
+  padding: 5rpx 14rpx 5rpx 10rpx;
+}
+
+.tipfont {
+  text-align: center;
+  font-size: 28rpx;
+  color: #fff;
+}
+
+.errorNum {
+  display: inline-block;
+  width: 1.1rpx;
+  height: 100%;
+  margin-left: 0.21rpx;
+  font-size: 0.24rpx;
+  color: #999;
+}
+
+/* p {
+  display: inline-block;
+  color: #fd6e6e;
+  font-size: 0.28rpx;
+} */
+
+.handelBtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.difficult {
+  display: inline-block;
+  border: 2rpx solid #b7b7b7;
+  font-size: 24rpx;
+  color: #666;
+  border-radius: 5rpx;
+  width: 80rpx;
+  height: 40rpx;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.margsmal {
+  margin-left: 20rpx;
+}
+
+.diffActive {
+  background: #ff7b52;
+  border: 1px solid #ff7b52;
+  color: #fff;
+}
+
+.masterActive {
+  background: #02aa8e;
+  border: 1px solid #02aa8e;
+  color: #fff;
+}
+
+.content1 {
+  padding: 2rpx 3.2rpx;
+}
+
+.tipFooter {
+  line-height: 8.7rpx;
+  width: 650rpx;
+  height: 87rpx;
+  margin-left: 2.9rpx;
+  border-top: 1px #ddd dashed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sourcebox {
+  width: 62%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.sourcetip {
+  color: #999;
+  font-size: 26rpx;
+  margin-left: 2rpx;
+}
+
+.source {
+  display: inline-block;
+  color: #586878;
+  font-size: 28rpx;
+  /* width: 85%; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.page {
+  color: #999;
+  font-size: 26rpx;
+  display: inline-block;
+  float: right;
+}
+
+/* span {
+  color: #586878;
+  font-size: 28rpx;
+  margin-left: 14rpx;
+} */

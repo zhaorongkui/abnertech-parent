@@ -1,0 +1,7 @@
+/* component/questionStem/questionStem.wxss */
+.questionDis {
+  color: #333333;
+  font-size: 32rpx;
+  line-height: 6rpx;
+  overflow: hidden;
+}

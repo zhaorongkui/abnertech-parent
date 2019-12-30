@@ -1,0 +1,148 @@
+.look-answer {
+  width: 710rpx;
+  margin: 10px auto 0;
+  border-radius: 5px;
+  background: #fff;
+  padding: 0 0 10px 0;
+}
+
+.header {
+  line-height: 82rpx;
+  height: 82rpx;
+  border-bottom: 1rpx #eeeeee solid;
+}
+
+.sourcetip {
+  padding-left: 29rpx;
+  color: #999999;
+  margin-left: 2rpx;
+  display: inline-block;
+  color: #586878;
+  font-size: 30rpx;
+}
+
+.choice-questions-answer,
+.judge-questions-answer {
+  width: 650rpx;
+  margin: 20rpx auto 0;
+  padding: 10px;
+  border-radius: 5px;
+  background: #f8f8f8;
+  text-align: center;
+  font-size: 30rpx;
+  color: #666666;
+}
+
+.choice-questions-answer .answer-x {
+  display: flex;
+  justify-content: start;
+}
+
+p {
+  text-align: left;
+}
+
+p:nth-child(1) {
+  margin-left: 15rpx;
+}
+
+.choice-questions-answer .answer-m-x>div {
+  display: flex;
+  justify-content: start;
+  margin-top: 15rpx;
+}
+
+p {
+  text-align: left;
+}
+
+p:nth-child(1) {
+  margin-left: 15rpx;
+}
+
+.zg-questions-answer {
+  flex-direction: column;
+}
+
+.ul {
+  white-space: nowrap;
+  padding: 20rpx 10rpx 20rpx;
+  overflow: scroll;
+  padding-right: 20rpx;
+  width: 97%;
+}
+
+.li {
+  display: inline-block;
+  margin-left: 10px;
+  border: 1px solid #eee;
+  text-align: center;
+  line-height: 54rpx;
+  border-radius: 40rpx;
+  width: 155rpx;
+  height: 54rpx;
+  font-size: 28rpx;
+  color: #999;
+}
+
+.liactive {
+  background: #00a26d;
+  border: 1px solid #00a26d;
+  color: #fff;
+}
+
+.swiper-container {
+  position: relative;
+}
+
+.swiper-container,
+.swiper-slide,
+.swiper-wrapper {
+  width: 650rpx;
+  height: 291rpx;
+}
+
+.swiper-slide .slide-image {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-pagination {
+  position: absolute;
+  right: 20rpx;
+  bottom: 20rpx;
+  padding: 2px 20rpx;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 40rpx;
+  font-size: 24rpx;
+  color: #fff;
+}
+
+.questions-analysis {
+  margin: 24rpx auto 0;
+  flex-direction: column;
+}
+
+.span {
+  /* background-image: url(../../assets/img/jxbg.png) no-repeat center; */
+  background-size: cover;
+  width: 118rpx;
+  height: 48rpx;
+  align-items: center;
+  font-size: 28rpx;
+  color: #586878;
+  text-align: center;
+  position: relative;
+  left:50rpx;
+  bottom:5rpx;
+}
+.jiexi {
+  width:118rpx;
+  height:48rpx;
+  margin-left:20rpx;
+  position: absolute;
+}
+.jiexi image {
+  width:100%;
+  height:100%;
+}
