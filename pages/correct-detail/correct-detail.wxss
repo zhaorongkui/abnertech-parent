@@ -504,7 +504,7 @@
 }
 
 .i-error-list > view .i-work-from text:nth-child(2) {
-  color: #333;
+  color: #888;
   font-size: 28rpx;
   margin-top: 15rpx;
 }
