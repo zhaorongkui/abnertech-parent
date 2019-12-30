@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/correct-group-detail/correct-group-detail",
     "pages/index/index",
     "pages/read-detail/read-detail",
     "pages/word-detail/word-detail",
@@ -16,8 +17,9 @@
     "pages/about/about",
     "pages/zuowen/zuowen",
     "pages/english-detail/english-detail",
-   "pages/correct-detail/correct-detail",
-   "pages/correct-judge-detail/judge-detail"
+    "pages/correct-detail/correct-detail",
+    "pages/correct-judge-detail/judge-detail",
+    "component/groupQuestionAnswer/groupQuestionAnswer"
   ],
   "window": {
     "backgroundTextStyle": "light",
