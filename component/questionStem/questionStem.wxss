@@ -2,6 +2,7 @@
 .questionDis {
   color: #333333;
   font-size: 32rpx;
-  line-height: 6rpx;
+  
   overflow: hidden;
+  padding:6rpx 6px;
 }

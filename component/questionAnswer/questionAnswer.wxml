@@ -11,6 +11,7 @@
 			</judge-question>
       <radio-question></radio-question>
       <checkbox-question></checkbox-question>
+      <group-question></group-question> 
 		</view>
 	</view>
 </view>

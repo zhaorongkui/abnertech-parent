@@ -21,7 +21,9 @@
 }
 
 .tip {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 0rpx 60rpx 60rpx 0rpx;
   background: #3a7;
   width: auto;
@@ -98,6 +100,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding:0 6rpx;
 }
 
 .sourcebox {
