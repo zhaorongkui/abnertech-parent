@@ -45,7 +45,7 @@
   </view>
   <view class="i-error-list">
     <view wx:for="{{revisionStudentQuestionVOList}}">
-    <view bindtap="workDetailTo">
+    <view bindtap="workDetailTo" data-item="{{item}}">
       <view class="i-num">
         <view>
           <view></view>
