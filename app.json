@@ -16,8 +16,11 @@
     "pages/about/about",
     "pages/zuowen/zuowen",
     "pages/english-detail/english-detail",
-   "pages/correct-detail/correct-detail",
-   "pages/correct-judge-detail/judge-detail"
+    "pages/correct-detail/correct-detail",
+    "pages/correct-judge-detail/judge-detail",
+    "pages/correct-radio-detail/radio-detail",
+    "pages/correct-checkBox-detail/checkBox-detail",
+    "pages/correct-subjective-detail/subjective-detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
