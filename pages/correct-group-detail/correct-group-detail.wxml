@@ -1,0 +1,7 @@
+
+<!--pages/correct-judge-detail/judge-detail.wxml-->
+<question-topic></question-topic>
+<question-answer></question-answer>
+<subjective-Answer></subjective-Answer>
+<!-- <Correct-Results></Correct-Results> -->
+<look-answer></look-answer>
