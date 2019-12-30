@@ -45,6 +45,7 @@
   </view>
   <view class="i-error-list">
     <view wx:for="{{revisionStudentQuestionVOList}}">
+    <view bindtap="workDetailTo">
       <view class="i-num">
         <view>
           <view></view>
@@ -78,6 +79,7 @@
           <text>{{item.questionYytypeName}}</text>
         </view>
       </view>
+    </view>
     </view>
   </view>
   <view style="font-size:24rpx;color:#999;marign:10rpx auto 0;width:100%;display:flex;justify-content: center;align-items: center;" wx:if="{{dailyWrongList.length != 0}}">

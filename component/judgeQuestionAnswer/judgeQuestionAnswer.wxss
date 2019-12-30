@@ -1,0 +1,66 @@
+.judgeBody {
+  margin: 0 30rpx;
+}
+
+.answersBody {
+  background: #fff;
+  margin: 0 auto;
+  border-radius: 15rpx;
+  padding-bottom: 28rpx;
+  margin-top: 10px;
+}
+
+.content {
+  width: 624rpx;
+}
+
+.liItem {
+  text-align: center;
+  line-height: 80rpx;
+  margin-top: 20rpx;
+  width: 650rpx;
+  height: 80rpx;
+  font-size: 30rpx;
+  color: #666666;
+  border-radius: 6rpx;
+  position: relative;
+
+}
+
+.imageBox {
+  position: absolute;
+  top: 0;
+  right: 29rpx;
+  width: 36rpx;
+  height: 26rpx;
+}
+
+.liItem {
+  background: #eeeeee;
+}
+
+.green {
+  background: #33aa77;
+  color: #fff;
+}
+
+.error {
+  border: 1px solid #ff6365;
+  background: #ffe0e0;
+
+}
+
+.errorimage {
+  width: 26rpx;
+  height: 26rpx;
+}
+
+.right {
+  border: 1px solid #13a99f;
+  background: #d0eeec;
+}
+
+image {
+  width: 36rpx;
+  height: 26rpx;
+}

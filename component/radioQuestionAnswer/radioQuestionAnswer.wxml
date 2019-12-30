@@ -1,0 +1,68 @@
+<view class="radioBoday">
+    <view class="answersBody">
+      <view class="content">
+        <!-- 选择单选题答案详情 -->
+        <view class="oneChoice">
+          <view
+            class="choseItem li"
+            wx:for="("
+            :key="index"
+          >
+          <!-- :class="[
+              questionInfo.answerContent != questionInfo.questionAnswer
+                ? questionInfo.answerContent == item.questionOption
+                  ? 'error'
+                  : ''
+                : questionInfo.answerContent == item.questionOption
+                ? 'right'
+                : ''
+            ]" -->
+            <view
+              class="el-p"
+            >
+            <!-- :class="[
+                questionInfo.answerContent == questionInfo.questionAnswer &&
+                questionInfo.answerContent == item.questionOption
+                  ? 'colors'
+                  : ''
+              ]" -->
+              {{ item.questionOption }}、
+            </view>
+            <view
+              wx:html="item.questionContent"
+              style="width:90%"
+              
+            ></view>
+            <!-- :class="[
+                questionInfo.answerContent == questionInfo.questionAnswer &&
+                questionInfo.answerContent == item.questionOption
+                  ? 'colors'
+                  : ''
+              ]" -->
+            <view
+              wx:if="questionInfo.questionAnswer == item.questionOption"
+            >
+              <image class="right-pic"
+                src="../../assets/img/icon_right.png"
+                alt=""
+                class="right-pic"
+              />
+            </view>
+            <view
+            wx:if="1===2"
+            >
+             <!-- wx:if="
+                questionInfo.answerContent == item.questionOption &&
+                  questionInfo.answerContent != questionInfo.questionAnswer
+              " -->
+              <image
+                src="../../assets/img/icon_wrong.png"
+                alt=""
+                class="wrong-pic"
+              />
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>

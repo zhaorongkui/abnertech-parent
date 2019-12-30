@@ -1,0 +1,75 @@
+.radioBoday {
+  margin: 20rpx auto 0;
+
+}
+
+.answersBody {
+  background: #fff;
+  margin: 0 auto;
+  border-radius: 15rpx;
+  width: 710rpx;
+  padding: 0 0 20rpx 0;
+
+}
+
+.content {
+  width: 650rpx;
+  margin: 0 auto;
+  overflow: auto;
+
+}
+
+.oneChoice {
+  width: 100%;
+
+}
+
+.li {
+  margin-top: 20rpx;
+  border-radius: 6rpx;
+  font-size: 30rpx;
+  display: flex;
+  justify-content: start;
+  padding: 18rpx 18rpx;
+}
+
+.el-p {
+  margin-left: 15rpx;
+}
+
+.wrong-pic {
+  width: 26rpx;
+  height: 26rpx;
+}
+
+.right-pic {
+  width: 36rpx;
+  height: 26rpx;
+}
+
+.liItem {
+  background: #eeeeee;
+}
+
+.choseItem {
+  color: #666666;
+  background: #eeeeee;
+}
+
+.green {
+  background: #33aa77;
+  color: #fff;
+
+}
+
+.error {
+  background: rgba(255, 99, 101, 0.3);
+}
+
+.right {
+  background: rgba(19, 169, 159, 0.3);
+}
+
+.colors {
+  color: #fff;
+}
