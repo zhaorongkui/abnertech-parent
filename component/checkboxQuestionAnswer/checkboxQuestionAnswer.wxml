@@ -1,0 +1,62 @@
+<view class="radioBoday">
+    <view class="answersBody">
+      <view class="content">
+        <!-- 选择多选题答案详情 -->
+        <view class="oneChoice">
+          <view
+            class="choseItem li"
+            wx:for="()"
+            :key="index"
+          >
+            <view wx:for="()">
+              <text
+                class="el-span"
+                :key="n"
+                :class="[i.bgflag == true ? 'right' : '']"
+                wx:if="item.questionOption == i.tem"
+              ></text>
+              <text
+                class="el-span"
+                :key="n"
+                :class="[i.bgflag == false ? 'error' : '']"
+                wx:if="item.questionOption == i.tem"
+              ></text>
+            </view>
+
+            <view
+              class="el-p"
+              :class="[colorArr[index].bgflag == true ? 'colors' : '']"
+            >
+              {{ item.questionOption }}、
+            </view>
+
+            <view
+              wx:html="item.questionContent"
+              style="width:90%"
+              :class="[colorArr[index].bgflag == true ? 'colors' : '']"
+            ></view>
+
+            <view class="p"
+              wx:for="("
+            >
+              <image
+                src="../../assets/img/icon_right.png"
+                alt=""
+                class="right-pic"
+                wx:if="items == item.questionOption"
+              />
+            </view> 
+            <view class="p"  wx:for="(">
+              <image
+                src="../../assets/img/icon_wrong.png"
+                alt=""
+                class="wrong-pic"
+                wx:if="items.bgflag == false && items.tem == item.questionOption"
+              />
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+

@@ -1,0 +1,27 @@
+<view class="judgeBody">
+	<view class="answersBody">
+		<view class="content">
+			<!-- 判断题查看做题答案 -->
+			<view wx:if="workType == 12 || workType == '12'" class="judge">
+				<view class="liItem right" :class="[questionInfo.answerContent === 'Y' ? (questionInfo.questionAnswer === questionInfo.answerContent ? 'right' : 'error') :'']">
+					正确
+					<view class="imageBox" wx:if="questionInfo.answerContent === 'Y' && questionInfo.questionAnswer === questionInfo.answerContent || questionInfo.answerContent === 'N' && questionInfo.questionAnswer !== questionInfo.answerContent">
+						<image src="../../assets/img/icon_right.png" alt="" />
+					</view>
+					<view class="imageBox" wx:if="questionInfo.answerContent === 'Y' && questionInfo.questionAnswer !== questionInfo.answerContent">
+						<image class="errorimage" src="../../assets/img/icon_wrong.png" alt="" />
+					</view>
+				</view>
+				<view class="liItem error" :class="[questionInfo.answerContent === 'N'?(questionInfo.questionAnswer === questionInfo.answerContent ?'right' : 'error'):'']">
+					错误
+					<view class="imageBox" wx:if="questionInfo.answerContent === 'N' && questionInfo.questionAnswer === questionInfo.answerContent || questionInfo.answerContent === 'Y' && questionInfo.questionAnswer !== questionInfo.answerContent">
+						<image src="../../assets/img/icon_right.png" alt="" />
+					</view>
+					<view class="imageBox" wx:if="questionInfo.answerContent === 'N' && questionInfo.questionAnswer !== questionInfo.answerContent">
+						<image class="errorimage" src="../../assets/img/icon_wrong.png" alt="" />
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
