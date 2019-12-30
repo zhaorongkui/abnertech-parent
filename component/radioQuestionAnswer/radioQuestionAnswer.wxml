@@ -26,7 +26,7 @@
                   ? 'colors'
                   : ''
               ]" -->
-              {{ item.questionOption }}、
+              {{ radiores.questionTypeCode }}、
             </view>
             <view
               wx:html="item.questionContent"

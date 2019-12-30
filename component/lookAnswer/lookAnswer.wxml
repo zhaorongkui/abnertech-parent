@@ -1,6 +1,6 @@
 <view class="look-answer" wx:if="lookAnswerDisplay == true">
 	<view class="header">
-		<view class="sourcetip">参考答案</view>
+		<view class="sourcetip">参考答案{{infos.questionTypeCode}}</view>
 	</view>
 
 	<!-- 单选 -->

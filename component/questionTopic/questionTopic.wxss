@@ -92,7 +92,7 @@
 }
 
 .tipFooter {
-  line-height: 8.7rpx;
+  /* line-height: 8.7rpx; */
   width: 650rpx;
   height: 87rpx;
   margin-left: 2.9rpx;
@@ -138,3 +138,9 @@
   font-size: 28rpx;
   margin-left: 14rpx;
 } */
+.questionDis {
+  color: #333333;
+  font-size: 32rpx;
+  overflow: hidden;
+  padding:6rpx 6px;
+}

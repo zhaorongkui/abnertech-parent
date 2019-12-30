@@ -33,7 +33,6 @@ Page({
     }
     let detailUrl = '';
     let questionTypeCode = 3;
-    console.log(questionTypeCode)
     if (questionTypeCode === 1) {
       detailUrl = '/pages/correct-radio-detail/radio-detail?revisionQuestionId=' + obj.revisionQuestionId + '&section=' +
         obj.section + '&studentInfoId=' + obj.studentInfoId + '&subjectAbbreviation=' + obj.subjectAbbreviation
@@ -49,21 +48,9 @@ Page({
       detailUrl = '/pages/correct-subjective-detail/subjective-detail?revisionQuestionId=' + obj.revisionQuestionId + '&section=' +
         obj.section + '&studentInfoId=' + obj.studentInfoId + '&subjectAbbreviation=' + obj.subjectAbbreviation
     }
-
-    var _self = this;
     wx.navigateTo({
       url: detailUrl
     })
-    // Http.Get('/wechat/revision/questionDetail', obj)
-    //   .then(res => {
-    //     if (res.flag == 1) {
-    //       wx.stopPullDownRefresh()
-    //       console.log(res)
-    //     }
-    //   })
-    //   .catch(err => {
-    //     PublicFun._showToast('网络错误');
-    //   })
   },
   /**
    * 生命周期函数--监听页面加载

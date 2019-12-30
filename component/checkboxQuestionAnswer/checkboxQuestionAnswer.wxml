@@ -27,7 +27,7 @@
               class="el-p"
               :class="[colorArr[index].bgflag == true ? 'colors' : '']"
             >
-              {{ item.questionOption }}、
+              {{ item.questionOption }}、{{checkboxres.questionTypeCode}}
             </view>
 
             <view
