@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/correct-judge-detail/judge-detail",
     "pages/index/index",
     "pages/read-detail/read-detail",
     "pages/word-detail/word-detail",
@@ -16,7 +15,9 @@
     "pages/agreement/agreement",
     "pages/about/about",
     "pages/zuowen/zuowen",
-    "pages/english-detail/english-detail"
+    "pages/english-detail/english-detail",
+   "pages/correct-detail/correct-detail",
+   "pages/correct-judge-detail/judge-detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

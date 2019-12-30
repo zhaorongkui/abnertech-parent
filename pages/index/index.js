@@ -39,6 +39,7 @@ Page({
     }
   },
   data: {
+    Index: null,
     current: 'index',
     animationData: {},
     animationData_: {},
@@ -64,6 +65,7 @@ Page({
     studentUnReadResourceList: [],
     historyHomeworkData: [], //作业任务
     homeworkData: [], //作业任务
+    correctworkData: [], //订正作业
     isChoose: 1,
     isMessage: 1,
     exitType: 'sousuo',
@@ -89,18 +91,20 @@ Page({
     },
     audio_t: 1,
     poster: url,
-    taskType: 0,
+    taskType: 2,
     currentPage: 1,
     currentSubject: '',
     currentTime: '',
     subjectList: [],
     subjectType: -1,
     loading: true,
+    loading1: true,
     homeworkType: '',
     homeworkClassId: '',
     timer: true,
     sxFlag: true,
     historyHomeworkDataNull: false,
+    correctworkDataNull: false,
     scrollLeft: 0,
     // toastFlag: false,
     // toastText: ''
@@ -117,6 +121,12 @@ Page({
     this.setData({
       taskType: e.currentTarget.dataset.t
     })
+    if (this.data.taskType == 1 || this.data.taskType == 2) {
+      this.setData({
+        currentPage: 1
+      })
+
+    }
     if (this.data.subjectType >= 4) {
       this.setData({
         scrollLeft: 200
@@ -126,6 +136,29 @@ Page({
         scrollLeft: 0
       })
     }
+  },
+  //提醒订正
+  updRevision(e) {
+
+    Http.Get('/wechat/revision/updRevisionTime', {
+        revisionId: e.currentTarget.dataset.id
+      })
+      .then(res => {
+        if (res.flag == 1) {
+          PublicFun._showToast('提醒成功');
+          this.data.correctworkData.forEach((item, index) => {
+            if (e.currentTarget.dataset.id == item.revisionId) {
+              item.revisionStu = 2
+              item.revisionEndTime = res.infos.time
+              let items = item
+              this.setData({
+                ["correctworkData[" + index + "]"]: items
+              })
+            }
+          })
+
+        }
+      })
   },
   tapSub(e) {
     var self = this;
@@ -155,10 +188,12 @@ Page({
       studentUnReadResourceList: [],
       historyHomeworkData: [], //作业任务
       homeworkData: [], //作业任务
+      correctworkData:[]
     })
 
     if (app.globalData.isShow) {
       this.homework(app.globalData.studentId_);
+      this.correctwork(this.data.currentPage, app.globalData.studentId_);
       this.subjectList(app.globalData.studentId_)
       this.historyWork(this.data.currentPage, app.globalData.studentId_, this.data.currentSubject)
       this.displayWall(app.globalData.studentId_)
@@ -171,79 +206,85 @@ Page({
     this.loadPage()
   },
   navTo(e) {
-    console.log(taskType)
-    if (this.data.currentTime > e.currentTarget.dataset.time) {
-      if (e.currentTarget.dataset.id == 1 || e.currentTarget.dataset.id == 2) {
-        wx.navigateTo({
-          url: '../work-detail-error/work-detail-error?id=' + e.currentTarget.dataset.classid + '&&name=' + e.currentTarget.dataset.subname + '&&section=' + e.currentTarget.dataset.section + '&&worktype=' + e.currentTarget.dataset.type
-        })
-
-      }
-      if (e.currentTarget.dataset.id == 4) {
-        wx.navigateTo({
-          url: '../word-detail/word-detail?id=' + e.currentTarget.dataset.classid + '&&name=' + e.currentTarget.dataset.subname + '&&section=' + e.currentTarget.dataset.section + '&&worktype=' + e.currentTarget.dataset.type
-        })
-
-      }
-      if (e.currentTarget.dataset.id == 3) {
-        wx.navigateTo({
-          url: '../english-detail/english-detail?id=' + e.currentTarget.dataset.classid + '&&name=' + e.currentTarget.dataset.subname + '&&section=' + e.currentTarget.dataset.section + '&&worktype=' + e.currentTarget.dataset.type
-        })
-
-      }
-      if (e.currentTarget.dataset.id == 5) {
-        wx.navigateTo({
-          url: '../read-detail/read-detail?id=' + e.currentTarget.dataset.classid + '&&name=' + e.currentTarget.dataset.subname + '&&section=' + e.currentTarget.dataset.section + '&&worktype=' + e.currentTarget.dataset.type
-        })
-
-      }
-      if (e.currentTarget.dataset.id == 6) {
-        if (e.currentTarget.dataset.ztype != 1) {
-          if (taskType == 1) {
-            if (e.currentTarget.dataset.submittype != 1 && e.currentTarget.dataset.submittype != undefined) {
-              wx.navigateTo({
-                url: '../zuowen/zuowen?id=' + e.currentTarget.dataset.classid + '&&name=' + e.currentTarget.dataset.subname + '&&section=' + e.currentTarget.dataset.section + '&&worktype=' + e.currentTarget.dataset.type
-              })
-            }
-          }
-
-          if (taskType == 0) {
-            // this.setData({
-            //   toastFlag: true,
-            //   toastText: '您的孩子正在奋笔疾书'
-            // })
-            // var self = this
-            // setTimeout(function() {
-            //   self.setData({
-            //     toastFlag: false
-            //   })
-            // }, 2000)
-
-            PublicFun._showToast('您的孩子正在奋笔疾书');
-          }
-
-        } else {
-          this.setData({
-            zType: e.currentTarget.dataset.ztype
-          })
-          clearInterval(timer)
-          wx.navigateTo({
-            url: '../zuowen/zuowen?id=' + this.data.homeworkClassId
-          })
-        }
-      }
+    if (this.data.taskType == 2) {
+      wx.navigateTo({
+        url: '../correct-detail/correct-detail?id=' + e.currentTarget.dataset.id
+      })
     } else {
-      // this.setData({
-      //   toastFlag: true,
-      //   toastText: '作业未开始'
-      // })
-      // var self = this
-      // setTimeout(function() {
-      //   self.setData({
-      //     toastFlag: false
-      //   })
-      // }, 2000)
-      PublicFun._showToast('作业未开始');
+      if (this.data.currentTime > e.currentTarget.dataset.time) {
+        if (e.currentTarget.dataset.id == 1 || e.currentTarget.dataset.id == 2) {
+          wx.navigateTo({
+            url: '../work-detail-error/work-detail-error?id=' + e.currentTarget.dataset.classid + '&&name=' + e.currentTarget.dataset.subname + '&&section=' + e.currentTarget.dataset.section + '&&worktype=' + e.currentTarget.dataset.type
+          })
+
+        }
+        if (e.currentTarget.dataset.id == 4) {
+          wx.navigateTo({
+            url: '../word-detail/word-detail?id=' + e.currentTarget.dataset.classid + '&&name=' + e.currentTarget.dataset.subname + '&&section=' + e.currentTarget.dataset.section + '&&worktype=' + e.currentTarget.dataset.type
+          })
+
+        }
+        if (e.currentTarget.dataset.id == 3) {
+          wx.navigateTo({
+            url: '../english-detail/english-detail?id=' + e.currentTarget.dataset.classid + '&&name=' + e.currentTarget.dataset.subname + '&&section=' + e.currentTarget.dataset.section + '&&worktype=' + e.currentTarget.dataset.type
+          })
+
+        }
+        if (e.currentTarget.dataset.id == 5) {
+          wx.navigateTo({
+            url: '../read-detail/read-detail?id=' + e.currentTarget.dataset.classid + '&&name=' + e.currentTarget.dataset.subname + '&&section=' + e.currentTarget.dataset.section + '&&worktype=' + e.currentTarget.dataset.type
+          })
+
+        }
+        if (e.currentTarget.dataset.id == 6) {
+          if (e.currentTarget.dataset.ztype != 1) {
+            if (taskType == 1) {
+              if (e.currentTarget.dataset.submittype != 1 && e.currentTarget.dataset.submittype != undefined) {
+                wx.navigateTo({
+                  url: '../zuowen/zuowen?id=' + e.currentTarget.dataset.classid + '&&name=' + e.currentTarget.dataset.subname + '&&section=' + e.currentTarget.dataset.section + '&&worktype=' + e.currentTarget.dataset.type
+                })
+              }
+            }
+
+            if (taskType == 0) {
+              // this.setData({
+              //   toastFlag: true,
+              //   toastText: '您的孩子正在奋笔疾书'
+              // })
+              // var self = this
+              // setTimeout(function() {
+              //   self.setData({
+              //     toastFlag: false
+              //   })
+              // }, 2000)
+
+              PublicFun._showToast('您的孩子正在奋笔疾书');
+            }
+
+          } else {
+            this.setData({
+              zType: e.currentTarget.dataset.ztype
+            })
+            clearInterval(timer)
+            wx.navigateTo({
+              url: '../zuowen/zuowen?id=' + this.data.homeworkClassId
+            })
+          }
+        }
+      } else {
+        // this.setData({
+        //   toastFlag: true,
+        //   toastText: '作业未开始'
+        // })
+        // var self = this
+        // setTimeout(function() {
+        //   self.setData({
+        //     toastFlag: false
+        //   })
+        // }, 2000)
+        PublicFun._showToast('作业未开始');
+      }
+
     }
 
   },
@@ -340,6 +381,7 @@ Page({
   exitSm: function() {
     if (this.data.exitType == "saoma") {
       this.homework(app.globalData.studentId_);
+      this.correctwork(this.data.currentPage, app.globalData.studentId_);
       this.subjectList(app.globalData.studentId_)
       this.historyWork(this.data.currentPage, app.globalData.studentId_, this.data.currentSubject)
       this.displayWall(app.globalData.studentId_)
@@ -400,6 +442,7 @@ Page({
     } else {
       if (this.data.boundInfo) {
         this.homework(this.data.studentInfoId);
+        this.correctwork(this.data.currentPage, this.data.studentInfoId);
         this.subjectList(this.data.studentInfoId)
         this.historyWork(this.data.currentPage, this.data.studentInfoId, this.data.currentSubject)
         this.displayWall(this.data.studentInfoId)
@@ -558,6 +601,53 @@ Page({
               isShowline: true
             })
           }
+
+        }
+      })
+      .catch(err => {
+        PublicFun._showToast('网络错误');
+      })
+  },
+  correctwork: function(page, id) {
+    var _self = this;
+    Http.Get('/wechat/revision/revisionPageDataByStuId', {
+        studentInfoId: id,
+        pageSize: 10,
+        currentPage: page
+      })
+      .then(res => {
+        if (res.message == 'SUCCESS') {
+          wx.stopPullDownRefresh()
+          if (res.infos.revisionStudentInfoList != undefined && res.infos.revisionStudentInfoList.length != 0) {
+            _self.setData({
+              homework_null_wgl: false,
+              homework_null_gl: false,
+              isShowline: false,
+              currentTime: res.currentTime
+            })
+            var data = this.data.correctworkData
+
+            _self.setData({
+              correctworkData: data.concat(res.infos.revisionStudentInfoList),
+              homework_null: false
+            })
+
+            if (res.infos.revisionStudentInfoList.length < 10) {
+              this.setData({
+                loading1: false
+              })
+            }
+          } else {
+            _self.setData({
+              correctworkDataNull: true,
+              loading1: false,
+              isShowline: true,
+              correctworkData: [],
+              homework_null: true
+            })
+          }
+
+
 
         }
       })
@@ -937,19 +1027,31 @@ Page({
         this.historyWork(this.data.currentPage, this.data.studentInfoId, this.data.currentSubject)
       }
     }
+    if (taskType == 2) {
+      var page = this.data.currentPage
+      page++
+      this.setData({
+        currentPage: page
+      })
+      if (app.globalData.isShow) {
+        this.correctwork(this.data.currentPage, app.globalData.studentId_)
+      } else {
+        this.correctwork(this.data.currentPage, this.data.studentInfoId)
+      }
+    }
 
   },
   /**
-     * 用户点击右上角分享
-     */
-  onShareAppMessage: function () {
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function() {
     var shareObj = {
       title: "",
       path: '/pages/index/index',
       imageUrl: '',
-      success: function (res) { },
-      fail: function () { },
-      complete: function () { }
+      success: function(res) {},
+      fail: function() {},
+      complete: function() {}
     }
     return shareObj;
   },

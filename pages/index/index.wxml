@@ -16,11 +16,11 @@
   </view> -->
   <view class="i-homework-detail-rate">
     <view class="i-inform {{homeworkClassId != '' ? 'i-inform-hover':''}}">
-      <view wx:if="{{homeworkClassId != ''}}" >
+      <view wx:if="{{homeworkClassId != ''}}">
         <image src="../../assets/laba.png"></image>
         <text>家长:您好</text>
       </view>
-      <view  wx:if="{{homeworkClassId != ''}}"  bindtap='navTo'  data-id="6" data-ztype="1">您家孩子的作文晋级“班级优秀”~速来围观！！！</view>
+      <view wx:if="{{homeworkClassId != ''}}" bindtap='navTo' data-id="6" data-ztype="1">您家孩子的作文晋级“班级优秀”~速来围观！！！</view>
       <image src="../../assets/shuaxin.png" class="i-images" bindtap="loadPage" wx:if="{{sxFlag}}"></image>
     </view>
     <view class="i-work-completes">
@@ -49,26 +49,28 @@
     <view>
       <view class="i-today-task">
         <view class="i-task-type">
-          <view class="{{ taskType==0 ? 'hover':''}}" bindtap="taskType" data-t="{{0}}">待完成任务({{homeworkData.length  + studentUnReadResourceList.length}})</view>
+          <view class="{{ taskType==2 ? 'hover':''}}" bindtap="taskType" data-t="{{2}}">作业订正({{correctworkData.length}})</view>
+          <text wx:if="{{ taskType == 1}}"></text>
+          <view class="{{ taskType==0 ? 'hover':''}}" bindtap="taskType" data-t="{{0}}">待完成任务({{homeworkData.length + studentUnReadResourceList.length}})</view>
+          <text wx:if="{{taskType == 2 }}"></text>
           <view bindtap="taskType" data-t="{{1}}" class="{{ taskType==1 ? 'hover':''}}">历史任务</view>
         </view>
-        <scroll-view class="i-subject" wx:if="{{taskType == 1}}" scroll-x  scroll-left="{{scrollLeft}}">
+        <scroll-view class="i-subject" wx:if="{{taskType == 1}}" scroll-x scroll-left="{{scrollLeft}}">
           <text class="{{subjectType == -1 ? 'sub-hover' :''}}" bindtap='tapSub' data-index="{{-1}}" data-name="{{''}}">全部</text>
           <block wx:for="{{subjectList}}">
             <text bindtap='tapSub' data-index="{{index}}" data-name="{{item.subjectAbbreviation}}" class="{{subjectType == index ? 'sub-hover' :''}}">{{item.subjectName}}</text>
           </block>
         </scroll-view>
 
-        <view class="i-homework-null" wx:if="{{homework_null_wgl && taskType == 0}}">
+        <view class="i-homework-null" wx:if="{{homework_null_wgl && (taskType == 2 ||  taskType == 0)}}">
           <image src="../../assets/saoma.png"></image>
           <text>未关联学生，暂无数据</text>
         </view>
-        <view class="i-homework-null" wx:if="{{homework_null_gl && taskType == 0}}">
-          <text>暂无数据</text>
-        </view>
+        <!-- 待完成任务 -->
         <view wx:if="{{taskType == 0}}">
-          <block wx:for="{{homeworkData}}" >
-            <view class="i-homework-subject" bindtap='navTo' data-id="{{item.homeworkType}}" data-classId="{{item.homeworkClassId}}" data-subname="{{item.subjectAbbreviation}}" data-section="{{item.section}}" data-type="{{item.homeworkType}}" data-time="{{item.homeworkStarttime}}" data-submitType="{{item.submitType}}"  data-ztype="0">
+          <block wx:for="{{homeworkData}}">
+            <view class="i-homework-subject" bindtap='navTo' data-id="{{item.homeworkType}}" data-classId="{{item.homeworkClassId}}" data-subname="{{item.subjectAbbreviation}}" data-section="{{item.section}}" data-type="{{item.homeworkType}}" data-time="{{item.homeworkStarttime}}"
+              data-submitType="{{item.submitType}}" data-ztype="0">
               <view class="i-homework-tip">
                 <text wx:if="{{currentTime > item.homeworkStarttime}}" class="{{item.subjectAbbreviation == 'yingyu'  ? 'yy-hover' :'' }} {{item.subjectAbbreviation == 'shuxue' ? 'sx-hover' : ''}} {{item.subjectAbbreviation == 'yuwen'  ? 'yw-hover' : ''}} {{item.subjectAbbreviation == 'huaxue' ? 'hx-hover' : ''}} {{item.subjectAbbreviation == 'dili' ? 'dl-hover' : ''}} {{item.subjectAbbreviation == 'lishi' ? 'ls-hover' :'' }} {{item.subjectAbbreviation == 'shengwu' ? 'sw-hover' : ''}} {{item.subjectAbbreviation == 'wuli' ? 'wl-hover' : ''}} {{item.subjectAbbreviation == 'zhengzhi' ? 'zz-hover' : ''}}">
               {{filter.homeworkName(item.subjectAbbreviation)}}</text>
@@ -89,14 +91,14 @@
                   <text wx:if="{{currentTime < item.homeworkStarttime}}">距离作业开始</text>
                 </view>
                 <view class="rate_">
-                  <view class="topic_" wx:if="{{item.homeworkType != 6}}" >
+                  <view class="topic_" wx:if="{{item.homeworkType != 6}}">
                     <text wx:if="{{item.homeworkType != 5 && item.homeworkType != 6}}">题量：</text>
                     <text wx:if="{{item.homeworkType == 5 }}">篇数：</text>
                     <text>{{item.homeworkQuestionnum}}</text>
                     <text wx:if="{{currentTime > item.homeworkStarttime}}">{{filter.times(item.homeworkEndtime)}}</text>
                     <text wx:if="{{currentTime < item.homeworkStarttime}}">{{filter.times(item.homeworkStarttime)}}</text>
                   </view>
-                  <view class="topic_" wx:if="{{item.homeworkType == 6}}" >
+                  <view class="topic_" wx:if="{{item.homeworkType == 6}}">
                     <text wx:if="{{item.compositionRequire==1}}">文体不限</text>
                     <text wx:if="{{item.compositionRequire==2}}">记叙文</text>
                     <text wx:if="{{item.compositionRequire==3}}">议论文</text>
@@ -108,8 +110,8 @@
                 </view>
               </view>
 
-              <view class="i-homework-progress" wx:if="{{item.homeworkType != 6}}" >
-                <progress percent="{{item.submitNum /item.homeworkQuestionnum *100}}" border-radius="10px" activeColor="#8832ff" active stroke-width="3" backgroundColor="#eaecef"  />  
+              <view class="i-homework-progress" wx:if="{{item.homeworkType != 6}}">
+                <progress percent="{{item.submitNum /item.homeworkQuestionnum *100}}" border-radius="10px" activeColor="#8832ff" active stroke-width="3" backgroundColor="#eaecef" />
                 <view class="num">
                   <text>{{item.submitNum}}</text>
                   <text>/{{item.homeworkQuestionnum}}</text>
@@ -149,10 +151,15 @@
               <view style="width:100%;height:68rpx;background:rgba(248,248,248,1);color:#999;font-size:28rpx;text-align:center;line-height:68rpx;margin-top:10rpx;">老师分享了新内容，快来查看哦～</view>
             </view>
           </block>
+          <view class="i-homework-null" wx:if="{{homeworkData.length == 0}}">
+            <text>暂无数据</text>
+          </view>
         </view>
+        <!-- 历史任务 -->
         <view wx:if="{{taskType == 1}}">
           <block wx:for="{{historyHomeworkData}}">
-            <view class="i-homework-subject" bindtap='navTo' data-id="{{item.homeworkType}}" data-classId="{{item.homeworkClassId}}" data-subname="{{item.subjectAbbreviation}}" data-section="{{item.section}}" data-type="{{item.homeworkType}}" data-time="{{item.homeworkStarttime}}" data-ztype="0" data-submitType="{{item.submitType}}">
+            <view class="i-homework-subject" bindtap='navTo' data-id="{{item.homeworkType}}" data-classId="{{item.homeworkClassId}}" data-subname="{{item.subjectAbbreviation}}" data-section="{{item.section}}" data-type="{{item.homeworkType}}" data-time="{{item.homeworkStarttime}}"
+              data-ztype="0" data-submitType="{{item.submitType}}">
               <view class="i-homework-tip">
                 <text class="{{item.subjectAbbreviation == 'yingyu' ? 'yy-hover' : ''}} {{item.subjectAbbreviation == 'shuxue' ? 'sx-hover' : ''}} {{item.subjectAbbreviation == 'yuwen' ? 'yw-hover' : ''}} {{item.subjectAbbreviation == 'huaxue' ? 'hx-hover' : ''}} {{item.subjectAbbreviation == 'dili' ? 'dl-hover' : ''}} {{item.subjectAbbreviation == 'lishi' ? 'ls-hover' : ''}} {{item.subjectAbbreviation == 'shengwu' ? 'sw-hover' : ''}} {{item.subjectAbbreviation == 'wuli' ? 'wl-hover' : ''}} {{item.subjectAbbreviation == 'zhengzhi' ? 'zz-hover' : ''}}">
               {{filter.homeworkName(item.subjectAbbreviation)}}</text>
@@ -200,7 +207,7 @@
                     <text wx:if="{{item.compositionRequire==3}}">议论文</text>
                   </view>
                   <view class="tuzhang" wx:if="{{item.homeworkType == 6 && item.displayWallId != undefined}}">
-                     <image src="../../assets/tuzhang.png"></image>
+                    <image src="../../assets/tuzhang.png"></image>
                   </view>
                 </view>
 
@@ -211,8 +218,65 @@
           <view class="loading" wx:if="{{historyHomeworkData.length != 0 && !loading}}">已展示全部作业任务</view>
           <view class="loading" wx:if="{{historyHomeworkDataNull}}" style="margin-top:200rpx;">暂无数据</view>
         </view>
+        <!-- 订正任务 -->
+        <view wx:if="{{taskType == 2}}">
+          <block wx:for="{{correctworkData}}">
+            <view class="i-homework-subject" bindtap='navTo'  data-id="{{item.revisionId}}"
+              data-ztype="0" data-submitType="{{item.submitType}}">
+              <view class="i-homework-tip">
+                <text class="{{item.subjectAbbreviation == 'yingyu' ? 'yy-hover' : ''}} {{item.subjectAbbreviation == 'shuxue' ? 'sx-hover' : ''}} {{item.subjectAbbreviation == 'yuwen' ? 'yw-hover' : ''}} {{item.subjectAbbreviation == 'huaxue' ? 'hx-hover' : ''}} {{item.subjectAbbreviation == 'dili' ? 'dl-hover' : ''}} {{item.subjectAbbreviation == 'lishi' ? 'ls-hover' : ''}} {{item.subjectAbbreviation == 'shengwu' ? 'sw-hover' : ''}} {{item.subjectAbbreviation == 'wuli' ? 'wl-hover' : ''}} {{item.subjectAbbreviation == 'zhengzhi' ? 'zz-hover' : ''}}">
+              {{filter.homeworkName(item.subjectAbbreviation)}}</text>
+                <text class="{{item.subjectAbbreviation == 'yingyu' ? 'yy-hover-1' : ''}} {{item.subjectAbbreviation == 'shuxue' ? 'sx-hover-1' : ''}} {{item.subjectAbbreviation == 'yuwen' ? 'yw-hover-1' : ''}} {{item.subjectAbbreviation == 'huaxue' ? 'hx-hover-1' : ''}} {{item.subjectAbbreviation == 'dili' ? 'dl-hover-1' : ''}} {{item.subjectAbbreviation == 'lishi' ? 'ls-hover-1' : ''}} {{item.subjectAbbreviation == 'shengwu' ? 'sw-hover-1' : ''}} {{item.subjectAbbreviation == 'wuli' ? 'wl-hover-1' : ''}} {{item.subjectAbbreviation == 'zhengzhi' ? 'zz-hover-1' : ''}}">{{filter.homeworkType(item.revisionType)}}</text>
+              </view>
+              <view class="i-wj-c" wx:if="{{ item.revisionStu == 1}}">未订正</view>
+              <view class="i-wanj-c" wx:if="{{item.revisionStu == 2}}">订正中</view>
+              <view class="i-zsj-c" wx:if="{{item.revisionStu == 3}}">订正完成</view>
 
-        <i-load-more tip="已展示全部作业任务" loading="{{ false }}" wx:if="{{homework_null && taskType == 0}}" />
+
+
+              <view class="i-homework-info">
+                <view class="homework_t">
+                  <text>{{item.homeworkName}}</text>
+                </view>
+                <view class="homework_time homework_time_c">
+                  <text wx:if="{{ item.revisionStu == 1 || item.revisionStu == 2}}">截止日期：</text>
+                  <text wx:else>提交日期：</text>
+                  <text wx:if="{{ item.revisionStu == 1 || item.revisionStu == 2}}">{{filter.time(item.revisionEndTime)}}</text>
+                  <text wx:else>{{filter.time(item.finishTime)}}</text>
+                </view>
+
+                <view class="rate_c rate_">
+
+                  <view class="topic_ topic_c" wx:if="{{ item.revisionStu == 1 || item.revisionStu == 2}}">
+                    <text>订正进度 </text>
+                    <view class="progress">
+                      <text style="width : {{item.revisionFinishNum / item.questionNumber*100 }}%"></text>
+                    </view>
+                    <text class="progress-num">{{item.revisionFinishNum}}/{{item.questionNumber}}</text>
+                  </view>
+
+                  <view class="topic_ topic_c" wx:else>
+                    <text>订正题数 </text>
+                    <text>{{item.homeworkQuestionnum}}</text>
+                  </view>
+
+                  <view class="tx" wx:if="{{ item.revisionStu == 1}}" bindtap="updRevision" data-id="{{item.revisionId}}">
+                    提醒订正
+                  </view>
+                  <view class="look_c" wx:else>
+                    查看
+                  </view>
+
+                </view>
+
+              </view>
+            </view>
+          </block>
+           <view class="loading" wx:if="{{loading1}}">加载中...</view>
+        <view class="loading" wx:if="{{correctworkData.length != 0 && !loading1}}">已展示全部作业任务</view>
+        <view class="loading" wx:if="{{correctworkDataNull}}" style="margin-top:200rpx;">暂无数据</view>
+        </view>
+       
       </view>
     </view>
   </view>
@@ -269,10 +333,10 @@
     </i-tab-bar>
   </view>
   <i-message id="message " />
-  <cover-view class="i-sx-full-screen" bindtap='closeMask' wx:if="{{showMask}}">
+  <!-- <cover-view class="i-sx-full-screen" bindtap='closeMask' wx:if="{{showMask}}">
     <cover-view>点击或者下拉页面刷新</cover-view>
     <cover-image src="../../assets/xian.png"></cover-image>
-  </cover-view>
+  </cover-view> -->
 
   <!-- <view class="toast" wx:if="{{toastFlag}}">
    <text>{{toastText}}</text>
