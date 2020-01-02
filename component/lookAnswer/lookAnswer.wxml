@@ -8,7 +8,7 @@
 		<view class="answer-x">
 			<view>{{ infos.questionAnswer }}.</view>
 			<view style="display:inline-block" wx:for="{{infos.questionOptionsList}}" data-item="{{item}}">
-				<view wx:if="item.questionOption == infos.questionAnswer">
+				<view wx:if="{{item.questionOption == infos.questionAnswer}}">
 					<rich-text nodes="{{item.questionContent}}"></rich-text>
 				</view>
 			</view>
@@ -39,10 +39,10 @@
 	</view>
 	<!-- 判断 -->
 	<view wx:if="infos.questionTypeCode == 3">
-		<view class="judge-questions-answer" wx:if="{{infos.questionAnswer === 'Y'}}">
+		<view class="judge-questions-answer liItem" wx:if="{{infos.questionAnswer === 'Y'}}">
 			正确
 		</view>
-		<view class="judge-questions-answer" wx:if="{{infos.questionAnswer === 'N'}}">
+		<view class="judge-questions-answer liItem" wx:if="{{infos.questionAnswer === 'N'}}">
 			错误
 		</view>
 	</view>
@@ -50,11 +50,10 @@
 	<!-- 主观 -->
 	<view class="zg-questions-answer" wx:if="{{infos.questionTypeCode == 6 || infos.questionTypeCode == 5}}">
 		<view class="answerlist ul">
-			<view class="li liactive" :class="{ active: shareBtnIndex === -1 }" bindtap="shareAnswer" data-index='-1'>
+			<view class="li liactive {{shareBtnIndex === -1 ? 'active':''}}"  bindtap="shareAnswer" data-index='-1'>
 				参考答案
 			</view>
-			<view class="li" :class="{ active: shareBtnIndex === index }" bindtap="shareAnswer" wx:for="{{infos.studentShareUrlList}}" data-item="{{item}}" data-index='{{index}}'>
-				同学答案{{ index + 1 }}
+			<view class="li" :class="{ active: shareBtnIndex === index }" bindtap="shareAnswer" wx:for="{{infos.studentShareUrlList}}" data-item="{{item}}" data-index='{{index}}'>同学答案{{ index + 1 }}
 			</view>
 		</view>
 		<view class="page-section page-section-spacing swiper-container swiper">

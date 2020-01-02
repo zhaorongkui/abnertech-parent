@@ -21,8 +21,7 @@
   font-size: 30rpx;
 }
 
-.choice-questions-answer,
-.judge-questions-answer {
+.choice-questions-answer{
   width: 650rpx;
   margin: 20rpx auto 0;
   padding: 10px;
@@ -31,6 +30,16 @@
   text-align: center;
   font-size: 30rpx;
   color: #666666;
+
+}
+.judge-questions-answer {
+  width: 625rpx;
+  margin: 20rpx auto 0;
+  padding: 10px;
+  text-align: center;
+  font-size: 30rpx;
+  color: #666666;
+  background: #eeeeee;
 }
 
 .choice-questions-answer .answer-x {
@@ -160,4 +169,13 @@ p:nth-child(1) {
   overflow: hidden;
   padding: 6rpx 6px;
   margin-left: 10rpx;
+}
+.liItem {
+  /* text-align: center;
+  margin-top: 20rpx;
+  font-size: 30rpx; */
+  /* color: #666666;
+  border-radius: 6rpx;
+  position: relative; */
+  background: #eeeeee;
 }

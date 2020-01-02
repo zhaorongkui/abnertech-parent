@@ -1,8 +1,13 @@
 // pages/correct-group-detail/correct-group-detail.js
+
 import * as echarts from '../../ec-canvas/echarts';
 import Http from '../../utils/ajax.js';
 import PublicFun from '../../utils/PublicFun.js';
 const app = getApp();
+
+
+
+
 Page({
 
   /**
@@ -16,13 +21,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log(options)
+    this.groupDetail(options.revisionQuestionId, options.section, options.studentInfoId, options.subjectAbbreviation)
+  },
+  groupDetail(revisionQuestionId, section, studentInfoId, subjectAbbreviation){
     Http.Get('/wechat/revision/questionDetail', {
-        revisionQuestionId: '',
-        section: '',
-        studentInfoId: '',
-        subjectAbbreviation: ''
-      })
+      revisionQuestionId: revisionQuestionId,
+      section: section,
+      studentInfoId: studentInfoId,
+      subjectAbbreviation: subjectAbbreviation
+    })
       .then(res => {
         if (res.flag == 1) {
           PublicFun._showToast('提醒成功');
@@ -40,7 +47,6 @@ Page({
         }
       })
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

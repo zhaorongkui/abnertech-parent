@@ -1,16 +1,17 @@
 <view class="boday">
-	<view class="answersBody" wx:if="{{infos.revisionStudentAnswers}}">
+<!-- wx:if="{{infos.revisionStudentAnswers}}" -->
+	<view class="answersBody" >
 		<view class="header">
 			<view class="sourcetip">最新订正结果</view>
 			<text class="play" wx:if="{{infos.questionTypeCode == 1}}">（单选）</text>
 			<text class="play"  wx:if="{{infos.questionTypeCode == 2}}">（多选）</text>
 		</view>
 		<view class="content">
-			<judge-question infos="{{infos}}" >
+			<judge-question infos="{{infos}}" wx:if="{{infos.questionTypeCode == 3}}">
 			</judge-question>
-      <radio-question infos="{{infos}}"></radio-question>
-      <checkbox-question infos="{{infos}}"></checkbox-question>
-      <!-- <group-question groupres="{{infos}}"></group-question>  -->
+      <radio-question infos="{{infos}}" wx:if="{{infos.questionTypeCode == 1}}"></radio-question>
+      <checkbox-question infos="{{infos}}" wx:if="{{infos.questionTypeCode == 2}}"></checkbox-question>
+       <group-question groupres="{{infos}}" wx:if="{{infos.questionTypeCode == 4}}"></group-question> 
 		</view>
 	</view>
 </view>
