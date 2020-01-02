@@ -25,10 +25,14 @@ Component({
     current: 0,
     infos: [],
     parmres: {},
-    studentIndex: null,
+    studentIndex: -1,
     studentShareUrlList: [],
     subjctShowe: true,
     shareBtnIndex: -1,
+    touchS: 0,
+    touchE: 0,
+    blanks: '',
+    blanksArr: []
   },
   lifetimes: {
     attached() {
@@ -41,8 +45,25 @@ Component({
         infos: this.data.lookres.infos,
         parmres: this.data.lookres
       })
-      // console.log(this.data.infos)
-      // console.log(this.data.parmres)
+
+      if (this.infos.questionTypeCode === 5) {
+        let a = ''
+        let b = []
+        let c = []
+        if (this.infos.questionAnswer) {
+          JSON.parse(this.infos.questionAnswer).forEach((item, index) => {
+            item.answer.forEach(items => {})
+            a = item.answer.join('或')
+            this.data.blanksArr.push(a)
+          })
+          //重新组数组
+          this.data.blanksArr.forEach((item, index) => {
+            this.data.blanks += `${index + 1}、${decodeURIComponent(
+              item
+            )}&nbsp;&nbsp;&nbsp;&nbsp;`
+          })
+        }
+      }
     }
   },
   methods: {
@@ -54,10 +75,57 @@ Component({
       })
       console.log(that.data.current)
     },
-    /* 获取滑块左右滑动时位置 */
-    hotSwiperTransition: function (e) {
-      console.log(e)
+
+    touchStart: function (e) {
+      let sx = e.touches[0].pageX
+      this.data.touchS = sx
     },
+    touchMove: function (e) {
+      let sx = e.touches[0].pageX;
+      this.data.touchE = sx
+    },
+    touchEnd: function (e) {
+      let self = this
+      // let start = this.data.touchS
+      // let end = this.data.touchE
+      // console.log(start)
+      // console.log(end)
+      // 参考答案
+      if (
+        self.data.studentIndex === -1 &&
+        self.infos.studentShareUrlList.length !== 0 &&
+        self.data.touchS - self.data.touchE > 100
+      ) {
+        self.shareAnswer(self.data.studentIndex + 1)
+      }
+
+      if (self.data.studentIndex > -1) {
+        let arryLength =
+          self.infos.studentShareUrlList[self.data.studentIndex]
+          .urlList.length - 1
+        // 当最后一个同学不予许再往后滑切换
+        if (
+          self.data.studentIndex <
+          self.infos.studentShareUrlList.length - 1
+        ) {
+          if (
+            self.data.current === arryLength &&
+            self.data.touchS - self.data.touchE > 100
+          ) {
+            self.shareAnswer(self.data.studentIndex + 1)
+          }
+        }
+      }
+      // 排除参考答案后，之外的所有同学答案第一页往左滑，切换
+      if (
+        self.data.current === 0 &&
+        self.data.studentIndex !== -1 &&
+        self.data.touchE - self.data.touchS > 100
+      ) {
+        self.shareAnswer(self.data.studentIndex - 1)
+      }
+    },
+
     // 切换分享同学答案按钮，切换轮播
     shareAnswer(index) {
       console.log(index)

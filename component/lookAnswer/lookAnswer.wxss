@@ -104,6 +104,7 @@ p:nth-child(1) {
 .swiper-wrapper {
   width: 650rpx;
   height: 291rpx;
+  margin: 0 auto;
 }
 
 .swiper-slide .slide-image {
