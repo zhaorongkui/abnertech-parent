@@ -42,16 +42,18 @@
 
 .choice-questions-answer .answer-x {
   background: #f7f7f7;
-  display: flex;
-  justify-content: flex-start;
-  margin-bottom: 20rpx;
-  margin-top: 20rpx;
-  align-items: center;
-  height: 80rpx;
-  border-radius: 9rpx;
-  color: #666;
-  font-size: 30rpx;
-  padding: 0 20rpx;
+display: flex;
+justify-content: flex-start;
+
+align-items: center;
+height: 80rpx;
+border-radius: 9rpx;
+color: #666;
+font-size: 30rpx;
+padding: 0 20rpx;
+width: 610rpx;
+margin: 20rpx auto 20rpx;
+
 }
 .choice-questions-answer .answer-x >view:nth-child(1){
   margin-left:15rpx
@@ -176,5 +178,5 @@ p:nth-child(1) {
   font-size: 28rpx;
   overflow: hidden;
   padding: 6rpx 6px;
-  margin-left: 10rpx;
+  margin-left: 40rpx;
 }
