@@ -3,21 +3,21 @@
 		<view class="content">
 			<!-- 判断题查看做题答案 -->
 			<view wx:if="{{infos.questionTypeCode == 3}}" class="judge">
-				<view class="liItem right" :class="[infos.answerContent === 'Y' ? (infos.questionAnswer === infos.answerContent ? 'right' : 'error') :'']">
-					正确{{infos.questionTypeCode}}
-					<view class="imageBox" wx:if="infos.answerContent === 'Y' && infos.questionAnswer === infos.answerContent || infos.answerContent === 'N' && infos.questionAnswer !== infos.answerContent">
+				<view class="liItem {{infos.revisionStudentAnswer.answerContent === 'y' ? (infos.questionAnswer === infos.revisionStudentAnswer.answerContent ? 'right' : 'error') :''}}" >
+					正确
+					<view class="imageBox" wx:if="{{infos.revisionStudentAnswer.answerContent === 'y' && infos.questionAnswer === infos.revisionStudentAnswer.answerContent || infos.revisionStudentAnswer.answerContent === 'n' && infos.questionAnswer !== infos.answerContent}}">
 						<image src="../../assets/img/icon_right.png" alt="" />
 					</view>
-					<view class="imageBox" wx:if="infos.answerContent === 'Y' && infos.questionAnswer !== infos.answerContent">
+					<view class="imageBox" wx:if="{{infos.revisionStudentAnswer.answerContent === 'y' && infos.questionAnswer !== infos.revisionStudentAnswer.answerContent}}">
 						<image class="errorimage" src="../../assets/img/icon_wrong.png" alt="" />
 					</view>
 				</view>
-				<view class="liItem error" :class="[infos.answerContent === 'N'?(infos.questionAnswer === infos.answerContent ?'right' : 'error'):'']">
+				<view class="liItem {{infos.revisionStudentAnswer.answerContent === 'n'?(infos.questionAnswer === infos.revisionStudentAnswer.answerContent ?'right' : 'error'):''}}" >
 					错误
-					<view class="imageBox" wx:if="infos.answerContent === 'N' && infos.questionAnswer === infos.answerContent || infos.answerContent === 'Y' && infos.questionAnswer !== infos.answerContent">
+					<view class="imageBox" wx:if="{{infos.revisionStudentAnswer.answerContent === 'n' && infos.questionAnswer === infos.revisionStudentAnswer.answerContent || infos.revisionStudentAnswer.answerContent === 'y' && infos.questionAnswer !== infos.answerContent}}">
 						<image src="../../assets/img/icon_right.png" alt="" />
 					</view>
-					<view class="imageBox" wx:if="infos.answerContent === 'N' && infos.questionAnswer !== infos.answerContent">
+					<view class="imageBox" wx:if="{{infos.revisionStudentAnswer.answerContent === 'n' && infos.questionAnswer !== infos.revisionStudentAnswer.answerContent}}">
 						<image class="errorimage" src="../../assets/img/icon_wrong.png" alt="" />
 					</view>
 				</view>

@@ -46,11 +46,11 @@ Component({
         parmres: this.data.lookres
       })
 
-      if (this.infos.questionTypeCode === 5) {
+      if (this.data.infos.questionTypeCode === 5) {
         let a = ''
         let b = []
         let c = []
-        if (this.infos.questionAnswer) {
+        if (this.data.infos.questionAnswer) {
           JSON.parse(this.infos.questionAnswer).forEach((item, index) => {
             item.answer.forEach(items => {})
             a = item.answer.join('或')

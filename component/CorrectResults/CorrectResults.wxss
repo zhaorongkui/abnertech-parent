@@ -22,8 +22,7 @@
   font-size: 30rpx;
 }
 
-.choice-questions-answer,
-.judge-questions-answer {
+.choice-questions-answer{
   width: 650rpx;
   margin: 20rpx auto 0;
   padding: 10px;
@@ -32,6 +31,19 @@
   text-align: center;
   font-size: 30rpx;
   color: #666666;
+}
+
+
+.judge-questions-answer {
+  width: 625rpx;
+  margin: 20rpx auto 0;
+  padding: 10px;
+  background: #f8f8f8;
+  text-align: center;
+  font-size: 30rpx;
+  color: #666666;
+  background: #eeeeee;
+
 
   /* @include sc(30rpx, #666); */
 }
@@ -77,10 +89,10 @@ p {
   width: 650rpx;
   height: 291rpx;
 }
-
-/* .swiper-slide img {
-} */
-
+.swiper-slide .slide-image {
+  width: 100%;
+  height: 100%;
+}
 .swiper-pagination {
   position: absolute;
   right: 20rpx;
@@ -123,11 +135,9 @@ p {
   width: 650rpx;
   height: 87rpx;
   margin-left: 29rpx;
-  border-top: 1px #dddddd dashed;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
 }
 /* .div {
   width: 62%;
@@ -162,3 +172,21 @@ p {
   font-size: 28rpx;
   margin-left: 14rpx;
 } */
+.unable {
+  margin: 20rpx 0 0 30rpx;
+  width: 650rpx;
+  height: 291rpx;
+  background: #fff;
+  border-radius: 9rpx;
+  text-align: center;
+}
+
+.unableImg {
+  width: 227rpx;
+  height: 198rpx;
+}
+.secondp {
+  margin-top: 9rpx;
+  color: #999999;
+  font-size: 26rpx;
+}

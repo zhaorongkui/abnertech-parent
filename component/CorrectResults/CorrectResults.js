@@ -7,6 +7,13 @@ Component({
    * 组件的初始数据
    */
   data: {
+    background: ['../../assets/img/jxbg.png', '../../assets/img/jxbg.png', '../../assets/img/jxbg.png'],
+    indicatorDots: false,
+    vertical: false,
+    autoplay: false,
+    interval: 2000,
+    duration: 500,
+    current: 0,
     infos: [],
     parmres: {}
   },
@@ -24,5 +31,15 @@ Component({
       // console.log(this.data.infos)
       // console.log(this.data.parmres)
     }
+  },
+  methods: {
+    // 当滑块切换时触发事件
+    onSliderChangeEnd: function (e) {
+      let that = this;
+      that.setData({
+        current: e.detail.current
+      })
+      console.log(that.data.current)
+    },
   }
 })
