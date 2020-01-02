@@ -21,14 +21,23 @@
   font-size: 30rpx;
 }
 
-.choice-questions-answer, .judge-questions-answer {
-  width: 650rpx;
+.judge-questions-answer {  width: 650rpx;
   margin: 20rpx auto 0;
   border-radius: 5px;
   /* background: #f8f8f8; */
   text-align: center;
   font-size: 30rpx;
   color: #666;
+
+}
+.judge-questions-answer {
+  width: 625rpx;
+  margin: 20rpx auto 0;
+  padding: 10px;
+  text-align: center;
+  font-size: 30rpx;
+  color: #666666;
+  background: #eeeeee;
 }
 
 .choice-questions-answer .answer-x {

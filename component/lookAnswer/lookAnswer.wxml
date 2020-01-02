@@ -40,10 +40,10 @@
 	</view>
 	<!-- 判断 -->
 	<view wx:if="infos.questionTypeCode == 3">
-		<view class="judge-questions-answer" wx:if="{{infos.questionAnswer === 'Y'}}">
+		<view class="judge-questions-answer liItem" wx:if="{{infos.questionAnswer === 'Y'}}">
 			正确
 		</view>
-		<view class="judge-questions-answer" wx:if="{{infos.questionAnswer === 'N'}}">
+		<view class="judge-questions-answer liItem" wx:if="{{infos.questionAnswer === 'N'}}">
 			错误
 		</view>
 	</view>
@@ -54,7 +54,7 @@
 			<view class="li liactive {{shareBtnIndex === -1 ? 'active':''}}"  bindtap="shareAnswer" data-index='-1'>
 				参考答案
 			</view>
-			<view class="li" :class="{ active: shareBtnIndex === index }" bindtap="shareAnswer" wx:for="i" data-item="{{item}}" data-index='{{index}}'>				同学答案{{ index + 1 }}
+			<view class="li" :class="{ active: shareBtnIndex === index }" bindtap="shareAnswer" wx:for="{{infos.studentShareUrlList}}" data-item="{{item}}" data-index='{{index}}'>同学答案{{ index + 1 }}
 			</view>
 		</view>
 		<view class="page-section page-section-spacing swiper-container swiper">

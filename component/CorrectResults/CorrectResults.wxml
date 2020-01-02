@@ -1,6 +1,4 @@
 <!--component/CorrectResults/CorrectResults.wxml-->
-<wxs src="../../utils/filter.wxs" module="filter" />
-<view class="look-answer" >
 	<view class="header">
 		<view class="headerSourcetip">作业中的作答结果</view>
 	</view>
@@ -38,36 +36,53 @@
 		</view>
 	</view>
 	<!-- 判断 -->
-	<view class="judge-questions-answer" wx:if="{{infos.homeworkStudentAnswers.answerContent === 'Y'}}">
-		正确
+	<view wx:if="{{infos.questionTypeCode == 3}}">
+		<view class="judge-questions-answer" wx:if="{{infos.homeworkStudentAnswers.answerContent === 'Y'}}">
+			正确
+		</view>
+		<view class="judge-questions-answer" wx:if="{{infos.homeworkStudentAnswers.answerContent === 'N'}}">
+			错误
+		</view>
 	</view>
-	<view class="judge-questions-answer" wx:if="{{infos.homeworkStudentAnswers.answerContent === 'N'}}">
-		错误
-	</view>
+
 	<!-- 主观 -->
-	<view class="zg-questions-answer" wx:if="{{infos.questionProperty == 1}}">
-		<view class="swiper-container swiper12">
-			<view class="swiper-wrapper">
-				<view class="swiper-slide" wx:for="(item)" :key="index">
-					<image :src="item" />
+	<view wx:if="{{infos.questionProperty == 1}}">
+		<view class="unable" wx:if="{{!infos.homeworkStudentAnswer.studentAnswerFiles}}">
+			<view class="imgbox">
+				<image class="unableImg" src="../../assets/img/unable.png" alt="" />
+				<view>
+					此题标记为不会
+				</view>
+				<view class="secondp">
+					革命尚未成功，同学要认真学习哦~
 				</view>
 			</view>
-			<view wx:if="!subjctShowe" class="swiper-pagination swiprRem">
-				{{ activeIndex1 + 1 }}/{{ infos.fileList[0].answerFileUrlStr.length }}3
+		</view>
+		<view class="page-section page-section-spacing swiper-container swiper" wx:if="{{infos.homeworkStudentAnswer.studentAnswerFiles}}">
+			<swiper class="swiper-wrapper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="onSliderChangeEnd" bindtransition="hotSwiperTransition">
+				<!-- <block wx:for="{{background}}" wx:key="*this"> -->
+				<block wx:for="{{infos.homeworkStudentAnswer.studentAnswerFiles}}" wx:key="*this">
+					<swiper-item class="swiper-slide">
+						<image src="{{item.answerFileUrlStr}}" class="slide-image" bindtap='tapBanner' data-indexurl='{{item}}'></image>
+					</swiper-item>
+				</block>
+			</swiper>
+			<view class="swiper-pagination swiprRem">
+				{{ current + 1}}/{{infos.homeworkStudentAnswer.studentAnswerFiles.length}}
 			</view>
 		</view>
 	</view>
+
 	<view class="tipFooter">
 		<view>
 			<view class="sourcetip">{{filter.time(infos.revisionStudentAnswer.submitTime)}}</view>
 		</view>
 		<view class="page">
-        批阅结果来源：
-        <text>{{
+			批阅结果来源：
+			<text>{{
             infos.workbookChapterPage != undefined
               ? infos.workbookChapterPage
               : '--'
           }}</text>
-      </view> 
+		</view>
 	</view>
-</view>
