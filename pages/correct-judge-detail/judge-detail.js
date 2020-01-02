@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    res:{}
   },
 
   /**
@@ -77,7 +77,10 @@ Page({
       .then(res => {
         if (res.flag == 1) {
           wx.stopPullDownRefresh()
-          console.log(res)
+          this.setData({
+            res:res
+          })
+          // console.log(this.data)
         }
       })
       .catch(err => {

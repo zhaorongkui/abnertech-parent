@@ -1,5 +1,5 @@
 <view class="radioBoday">
-    <view class="answersBody">
+    <view class="answersBody"  wx:if="{{infos.questionTypeCode == 1}}">
       <view class="content">
         <!-- 选择单选题答案详情 -->
         <view class="oneChoice">
@@ -9,11 +9,11 @@
             :key="index"
           >
           <!-- :class="[
-              questionInfo.answerContent != questionInfo.questionAnswer
-                ? questionInfo.answerContent == item.questionOption
+              infos.answerContent != infos.questionAnswer
+                ? infos.answerContent == item.questionOption
                   ? 'error'
                   : ''
-                : questionInfo.answerContent == item.questionOption
+                : infos.answerContent == item.questionOption
                 ? 'right'
                 : ''
             ]" -->
@@ -21,12 +21,12 @@
               class="el-p"
             >
             <!-- :class="[
-                questionInfo.answerContent == questionInfo.questionAnswer &&
-                questionInfo.answerContent == item.questionOption
+                infos.answerContent == infos.questionAnswer &&
+                infos.answerContent == item.questionOption
                   ? 'colors'
                   : ''
               ]" -->
-              {{ item.questionOption }}、
+              {{ infos.questionTypeCode }}、
             </view>
             <view
               wx:html="item.questionContent"
@@ -34,13 +34,13 @@
               
             ></view>
             <!-- :class="[
-                questionInfo.answerContent == questionInfo.questionAnswer &&
-                questionInfo.answerContent == item.questionOption
+                infos.answerContent == infos.questionAnswer &&
+                infos.answerContent == item.questionOption
                   ? 'colors'
                   : ''
               ]" -->
             <view
-              wx:if="questionInfo.questionAnswer == item.questionOption"
+              wx:if="infos.questionAnswer == item.questionOption"
             >
               <image class="right-pic"
                 src="../../assets/img/icon_right.png"
@@ -52,8 +52,8 @@
             wx:if="1===2"
             >
              <!-- wx:if="
-                questionInfo.answerContent == item.questionOption &&
-                  questionInfo.answerContent != questionInfo.questionAnswer
+                infos.answerContent == item.questionOption &&
+                  infos.answerContent != infos.questionAnswer
               " -->
               <image
                 src="../../assets/img/icon_wrong.png"
