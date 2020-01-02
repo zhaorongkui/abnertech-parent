@@ -20,7 +20,6 @@ Component({
         infos: this.data.res.infos,
         parmres: this.data.res
       })
-      
     }
   }
 })

@@ -53,33 +53,30 @@
 			<view class="li liactive {{shareBtnIndex === -1 ? 'active':''}}"  bindtap="shareAnswer" data-index='-1'>
 				参考答案
 			</view>
-			<view class="li {{shareBtnIndex === index ? 'active':'' }}"  bindtap="shareAnswer" wx:for="i" data-item="{{item}}" data-index='{{index}}'>
-				同学答案{{ index + 1 }}
+			<view class="li" :class="{ active: shareBtnIndex === index }" bindtap="shareAnswer" wx:for="i" data-item="{{item}}" data-index='{{index}}'>				同学答案{{ index + 1 }}
 			</view>
 		</view>
 		<view class="page-section page-section-spacing swiper-container swiper">
-		<!-- 客观填空题参考答案 -->
-			<!-- <view
-            class="blank"
-            style=""
-            v-if="{{infos.questionTypeCode === 5}}"
-            v-html="blanks"
-          >
-          </view> -->
+			<!-- 客观填空题参考答案 -->
+			<view class="blank" style="" v-if="{{subjctShowe && infos.questionTypeCode === 5}}" v-html="blanks">
+			</view>
 			<!-- 主观题参考答案 -->
-			<view v-if="{{subjctShowe && infos.questionTypeCode !== 5}}" class="questionDis">
+			<view wx:if="{{subjctShowe && infos.questionTypeCode !== 5}}" class="questionDis">
 				<rich-text nodes="{{infos.questionAnswer}}"></rich-text>
 			</view>
 			<!-- 同学分享的答案 -->
-			<swiper class="swiper-wrapper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="onSliderChangeEnd" bindtransition="hotSwiperTransition">
-				<block wx:for="{{background}}" wx:key="*this">
-					<swiper-item class="swiper-slide">
-						<image src="{{item}}" class="slide-image" bindtap='tapBanner' data-indexurl='{{item}}'></image>
-					</swiper-item>
-				</block>
-			</swiper>
-			<view class="swiper-pagination swiprRem">
-				{{ current + 1}}/{{infos.fileList.length}}
+			<view wx:if="{{infos.studentShareUrlList && !subjctShowe}}">
+				<swiper class="swiper-wrapper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="onSliderChangeEnd" bindtransition="hotSwiperTransition">
+					<!-- <block wx:for="{{background}}" wx:key="*this"> -->
+					<block wx:for="{{studentShareUrlList}}" wx:key="*this">
+						<swiper-item class="swiper-slide" bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd'>
+							<image src="{{item}}" class="slide-image" bindtap='tapBanner' data-indexurl='{{item}}'></image>
+						</swiper-item>
+					</block>
+				</swiper>
+				<view class="swiper-pagination swiprRem">
+					{{ current + 1}}/{{studentShareUrlList.length}}
+				</view>
 			</view>
 		</view>
 	</view>
