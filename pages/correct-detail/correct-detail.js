@@ -34,8 +34,8 @@ Page({
     let detailUrl = '';
     let questionTypeCode = e.currentTarget.dataset.item.questionTypeCode;
     let questionProperty = e.currentTarget.dataset.item.questionProperty;
-
-    let questionTypeCode = 4;
+    console.log(questionTypeCode)
+    //let questionTypeCode = 4;
 
     if (questionTypeCode === 1) {
       detailUrl = '/pages/correct-radio-detail/radio-detail?revisionQuestionId=' + obj.revisionQuestionId + '&section=' +

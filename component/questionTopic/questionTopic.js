@@ -6,7 +6,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    infos: [],
+    infos: {},
     parmres: {}
   },
   lifetimes: {
@@ -20,8 +20,7 @@ Component({
         infos: this.data.res.infos,
         parmres: this.data.res
       })
-      console.log(this.data.infos)
-      console.log(this.data.parmres)
+      
     }
   }
 })
