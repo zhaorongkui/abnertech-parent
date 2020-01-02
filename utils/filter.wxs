@@ -252,6 +252,11 @@ function parse(str) {
   var strs = JSON.parse(str)
   return strs;
 }
+function splits(str){
+  var arr = str.split('')
+  console.log(arr)
+  return arr;
+}
 module.exports = {
   time: time,
   times:times,
@@ -263,5 +268,6 @@ module.exports = {
   compositionRequire: compositionRequire,
   compositionType: compositionType,
   parse: parse,
-  Time: Time
+  Time: Time,
+  splits: splits
 }

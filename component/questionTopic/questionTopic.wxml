@@ -14,10 +14,10 @@
 		<view class="tipFooter">
 			<view class="sourcebox">
 				<view class="sourcetip">来源</view>
-				<view class="source fistSource" wx:if="infos.questionSourceId == 1">
+				<view class="source fistSource" wx:if="{{infos.questionSourceId == 1}}">
 					{{ infos.textbookName }}
 				</view>
-				<view class="source" wx:if="infos.questionSourceId == 2">
+				<view class="source" wx:if="{{infos.questionSourceId == 2}}">
 					{{ infos.paperName }}
 				</view>
 			</view>

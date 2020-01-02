@@ -9,27 +9,25 @@
 .header {
   line-height: 82rpx;
   height: 82rpx;
-  border-bottom: 1rpx #eeeeee solid;
+  border-bottom: 1rpx #eee solid;
 }
 
 .sourcetip {
   padding-left: 29rpx;
-  color: #999999;
+  color: #999;
   margin-left: 2rpx;
   display: inline-block;
   color: #586878;
   font-size: 30rpx;
 }
 
-.choice-questions-answer{
-  width: 650rpx;
+.judge-questions-answer {  width: 650rpx;
   margin: 20rpx auto 0;
-  padding: 10px;
   border-radius: 5px;
   /* background: #f8f8f8; */
   text-align: center;
   font-size: 30rpx;
-  color: #666666;
+  color: #666;
 
 }
 .judge-questions-answer {
@@ -43,8 +41,20 @@
 }
 
 .choice-questions-answer .answer-x {
+  background: #f7f7f7;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
+  margin-bottom: 20rpx;
+  margin-top: 20rpx;
+  align-items: center;
+  height: 80rpx;
+  border-radius: 9rpx;
+  color: #666;
+  font-size: 30rpx;
+  padding: 0 20rpx;
+}
+.choice-questions-answer .answer-x >view:nth-child(1){
+  margin-left:15rpx
 }
 
 p {
@@ -62,7 +72,6 @@ p:nth-child(1) {
   background: #f8f8f8;
   margin: 20rpx auto 0;
   padding: 10px;
-
 }
 
 p {
@@ -109,8 +118,7 @@ p:nth-child(1) {
   margin: 0 auto;
 }
 
-.swiper-slide,
-.swiper-wrapper {
+.swiper-slide, .swiper-wrapper {
   width: 650rpx;
   height: 291rpx;
   margin: 0 auto;
@@ -164,18 +172,9 @@ p:nth-child(1) {
 }
 
 .questionDis {
-  color: #666666;
+  color: #666;
   font-size: 28rpx;
   overflow: hidden;
   padding: 6rpx 6px;
   margin-left: 10rpx;
-}
-.liItem {
-  /* text-align: center;
-  margin-top: 20rpx;
-  font-size: 30rpx; */
-  /* color: #666666;
-  border-radius: 6rpx;
-  position: relative; */
-  background: #eeeeee;
 }

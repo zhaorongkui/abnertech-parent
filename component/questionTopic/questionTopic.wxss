@@ -1,4 +1,5 @@
 /* component/questionTopic/questionTopic.wxss */
+
 /* component/questionTopic.wxss */
 
 .wrap-tipBody {
@@ -93,24 +94,25 @@
 
 .tipFooter {
   /* line-height: 8.7rpx; */
-  width: 650rpx;
+  width: 680rpx;
   height: 87rpx;
   margin-left: 2.9rpx;
   border-top: 1px #ddd dashed;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding:0 6rpx;
+  padding: 0 6rpx;
 }
 
 .sourcebox {
-  width: 62%;
+  width: 65%;
   display: flex;
   justify-content: start;
   align-items: center;
 }
 
 .sourcetip {
+  width: 55rpx;
   color: #999;
   font-size: 26rpx;
   margin-left: 2rpx;
@@ -118,6 +120,7 @@
 
 .source {
   display: inline-block;
+  width: 80%;
   color: #586878;
   font-size: 28rpx;
   /* width: 85%; */
@@ -129,8 +132,7 @@
 .page {
   color: #999;
   font-size: 26rpx;
-  display: inline-block;
-  float: right;
+  display: flex;
 }
 
 /* span {
@@ -138,12 +140,19 @@
   font-size: 28rpx;
   margin-left: 14rpx;
 } */
+
 .questionDis {
-  color: #333333;
+  color: #333;
   font-size: 32rpx;
   overflow: hidden;
-  padding:6rpx 6px;
+  padding: 6rpx 6px;
 }
+
 .pageOri {
   display: inline-block;
+  max-width: 60%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-left: 10rpx;
 }
