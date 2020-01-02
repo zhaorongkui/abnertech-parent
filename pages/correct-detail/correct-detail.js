@@ -34,6 +34,9 @@ Page({
     let detailUrl = '';
     let questionTypeCode = e.currentTarget.dataset.item.questionTypeCode;
     let questionProperty = e.currentTarget.dataset.item.questionProperty;
+
+    let questionTypeCode = 4;
+
     if (questionTypeCode === 1) {
       detailUrl = '/pages/correct-radio-detail/radio-detail?revisionQuestionId=' + obj.revisionQuestionId + '&section=' +
         obj.section + '&studentInfoId=' + obj.studentInfoId + '&subjectAbbreviation=' + obj.subjectAbbreviation
@@ -45,8 +48,10 @@ Page({
         obj.section + '&studentInfoId=' + obj.studentInfoId + '&subjectAbbreviation=' + obj.subjectAbbreviation
     } else if (questionTypeCode === 4) {
       detailUrl = '/pages/correct-group-detail/correct-group-detail?revisionQuestionId=' + obj.revisionQuestionId + '&section=' +
+
       obj.section + '&studentInfoId=' + obj.studentInfoId + '&subjectAbbreviation=' + obj.subjectAbbreviation
-    } else if (questionTypeCode === 6 || questionTypeCode === 5) {
+    }  else if (questionTypeCode === 5 || questionTypeCode === 6) {
+
       detailUrl = '/pages/correct-subjective-detail/subjective-detail?revisionQuestionId=' + obj.revisionQuestionId + '&section=' +
         obj.section + '&studentInfoId=' + obj.studentInfoId + '&subjectAbbreviation=' + obj.subjectAbbreviation
     }

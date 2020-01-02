@@ -10,7 +10,7 @@
 			</judge-question>
       <radio-question infos="{{infos}}"></radio-question>
       <checkbox-question infos="{{infos}}"></checkbox-question>
-      <!-- <group-question groupres="{{infos}}"></group-question>  -->
+      <group-question groupres="{{infos}}"></group-question> 
 		</view>
 	</view>
 </view>
