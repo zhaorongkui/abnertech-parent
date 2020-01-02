@@ -57,6 +57,14 @@ Component({
     /* 获取滑块左右滑动时位置 */
     hotSwiperTransition: function (e) {
       console.log(e)
+      if(e.detail.dx = 60) {
+        console.log('往右滑')
+        return
+      }
+      if(e.detail.dx = -60) {
+        console.log('往左滑')
+        return
+      }
     },
     // 切换分享同学答案按钮，切换轮播
     shareAnswer(index) {
