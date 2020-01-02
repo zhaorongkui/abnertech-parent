@@ -4,43 +4,31 @@
         <!-- 选择单选题答案详情 -->
         <view class="oneChoice">
           <view
-            class="choseItem li"
-            wx:for="("
+           
+            wx:for="{{infos.questionOptionsList}}"
             :key="index"
+
+            class="choseItem  {{infos.answerContent != infos.questionAnswer ? infos.answerContent == item.questionOption ? 'error' : '' : infos.answerContent == item.questionOption ? 'right' : ''}}"
           >
-          <!-- :class="[
-              infos.answerContent != infos.questionAnswer
-                ? infos.answerContent == item.questionOption
-                  ? 'error'
-                  : ''
-                : infos.answerContent == item.questionOption
-                ? 'right'
-                : ''
-            ]" -->
+          
             <view
-              class="el-p"
+              class="el-p {{infos.answerContent == infos.questionAnswer &&infos.answerContent == item.questionOption ? 'colors' : ''}}"
             >
-            <!-- :class="[
-                infos.answerContent == infos.questionAnswer &&
-                infos.answerContent == item.questionOption
-                  ? 'colors'
-                  : ''
-              ]" -->
-              {{ infos.questionTypeCode }}、
+            
+              {{ item.questionOption }}、
             </view>
             <view
-              wx:html="item.questionContent"
+              
               style="width:90%"
               
-            ></view>
-            <!-- :class="[
-                infos.answerContent == infos.questionAnswer &&
-                infos.answerContent == item.questionOption
-                  ? 'colors'
-                  : ''
-              ]" -->
+            >
+             <rich-text nodes="{{item.questionContent}}"></rich-text>  
+            </view>
+            
             <view
-              wx:if="infos.questionAnswer == item.questionOption"
+              wx:if="{{infos.questionAnswer == item.questionOption}}"
+
+              class=""
             >
               <image class="right-pic"
                 src="../../assets/img/icon_right.png"
@@ -49,12 +37,9 @@
               />
             </view>
             <view
-            wx:if="1===2"
+             wx:if="{{infos.answerContent == item.questionOption &&infos.answerContent != infos.questionAnswer}}"
             >
-             <!-- wx:if="
-                infos.answerContent == item.questionOption &&
-                  infos.answerContent != infos.questionAnswer
-              " -->
+            
               <image
                 src="../../assets/img/icon_wrong.png"
                 alt=""

@@ -8,7 +8,7 @@
 		<view class="answer-x">
 			<view>{{ infos.questionAnswer }}. </view>
 			<view style="display:inline-block" wx:for="{{infos.questionOptionsList}}" data-item="{{item}}">
-				<view wx:if="item.questionOption == infos.questionAnswer">
+				<view wx:if="{{item.questionOption == infos.questionAnswer}}">
 					<rich-text nodes="{{item.questionContent}}"></rich-text>
 				</view>
 			</view>

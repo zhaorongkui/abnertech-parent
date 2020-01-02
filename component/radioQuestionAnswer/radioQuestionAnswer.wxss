@@ -8,7 +8,7 @@
   margin: 0 auto;
   border-radius: 15rpx;
   width: 710rpx;
-  padding: 0 0 20rpx 0;
+  padding: 0 0 0rpx 0;
 
 }
 
@@ -52,8 +52,17 @@
 }
 
 .choseItem {
-  color: #666666;
   background: #eeeeee;
+  display:flex;
+  justify-content: flex-start;
+  margin-bottom:20rpx;
+  margin-top:20rpx;
+  align-items: center;
+  height:80rpx;
+  border-radius:9rpx;
+  color:#666;
+  font-size:30rpx;
+  padding:0 20rpx;
 }
 
 .green {
