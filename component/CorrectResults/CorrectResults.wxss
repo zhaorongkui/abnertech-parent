@@ -22,14 +22,7 @@
   font-size: 30rpx;
 }
 
-.judge-questions-answer {  width: 650rpx;
-  margin: 20rpx auto 0;
-  
-  border-radius: 5px;
-  background: #f8f8f8;
-  text-align: center;
-  font-size: 30rpx;
-  
+
 .judge-questions-answer {
   width: 625rpx;
   margin: 20rpx auto 0;

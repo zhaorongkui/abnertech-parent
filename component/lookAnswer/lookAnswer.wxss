@@ -177,3 +177,4 @@ p:nth-child(1) {
   overflow: hidden;
   padding: 6rpx 6px;
   margin-left: 10rpx;
+}
