@@ -1,3 +1,4 @@
+<wxs src="../../utils/filter.wxs" module="filter" />
 <view class="look-answer" wx:if="lookAnswerDisplay == true">
 	<view class="header">
 		<view class="sourcetip">参考答案</view>
@@ -6,7 +7,7 @@
 	<!-- 单选 -->
 	<view class="choice-questions-answer" wx:if="{{infos.questionTypeCode == 1}}">
 		<view class="answer-x">
-			<view>{{ infos.questionAnswer }}.</view>
+			<view>{{ infos.questionAnswer }}、</view>
 			<view style="display:inline-block" wx:for="{{infos.questionOptionsList}}" data-item="{{item}}">
 				<view wx:if="{{item.questionOption == infos.questionAnswer}}">
 					<rich-text nodes="{{item.questionContent}}"></rich-text>
@@ -28,11 +29,11 @@
 	<!-- 多选 -->
 	<view class="choice-questions-answer" wx:if="{{infos.questionTypeCode == 2}}">
 		<view class="answer-m-x">
-			<view class="div" wx:for="{{infos.questionOptionsList}}" data-item="{{item}}">
+			<view class="div" wx:for="{{filter.splits(infos.questionAnswer)}}" data-item="{{item}}">
 				<view class="check">
-					<text  decode="{{true}}">{{item.questionOption }}.&nbsp;&nbsp;</text></view>
-				<view class="neir">
-					<rich-text nodes="{{item.questionContent}}"></rich-text>
+					<text  decode="{{true}}">{{item}}、</text></view>
+				<view class="neir" wx:for="{{infos.questionOptionsList}}" wx:for-item = 'i'>
+					<rich-text nodes="{{i.questionContent}}" wx:if="{{i.questionOption == item}}"></rich-text>
 				</view>
 			</view>
 		</view>

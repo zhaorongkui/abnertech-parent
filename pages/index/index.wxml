@@ -262,7 +262,7 @@
                     <text>{{item.homeworkQuestionnum}}</text>
                   </view>
 
-                  <view class="tx" wx:if="{{ item.revisionStu == 1}}" bindtap="updRevision" data-id="{{item.revisionId}}">
+                  <view class="tx" wx:if="{{ item.revisionStu == 1}}" catch:tap="updRevision" data-id="{{item.revisionId}}">
                     提醒订正
                   </view>
                   <view class="look_c" wx:else>
