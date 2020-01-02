@@ -20,7 +20,7 @@ Component({
         infos: this.data.answerres.infos,
         parmres: this.data.answerres
       })
-      console.log('answer')
+     
       // console.log(this.data.infos)
       // console.log(this.data.parmres)
     }
