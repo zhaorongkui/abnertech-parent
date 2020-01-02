@@ -2,22 +2,22 @@
 	<view class="answersBody">
 		<view class="content">
 			<!-- 判断题查看做题答案 -->
-			<view wx:if="{{judgeres.questionTypeCode == 6}}" class="judge">
-				<view class="liItem right" :class="[questionInfo.answerContent === 'Y' ? (questionInfo.questionAnswer === questionInfo.answerContent ? 'right' : 'error') :'']">
-					正确{{judgeres.questionTypeCode}}
-					<view class="imageBox" wx:if="questionInfo.answerContent === 'Y' && questionInfo.questionAnswer === questionInfo.answerContent || questionInfo.answerContent === 'N' && questionInfo.questionAnswer !== questionInfo.answerContent">
+			<view wx:if="{{infos.questionTypeCode == 3}}" class="judge">
+				<view class="liItem right" :class="[infos.answerContent === 'Y' ? (infos.questionAnswer === infos.answerContent ? 'right' : 'error') :'']">
+					正确{{infos.questionTypeCode}}
+					<view class="imageBox" wx:if="infos.answerContent === 'Y' && infos.questionAnswer === infos.answerContent || infos.answerContent === 'N' && infos.questionAnswer !== infos.answerContent">
 						<image src="../../assets/img/icon_right.png" alt="" />
 					</view>
-					<view class="imageBox" wx:if="questionInfo.answerContent === 'Y' && questionInfo.questionAnswer !== questionInfo.answerContent">
+					<view class="imageBox" wx:if="infos.answerContent === 'Y' && infos.questionAnswer !== infos.answerContent">
 						<image class="errorimage" src="../../assets/img/icon_wrong.png" alt="" />
 					</view>
 				</view>
-				<view class="liItem error" :class="[questionInfo.answerContent === 'N'?(questionInfo.questionAnswer === questionInfo.answerContent ?'right' : 'error'):'']">
+				<view class="liItem error" :class="[infos.answerContent === 'N'?(infos.questionAnswer === infos.answerContent ?'right' : 'error'):'']">
 					错误
-					<view class="imageBox" wx:if="questionInfo.answerContent === 'N' && questionInfo.questionAnswer === questionInfo.answerContent || questionInfo.answerContent === 'Y' && questionInfo.questionAnswer !== questionInfo.answerContent">
+					<view class="imageBox" wx:if="infos.answerContent === 'N' && infos.questionAnswer === infos.answerContent || infos.answerContent === 'Y' && infos.questionAnswer !== infos.answerContent">
 						<image src="../../assets/img/icon_right.png" alt="" />
 					</view>
-					<view class="imageBox" wx:if="questionInfo.answerContent === 'N' && questionInfo.questionAnswer !== questionInfo.answerContent">
+					<view class="imageBox" wx:if="infos.answerContent === 'N' && infos.questionAnswer !== infos.answerContent">
 						<image class="errorimage" src="../../assets/img/icon_wrong.png" alt="" />
 					</view>
 				</view>

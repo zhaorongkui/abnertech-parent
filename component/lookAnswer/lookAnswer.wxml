@@ -1,69 +1,76 @@
 <view class="look-answer" wx:if="lookAnswerDisplay == true">
 	<view class="header">
-		<view class="sourcetip">参考答案{{infos.questionTypeCode}}</view>
+		<view class="sourcetip">参考答案</view>
 	</view>
 
 	<!-- 单选 -->
-	<view class="choice-questions-answer" wx:if="questionInfo.questionTypeCode == 1">
+	<view class="choice-questions-answer" wx:if="{{infos.questionTypeCode == 1}}">
 		<view class="answer-x">
-			<view>{{ questionInfo.questionAnswer }}、</view>
-			<view style="display:inline-block" wx:for="(" :key="index">
-				<view wx:if="i.questionOption == questionInfo.questionAnswer" wx:html="i.questionContent"></view>
+			<view>{{ infos.questionAnswer }}.</view>
+			<view style="display:inline-block" wx:for="{{infos.questionOptionsList}}" data-item="{{item}}">
+				<view wx:if="item.questionOption == infos.questionAnswer">
+					<rich-text nodes="{{item.questionContent}}"></rich-text>
+				</view>
 			</view>
 		</view>
 	</view>
 	<!-- 题组 -->
-	<view class="choice-questions-answer" wx:if="questionInfo.questionTypeCode == 4">
+	<view class="choice-questions-answer" wx:if="{{infos.questionTypeCode == 4}}">
 		<view class="answer-x">
 			<view>
-				{{ questionInfo.childQuestionList[activeIndex].questionAnswer }}、
+				{{ infos.childQuestionList[activeIndex].questionAnswer }}.
 			</view>
-			<view style="display:inline-block" wx:for="" :key="index">
+			<view style="display:inline-block" wx:for="">
 				<view wx:if="" wx:html="i.questionContent"></view>
 			</view>
 		</view>
 	</view>
 	<!-- 多选 -->
-	<view class="choice-questions-answer" wx:if="questionInfo.questionTypeCode == 2">
+	<view class="choice-questions-answer" wx:if="{{infos.questionTypeCode == 2}}">
 		<view class="answer-m-x">
-			<view wx:for="(" :key="index">
-				<view>{{ itemAnswer }}、</view>
-				<view wx:for="(">
-					<view wx:if="i.questionOption == itemAnswer" wx:html="i.questionContent"></view>
+			<view class="div" wx:for="{{infos.questionOptionsList}}" data-item="{{item}}">
+				<view class="check">
+					<text  decode="{{true}}">{{item.questionOption }}.&nbsp;&nbsp;</text></view>
+				<view class="neir">
+					<rich-text nodes="{{item.questionContent}}"></rich-text>
 				</view>
 			</view>
 		</view>
 	</view>
 	<!-- 判断 -->
-	<view class="judge-questions-answer" wx:if="1==1">
-		正确
+	<view wx:if="infos.questionTypeCode == 3">
+		<view class="judge-questions-answer" wx:if="{{infos.questionAnswer === 'Y'}}">
+			正确
+		</view>
+		<view class="judge-questions-answer" wx:if="{{infos.questionAnswer === 'N'}}">
+			错误
+		</view>
 	</view>
-	<view class="judge-questions-answer" wx:if="1==1">
-		错误
-	</view>
+
 	<!-- 主观 -->
-	<view class="zg-questions-answer" wx:if="1 == 1">
+	<view class="zg-questions-answer" wx:if="{{infos.questionTypeCode == 6 || infos.questionTypeCode == 5}}">
 		<view class="answerlist ul">
-			<view class="li liactive" :class="{ active: shareBtnIndex === -1 }">
+			<view class="li liactive" :class="{ active: shareBtnIndex === -1 }" bindtap="shareAnswer" data-index='-1'>
 				参考答案
 			</view>
-			<view class="li" :class="{ active: shareBtnIndex === index }" wx:for="item" :key="index">
+			<view class="li" :class="{ active: shareBtnIndex === index }" bindtap="shareAnswer" wx:for="i" data-item="{{item}}" data-index='{{index}}'>
 				同学答案{{ index + 1 }}
 			</view>
 		</view>
-		<!-- <view class="swiper-container swiper1">
-			<view class="swiper-wrapper">
-				<view wx:if="subjctShowe" class="swiper-slide" wx:html="questionInfo.questionAnswer"></view>
-
-				<view v-else class="swiper-slide" wx:for="(item, index) in studentShareUrlList" :key="index">
-					<image :src="item" />
-				</view>
-			</view>
-			<view wx:if="!subjctShowe" class="swiper-pagination swiprRem">
-				{{ activeIndex1 + 1 }}/{{ studentShareUrlList.length }}3
-			</view>
-		</view> -->
 		<view class="page-section page-section-spacing swiper-container swiper">
+		<!-- 客观填空题参考答案 -->
+			<!-- <view
+            class="blank"
+            style=""
+            v-if="{{infos.questionTypeCode === 5}}"
+            v-html="blanks"
+          >
+          </view> -->
+			<!-- 主观题参考答案 -->
+			<view v-if="{{subjctShowe && infos.questionTypeCode !== 5}}" class="questionDis">
+				<rich-text nodes="{{infos.questionAnswer}}"></rich-text>
+			</view>
+			<!-- 同学分享的答案 -->
 			<swiper class="swiper-wrapper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="onSliderChangeEnd" bindtransition="hotSwiperTransition">
 				<block wx:for="{{background}}" wx:key="*this">
 					<swiper-item class="swiper-slide">
@@ -72,13 +79,17 @@
 				</block>
 			</swiper>
 			<view class="swiper-pagination swiprRem">
-				{{ current + 1}}/{{questionInfo.fileList.length}}5
+				{{ current + 1}}/{{infos.fileList.length}}
 			</view>
 		</view>
 	</view>
 	<view class="questions-analysis">
-		<view class="jiexi"><image src="../../assets/img/jxbg.png" /></view>
+		<view class="jiexi">
+			<image src="../../assets/img/jxbg.png" />
+		</view>
 		<text class="span">解析</text>
-		<view wx:html="questionInfo.questionAnalysis"></view>
+		<view class="questionDis">
+			<rich-text nodes="{{infos.questionAnalysis}}"></rich-text>
+		</view>
 	</view>
 </view>

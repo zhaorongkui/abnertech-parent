@@ -23,7 +23,7 @@
 			</view>
 			<view class="page">
 				页码
-				<view>{{
+				<view class="pageOri">{{
             infos.workbookChapterPage != undefined
               ? infos.workbookChapterPage
               : '--'

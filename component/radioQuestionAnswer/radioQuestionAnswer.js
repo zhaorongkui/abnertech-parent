@@ -1,7 +1,7 @@
 // component/radioQuestionAnswer/radioQuestionAnswer.js
 Component({
   properties: {
-    radiores:Array
+    infos:Array
   },
   /**
    * 组件的初始数据
@@ -16,7 +16,7 @@ Component({
     ready() {
       // 在组件在视图层布局完成后执行
       // 父组件传过来的data,用this.data.res接收
-      console.log(this)
+      // console.log(this)
     }
   }
 })

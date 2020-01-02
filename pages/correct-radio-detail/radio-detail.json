@@ -1,3 +1,9 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "question-topic": "../../component/questionTopic/questionTopic",
+    "question-answer": "../../component/questionAnswer/questionAnswer",
+     "look-answer": "../../component/lookAnswer/lookAnswer",
+     "subjective-Answer": "../../component/subjectiveQuestionAnswer/subjectiveQuestionAnswer",
+     "Correct-Results": "../../component/CorrectResults/CorrectResults"
+  }
 }

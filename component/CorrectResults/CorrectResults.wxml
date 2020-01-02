@@ -1,22 +1,24 @@
 <!--component/CorrectResults/CorrectResults.wxml-->
-<view class="look-answer" wx:if="1===1">
+<view class="look-answer" >
 	<view class="header">
 		<view class="headerSourcetip">作业中的作答结果</view>
 	</view>
 	<!-- 单选 -->
-	<view class="choice-questions-answer" wx:if="questionInfo.questionTypeCode == 1">
+	<view class="choice-questions-answer" wx:if="{{infos.questionTypeCode == 1}}">
 		<view class="answer-x">
-			<view>{{ questionInfo.questionAnswer }}、</view>
-			<view style="display:inline-block" wx:for="(i)" :key="index">
-				<view wx:if="i.questionOption == questionInfo.questionAnswer" wx:html="i.questionContent"></view>
+			<view>{{ infos.questionAnswer }}. </view>
+			<view style="display:inline-block" wx:for="{{infos.questionOptionsList}}" data-item="{{item}}">
+				<view wx:if="item.questionOption == infos.questionAnswer">
+					<rich-text nodes="{{item.questionContent}}"></rich-text>
+				</view>
 			</view>
 		</view>
 	</view>
 	<!-- 题组 -->
-	<view class="choice-questions-answer" wx:if="questionInfo.questionTypeCode == 4">
+	<view class="choice-questions-answer" wx:if="{{infos.questionTypeCode == 4}}">
 		<view class="answer-x">
 			<view>
-				{{ questionInfo.childQuestionList[activeIndex].questionAnswer }}、
+				{{ infos.childQuestionList[activeIndex].questionAnswer }}、
 			</view>
 			<view style="display:inline-block" wx:for="(index)" :key="index">
 				<view wx:if="1==1" wx:html="i.questionContent"></view>
@@ -24,7 +26,7 @@
 		</view>
 	</view>
 	<!-- 多选 -->
-	<view class="choice-questions-answer" wx:if="questionInfo.questionTypeCode == 2">
+	<view class="choice-questions-answer" wx:if="{{infos.questionTypeCode == 2}}">
 		<view class="answer-m-x">
 			<view wx:for="j" :key="index">
 				<view>{{ itemAnswer }}、</view>
@@ -35,14 +37,14 @@
 		</view>
 	</view>
 	<!-- 判断 -->
-	<view class="judge-questions-answer" wx:if="1==1">
+	<view class="judge-questions-answer" wx:if="{{infos.homeworkStudentAnswers.answerContent === 'Y'}}">
 		正确
 	</view>
-	<view class="judge-questions-answer" wx:if="questionInfo.questionTypeCode == 3 && questionInfo.questionAnswer == 'N'">
+	<view class="judge-questions-answer" wx:if="{{infos.homeworkStudentAnswers.answerContent === 'N'}}">
 		错误
 	</view>
 	<!-- 主观 -->
-	<view class="zg-questions-answer" wx:if="questionInfo.questionProperty == 1">
+	<view class="zg-questions-answer" wx:if="{{infos.questionProperty == 1}}">
 		<view class="swiper-container swiper12">
 			<view class="swiper-wrapper">
 				<view class="swiper-slide" wx:for="(item)" :key="index">
@@ -50,19 +52,19 @@
 				</view>
 			</view>
 			<view wx:if="!subjctShowe" class="swiper-pagination swiprRem">
-				{{ activeIndex1 + 1 }}/{{ questionInfo.fileList[0].answerFileUrlStr.length }}3
+				{{ activeIndex1 + 1 }}/{{ infos.fileList[0].answerFileUrlStr.length }}3
 			</view>
 		</view>
 	</view>
 	<view class="tipFooter">
 		<view>
-			<view class="sourcetip">时间</view>
+			<view class="sourcetip">{{infos.revisionStudentAnswers.submitTime}}</view>
 		</view>
 		<view class="page">
         批阅结果来源：
         <text>{{
-            questionInfo.workbookChapterPage != undefined
-              ? questionInfo.workbookChapterPage
+            infos.workbookChapterPage != undefined
+              ? infos.workbookChapterPage
               : '--'
           }}</text>
       </view> 

@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/correct-group-detail/correct-group-detail",
     "pages/index/index",
     "pages/read-detail/read-detail",
     "pages/word-detail/word-detail",
@@ -21,7 +20,8 @@
     "pages/correct-judge-detail/judge-detail",
     "pages/correct-radio-detail/radio-detail",
     "pages/correct-checkBox-detail/checkBox-detail",
-    "pages/correct-subjective-detail/subjective-detail"
+    "pages/correct-subjective-detail/subjective-detail",
+    "pages/correct-group-detail/correct-group-detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

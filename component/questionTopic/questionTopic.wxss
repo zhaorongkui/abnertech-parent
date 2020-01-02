@@ -144,3 +144,6 @@
   overflow: hidden;
   padding:6rpx 6px;
 }
+.pageOri {
+  display: inline-block;
+}
