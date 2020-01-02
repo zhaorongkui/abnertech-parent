@@ -20,8 +20,8 @@ Component({
         infos: this.data.res.infos,
         parmres: this.data.res
       })
-      console.log(this.data.infos)
-      console.log(this.data.parmres)
+      // console.log(this.data.infos)
+      // console.log(this.data.parmres)
     }
   }
 })
