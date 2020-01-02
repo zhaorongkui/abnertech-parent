@@ -1,1 +1,194 @@
 /* component/groupQuestionAnswer/groupQuestionAnswer.wxss */
+
+.swiper-container, .swiper-wrapper, .swiper-slide {
+  width: 650rpx;
+  height: auto;
+  margin: 0 auto;
+}
+
+.wrap-group {
+  width: 710rpx;
+  height: auto;
+  margin: 20rpx auto 0;
+  background: #fff;
+  border-radius: 20rpx;
+}
+
+.title {
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding-left: 30rpx;
+  border-bottom: 1px solid #eee;
+  font-size: 30rpx;
+  color: #586878;
+  font-weight: 500;
+}
+
+.tips {
+  display: flex;
+  justify-content: start;
+}
+
+.tips  span {
+  width: 8rpx;
+  height: 26rpx;
+  background: rgba(51, 170, 119, 1);
+  box-shadow: 0px 5px 12px 0px rgba(3, 159, 92, 0.74);
+  margin-right: 20rpx;
+  margin-top: 10rpx;
+}
+
+.tips  p {
+  width: 93%;
+  font-size: 32rpx;
+  color: #333;
+}
+
+
+.choseItem {
+  width: 650rpx;
+  margin: 20rpx auto 0;
+}
+
+.choseItem ol li {
+  width: 100%;
+  height: auto;
+  background: rgba(238, 238, 238, 1);
+  border-radius: 4px;
+  margin-bottom: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  padding: 18rpx;
+}
+
+.choseItem ol li p {
+  font-size: 30rpx;
+  color: #666;
+}
+
+.choseItem ol li > p:nth-child(1) {
+  margin-left: 15rpx;
+}
+.choseItem ol li .tag image.right-img{
+  width:30rpx;
+  height:24rpx;
+}
+.choseItem ol li .tag image.error-img{
+  width:26rpx;
+  height:26rpx;
+}
+.groupButContent {
+  width: 650rpx;
+  height: auto;
+  margin: 0 auto;
+  padding-bottom: 20rpx;
+}
+
+.groupButContent .group-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20rpx 0 30rpx 0;
+}
+
+.groupButContent .questionBut {
+  width: 100%;
+  height: 100%;
+  border-radius: 12rpx;
+  text-align: center;
+  line-height: 70rpx;
+  font-size: 30rpx;
+  position: relative;
+  
+}
+.index_tab{
+  width:84%;
+}
+.index_tab .bottom_scroll{
+  width:100%;
+  white-space:nowrap;
+  overflow:hidden;
+  line-height:83rpx;
+}
+.index_tab .bottom_scroll .nav{
+  width:70rpx;
+  height:70rpx;
+  line-height: 70rpx;
+  display:inline-block;
+  white-space:normal;
+  text-align:center;
+  font-size: 26rpx;
+  margin-right:20rpx;
+  border:2px solid rgba(221, 221, 221, 1);
+  border-radius: 15rpx;
+  color:#333;
+}
+
+
+.groupButContent .questionBut .imgBox {
+  width: 26rpx;
+  height: 26rpx;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-radius: 8rpx 0 8rpx 0;
+}
+
+.groupButContent .questionBut .rightBag  image {
+  width: 20rpx;
+  height: 16rpx;
+}
+
+.groupButContent .questionBut .errorBag  image {
+  width: 16rpx;
+  height: 16rpx;
+}
+
+.groupButContent .questionBut .imgBox image {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  left: 0;
+  margin: auto;
+}
+
+.groupButContent .btns {
+  width: 14rpx;
+  height: 26rpx;
+}
+
+.groupButContent .left-btn {
+  transform: rotate(180deg);
+}
+
+.groupButContent .right-btn-none {
+  transform: rotate(180deg);
+}
+
+.groupButContent .rightBag {
+  color: #fff;
+  background: #3a7;
+  
+}
+
+.groupButContent .errorBag {
+  color: #fff;
+  background: #3a7;
+}
+
+.groupButContent  .errorBag {
+  background: #ff6365;
+}
+
+.groupButContent  .errorBorde {
+  border: 4rpx solid #ff6365;
+}
+
+.groupButContent   .rightBorde {
+  border: 4rpx solid #3a7;
+}
+

@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    nav_list: ['1', '2', '3', '4', '5', '6', '7']
   },
 
   /**
@@ -26,6 +26,34 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+
+  },
+
+  switchTap(e) { //更换资讯大类
+
+    let screenWidth = wx.getSystemInfoSync().windowWidth;
+
+    let itemWidth = screenWidth / 5;
+
+    let { index, type } = e.currentTarget.dataset;
+
+    const { nav_list } = this.data;
+
+    let scrollX = itemWidth * index - itemWidth * 2;
+
+    let maxScrollX = (nav_list.length + 1) * itemWidth;
+
+    if (scrollX < 0) {
+      scrollX = 0;
+    } else if (scrollX >= maxScrollX) {
+      scrollX = maxScrollX;
+    }
+
+    this.setData({
+      x: scrollX
+    })
+
+    //this.triggerEvent("switchTap", type); //点击了导航,通知父组件重新渲染列表数据
 
   },
 
