@@ -1,75 +1,71 @@
- <view class="wrap-group">
-    <view class="title">答题结果 <span>本题包含多个子题</span></view>
-    <view class="groupButContent">
-      <!-- 子题干按钮 -->
-      <view class="group-btn">
-        <image
-          
-          src="../../assets/img/ic_wrong_exercise_group_right.png"
-          alt=""
-          class="left-btn btns"
-          bindtap="selectLeftBnt"
-        />
-        <image
-          src="../../assets/img/ic_wrong_exercise_group_right _none.png"
-          alt=""
-          class="left-btn-none btns"
-          
-        />
-       
-        <image
-          src="../../assets/img/ic_wrong_exercise_group_right.png"
-          alt=""
-          class="right-btn btns"
-          
-          bindtap="selectRightBnt"
-        />
-        <image
-          src="../../assets/img/ic_wrong_exercise_group_right _none.png"
-          alt=""
-          class="right-btn-none btns"
-          
-        />
-      </view>
-      <view class="swiper-container swiper5">
-        <view class="swiper-wrapper">
+<view class="wrap-group">
+  <!-- <view class="title">最新订正结果
+    <span>本题包含多个子题</span> 
+  </view> -->
+  <view class="groupButContent">
+    <!-- 子题干按钮 -->
+    <view class="group-btn">
+       <image src="../../assets/img/ic_wrong_exercise_group_right.png" alt="" class="left-btn btns" bindtap="selectLeftBnt" />
+      <!-- <image src="../../assets/img/ic_wrong_exercise_group_right _none.png" alt="" class="left-btn-none btns" /> -->
+ <view class='index_tab'>
+      <scroll-view class="bottom_scroll" scroll-x="true" scroll-left="{{x}}" scroll-with-animation="{{true}}">
+
+        <view class='nav' wx:for="{{nav_list}}"  bindtap='switchTap' data-index="{{index}}">
           <view
-            class="swiper-slide"
-            
-            
+            class="questionBut iniBorder"
+    
           >
-            <view class="tips">
-              <span></span>
-              <p>rrrrrr</p>
+            <view>{{ index + 1 }}</view>   
+            <!-- <view class="imgBox rightBag" v-if="index == 0">
+              <image
+                src="../../assets/img/groupBut_right.png"
+                alt=""
+                class="imgage"
+              />
+            </view> -->
+            <view class="imgBox errorBag " v-if="index == 1">
+              <image
+                src="../../assets/img/groupBut_wrong.png"
+                alt=""
+                class="imgage"
+              />
             </view>
-            <view class="choseItem">
-              <ol>
-                <li>
-                  <!-- @click="
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+
+      <image src="../../assets/img/ic_wrong_exercise_group_right.png" alt="" class="right-btn btns" bindtap="selectRightBnt" />
+      <!-- <image src="../../assets/img/ic_wrong_exercise_group_right _none.png" alt="" class="right-btn-none btns" /> -->
+    </view>
+   
+    <view class="swiper-container swiper5">
+      <view class="swiper-wrapper">
+        <view class="swiper-slide">
+          <view class="tips">
+            <span></span>
+            <p>rrrrrr</p>
+          </view>
+          <view class="choseItem">
+            <ol>
+              <li>
+                <!-- @click="
                     selectItems(index, items.questionOption, item.questionId)
                   " -->
-                  <view>
-                    <p>{{ items.questionOption }}、</p>
-                    <p>eeee</p>
-                  </view>
+                <view>
+                  <p>{{ items.questionOption }}、</p>
+                  <p>eeee</p>
+                </view>
 
-                  <view class="tag">
-                    <image
-                      
-                      src="../../assets/img/icon_right.png"
-                      alt=""
-                    />
-                    <image
-                     
-                      src="../../assets/img/icon_wrong.png"
-                      alt=""
-                    />
-                  </view>
-                </li>
-              </ol>
-            </view>
+                <view class="tag">
+                  <image src="../../assets/img/icon_right.png" alt="" class="right-img" />
+                  <image src="../../assets/img/icon_wrong.png" alt="" class="error-img" />
+                </view>
+              </li>
+            </ol>
           </view>
         </view>
       </view>
     </view>
   </view>
+</view>
