@@ -2,12 +2,18 @@
 Page({
   onShareAppMessage() {
     return {
-      title: 'swiper',
+      title: 'swiper2',
       path: 'page/component/pages/swiper/swiper'
     }
   },
+})
+
+Component({
+  properties: {
+    lookres: Object, // 简化的定义方式
+  },
   /**
-   * 页面的初始数据
+   * 组件的初始数据
    */
   data: {
     background: ['../../assets/img/jxbg.png', '../../assets/img/jxbg.png', '../../assets/img/jxbg.png'],
@@ -17,84 +23,74 @@ Page({
     interval: 2000,
     duration: 500,
     current: 0,
-    imgUrl: '777777'
+    infos: [],
+    parmres: {},
+    studentIndex: null,
+    studentShareUrlList: [],
+    subjctShowe: true,
+    shareBtnIndex: -1,
   },
-
-  // 当滑块切换时触发事件
-  onSliderChangeEnd:function(e) {
-    let that = this;
-    that.setData({
-      current: e.detail.current
-    })
-    console.log(that.data.current)
+  lifetimes: {
+    attached() {
+      // 在组件实例进入页面节点树时执行
+    },
+    ready() {
+      // 在组件在视图层布局完成后执行
+      // 父组件传过来的data,用this.data.res接收
+      this.setData({
+        infos: this.data.lookres.infos,
+        parmres: this.data.lookres
+      })
+      // console.log(this.data.infos)
+      // console.log(this.data.parmres)
+    }
   },
-  /* 获取滑块左右滑动时位置 */
-  hotSwiperTransition: function(e) {
-    // console.log(e)
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    console.log('1111111')
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    console.log('2222222')
-    console.log(this.data.imgUrl)
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+  methods: {
+    // 当滑块切换时触发事件
+    onSliderChangeEnd: function (e) {
+      let that = this;
+      that.setData({
+        current: e.detail.current
+      })
+      console.log(that.data.current)
+    },
+    /* 获取滑块左右滑动时位置 */
+    hotSwiperTransition: function (e) {
+      console.log(e)
+    },
+    // 切换分享同学答案按钮，切换轮播
+    shareAnswer(index) {
+      console.log(index)
+      if (!index.currentTarget) {
+        var self = this
+        self.data.studentIndex = index
+        this.activeIndex1 = 0
+        index === -1 ? (this.data.subjctShowe = true) : (this.data.subjctShowe = false)
+        this.data.shareBtnIndex = index
+        if (
+          index !== -1 &&
+          index < this.infos.studentShareUrlList.length
+        ) {
+          this.data.studentShareUrlList = this.infos.studentShareUrlList[
+            index
+          ].urlList
+        }
+      }
+      var self = this
+      var index = index.currentTarget.dataset.index
+      self.data.studentIndex = index
+      this.activeIndex1 = 0
+      index === -1 ? (this.data.subjctShowe = true) : (this.data.subjctShowe = false)
+      this.data.shareBtnIndex = index
+      if (
+        index !== -1 &&
+        index < this.infos.studentShareUrlList.length
+      ) {
+        this.data.studentShareUrlList = this.infos.studentShareUrlList[
+          index
+        ].urlList
+      }
+    }
 
   }
 })
-// Component({
-//   lifetimes: {
-//   ready: function() {
-//     console.log(this,'------------------')
-//   }
-//   }
-// })

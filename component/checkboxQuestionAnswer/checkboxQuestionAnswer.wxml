@@ -1,5 +1,5 @@
 <view class="radioBoday">
-    <view class="answersBody">
+    <view class="answersBody" wx:if="{{infos.questionTypeCode == 2}}">
       <view class="content">
         <!-- 选择多选题答案详情 -->
         <view class="oneChoice">
@@ -27,7 +27,7 @@
               class="el-p"
               :class="[colorArr[index].bgflag == true ? 'colors' : '']"
             >
-              {{ item.questionOption }}、
+              {{ item.questionOption }}、{{infos.questionTypeCode}}
             </view>
 
             <view

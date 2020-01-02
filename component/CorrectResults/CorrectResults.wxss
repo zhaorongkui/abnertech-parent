@@ -59,9 +59,9 @@ p {
   text-align: left;
 }
 
-p:nth-child(1) {
+/* p:nth-child(1) {
   margin-left: 15rpx;
-}
+} */
 
 .zg-questions-answer {
   /* @include fj(); */
@@ -78,9 +78,8 @@ p:nth-child(1) {
   height: 291rpx;
 }
 
-.swiper-slide img {
-  /* @include wh(6.5rpx, 2.9rpx); */
-}
+/* .swiper-slide img {
+} */
 
 .swiper-pagination {
   position: absolute;
@@ -113,12 +112,11 @@ p:nth-child(1) {
   text-align: center;
 }
 
-div {
-  /* @include sc(28rpx, #666); */
+/* div {
   margin-top: 19rpx;
   padding-left: 35rpx;
   word-break: break-all;
-}
+} */
 
 .tipFooter {
   line-height: 87rpx;
@@ -131,12 +129,12 @@ div {
   align-items: center;
   
 }
-div {
+/* .div {
   width: 62%;
   display: flex;
   justify-content: start;
   align-items: center;
-}
+} */
 .sourcetip {
   color: #999999;
   font-size: 26rpx;
@@ -159,8 +157,8 @@ div {
   float: right;
   
 }
-span {
+/* .span {
   color: #586878;
   font-size: 28rpx;
   margin-left: 14rpx;
-}
+} */

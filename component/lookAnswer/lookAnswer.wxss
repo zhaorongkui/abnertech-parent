@@ -27,7 +27,7 @@
   margin: 20rpx auto 0;
   padding: 10px;
   border-radius: 5px;
-  background: #f8f8f8;
+  /* background: #f8f8f8; */
   text-align: center;
   font-size: 30rpx;
   color: #666666;
@@ -46,10 +46,14 @@ p:nth-child(1) {
   margin-left: 15rpx;
 }
 
-.choice-questions-answer .answer-m-x>div {
+.choice-questions-answer .answer-m-x>.div {
   display: flex;
   justify-content: start;
   margin-top: 15rpx;
+  background: #f8f8f8;
+  margin: 20rpx auto 0;
+  padding: 10px;
+
 }
 
 p {
@@ -93,9 +97,9 @@ p:nth-child(1) {
 
 .swiper-container {
   position: relative;
+  margin: 0 auto;
 }
 
-.swiper-container,
 .swiper-slide,
 .swiper-wrapper {
   width: 650rpx;
@@ -133,16 +137,26 @@ p:nth-child(1) {
   color: #586878;
   text-align: center;
   position: relative;
-  left:50rpx;
-  bottom:5rpx;
+  left: 50rpx;
+  bottom: 5rpx;
 }
+
 .jiexi {
-  width:118rpx;
-  height:48rpx;
-  margin-left:20rpx;
+  width: 118rpx;
+  height: 48rpx;
+  margin-left: 20rpx;
   position: absolute;
 }
+
 .jiexi image {
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
+}
+
+.questionDis {
+  color: #666666;
+  font-size: 28rpx;
+  overflow: hidden;
+  padding: 6rpx 6px;
+  margin-left: 10rpx;
 }

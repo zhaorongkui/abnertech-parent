@@ -1,8 +1,12 @@
 // pages/correct-group-detail/correct-group-detail.js
 
-//获取应用实例
+import * as echarts from '../../ec-canvas/echarts';
 import Http from '../../utils/ajax.js';
 import PublicFun from '../../utils/PublicFun.js';
+const app = getApp();
+
+
+
 
 Page({
 
