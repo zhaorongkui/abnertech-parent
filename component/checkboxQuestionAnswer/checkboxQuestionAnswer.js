@@ -36,7 +36,7 @@ Component({
         })
 
         this.data.questionAnswer = this.data.infos.questionAnswer.split('')
-        this.data.answerContent = this.data.infos.answerContent.split('')
+      this.data.answerContent = this.data.infos.revisionStudentAnswer.answerContent.split('')
         this.data.answerContent.forEach(item => {
           this.data.questionAnswer.forEach(items => {
             if (item == items) {
@@ -52,7 +52,7 @@ Component({
         this.setData({
           mergeArr: mergeArr
         })
-
+      
         this.data.answerContent.forEach(item => {
           if (arr.indexOf(item) == -1) {
             let obj = {
@@ -66,7 +66,7 @@ Component({
       this.setData({
         mergeArr: mergeArr
       })
-
+      console.log(this.data.mergeArr)
         this.data.colorArr = this.data.mergeArr.slice()
 
         this.data.colorArr.forEach(item => {

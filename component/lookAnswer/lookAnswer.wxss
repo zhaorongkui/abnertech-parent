@@ -14,49 +14,48 @@
 
 .sourcetip {
   padding-left: 29rpx;
-  color: #999;
   margin-left: 2rpx;
   display: inline-block;
   color: #586878;
   font-size: 30rpx;
 }
 
-.judge-questions-answer {  width: 650rpx;
+.judge-questions-answer {
+  width: 650rpx;
   margin: 20rpx auto 0;
   border-radius: 5px;
   /* background: #f8f8f8; */
   text-align: center;
   font-size: 30rpx;
   color: #666;
-
 }
+
 .judge-questions-answer {
   width: 625rpx;
   margin: 20rpx auto 0;
   padding: 10px;
   text-align: center;
   font-size: 30rpx;
-  color: #666666;
-  background: #eeeeee;
+  color: #666;
+  background: #eee;
 }
 
 .choice-questions-answer .answer-x {
   background: #f7f7f7;
-display: flex;
-justify-content: flex-start;
-
-align-items: center;
-height: 80rpx;
-border-radius: 9rpx;
-color: #666;
-font-size: 30rpx;
-padding: 0 20rpx;
-width: 610rpx;
-margin: 20rpx auto 20rpx;
-
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 80rpx;
+  border-radius: 9rpx;
+  color: #666;
+  font-size: 30rpx;
+  padding: 0 20rpx;
+  width: 610rpx;
+  margin: 20rpx auto 20rpx;
 }
-.choice-questions-answer .answer-x >view:nth-child(1){
-  margin-left:15rpx
+
+.choice-questions-answer .answer-x >view:nth-child(1) {
+  margin-left: 15rpx;
 }
 
 p {
@@ -67,13 +66,19 @@ p:nth-child(1) {
   margin-left: 15rpx;
 }
 
-.choice-questions-answer .answer-m-x>.div {
+
+.choice-questions-answer .answer-m-x>.divs {
+  background: #f7f7f7;
   display: flex;
-  justify-content: start;
-  margin-top: 15rpx;
-  background: #f8f8f8;
-  margin: 20rpx auto 0;
-  padding: 10px;
+  justify-content: flex-start;
+  align-items: center;
+  height: 80rpx;
+  border-radius: 9rpx;
+  color: #666;
+  font-size: 30rpx;
+  padding: 0 20rpx;
+  width: 610rpx;
+  margin: 20rpx auto 20rpx;
 }
 
 p {
@@ -133,7 +138,7 @@ p:nth-child(1) {
 
 .swiper-pagination {
   position: absolute;
-  right: 20rpx;
+  right: 50rpx;
   bottom: 20rpx;
   padding: 2px 20rpx;
   background: rgba(0, 0, 0, 0.4);
@@ -178,5 +183,5 @@ p:nth-child(1) {
   font-size: 28rpx;
   overflow: hidden;
   padding: 6rpx 6px;
-  margin-left: 40rpx;
+  margin-left: 34rpx;
 }
