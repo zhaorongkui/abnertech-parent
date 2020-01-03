@@ -41,12 +41,14 @@ Component({
         infos: this.data.res.infos
         // parmres: this.data.lookres
       })
-      this.data.infos.homeworkStudentAnswer.studentAnswerFiles.forEach(item => {
-        this.data.imageUrls.push(item.answerFileUrlStr)
-      })
-      console.log(this.data.imageUrls)
-      // console.log(this.data.infos)
-      // console.log(this.data.parmres)
+      if (this.data.infos.questionProperty === 1) {
+        if (this.data.infos.homeworkStudentAnswer && this.data.infos.homeworkStudentAnswer.studentAnswerFiles) {
+          this.data.infos.homeworkStudentAnswer.studentAnswerFiles.forEach(item => {
+            this.data.imageUrls.push(item.answerFileUrlStr)
+          })
+        }
+      }
+
     }
   },
   methods: {

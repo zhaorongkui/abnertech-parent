@@ -7,7 +7,6 @@ Component({
    * 组件的初始数据
    */
   data: {
-    background: ['../../assets/img/jxbg.png', '../../assets/img/jxbg.png', '../../assets/img/jxbg.png'],
     indicatorDots: false,
     vertical: false,
     autoplay: false,
