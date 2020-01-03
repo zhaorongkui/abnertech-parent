@@ -29,12 +29,14 @@
   <!-- 多选 -->
   <view class="choice-questions-answer" wx:if="{{infos.questionTypeCode == 2}}">
     <view class="answer-m-x">
-      <view wx:for="j" :key="index">
-        <view>{{ itemAnswer }}、</view>
-        <view wx:for="i" :key="index">
-          <view wx:if="i.questionOption == itemAnswer" wx:html="i.questionContent"></view>
+      <view class="divs" wx:for="{{filter.splits(infos.questionAnswer)}}" data-item="{{item}}">
+				<view class="check">
+					<text  decode="{{true}}">{{item}}、</text>
         </view>
-      </view>
+				<view class="neir" wx:for="{{infos.questionOptionsList}}" wx:for-item = 'i'>
+					<rich-text nodes="{{i.questionContent}}" wx:if="{{i.questionOption == item}}"></rich-text>
+				</view>
+			</view>
     </view>
   </view>
   <!-- 判断 -->
