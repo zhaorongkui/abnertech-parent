@@ -51,10 +51,10 @@
 	<!-- 主观 -->
 	<view class="zg-questions-answer" wx:if="{{infos.questionTypeCode == 6 || infos.questionTypeCode == 5}}">
 		<view class="answerlist ul">
-			<view class="li liactive {{shareBtnIndex === -1 ? 'active':''}}"  bindtap="shareAnswer" data-index='-1'>
+			<view class="li  {{shareBtnIndex === -1 ? 'liactive':''}}"  bindtap="shareAnswer" data-index='{{-1}}'>
 				参考答案
 			</view>
-			<view class="li" :class="{ active: shareBtnIndex === index }" bindtap="shareAnswer" wx:for="{{infos.studentShareUrlList}}" data-item="{{item}}" data-index='{{index}}'>同学答案{{ index + 1 }}
+			<view class="li {{shareBtnIndex === index?'liactive':''}}}"  bindtap="shareAnswer" wx:for="{{infos.studentShareUrlList}}" data-item="{{item}}" data-index='{{index}}'>同学答案{{ index + 1 }}
 			</view>
 		</view>
 		<view class="page-section page-section-spacing swiper-container swiper">
@@ -63,15 +63,20 @@
 			</view>
 			<!-- 主观题参考答案 -->
 			<view wx:if="{{subjctShowe && infos.questionTypeCode !== 5}}" class="questionDis">
-				<rich-text nodes="{{infos.questionAnswer}}"></rich-text>
+				<swiper current="{{current}}" class="swiper-wrapper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="onSliderChangeEnd" bindtransition="hotSwiperTransition">
+					<block wx:for="i" wx:key="*this">
+						<swiper-item class="swiper-slide" bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd'>
+							<rich-text nodes="{{infos.questionAnswer}}"></rich-text>
+						</swiper-item>
+					</block>
+				</swiper>
 			</view>
 			<!-- 同学分享的答案 -->
 			<view wx:if="{{infos.studentShareUrlList && !subjctShowe}}">
-				<swiper class="swiper-wrapper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="onSliderChangeEnd" bindtransition="hotSwiperTransition">
-					<!-- <block wx:for="{{background}}" wx:key="*this"> -->
+				<swiper current="{{current}}" class="swiper-wrapper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="onSliderChangeEnd" bindtransition="hotSwiperTransition">
 					<block wx:for="{{studentShareUrlList}}" wx:key="*this">
 						<swiper-item class="swiper-slide" bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd'>
-							<image src="{{item}}" class="slide-image" bindtap='tapBanner' data-indexurl='{{item}}'></image>
+							<image src="{{item}}" class="slide-image" data-indexurl='{{item}}' data-src="{{item}}" bindload="imageLoad" style="height:{{imgheights[index]}}px;width:100%;" bindtap="previewImage"></image>
 						</swiper-item>
 					</block>
 				</swiper>

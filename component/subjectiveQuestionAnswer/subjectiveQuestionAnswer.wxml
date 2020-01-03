@@ -24,7 +24,7 @@
           bindchange="onSliderChangeEnd" bindtransition="hotSwiperTransition">
 						<block wx:for="{{infos.revisionStudentAnswer.studentAnswerFiles}}" data-item="{{item}}">
 							<swiper-item class="swiper-slide">
-								<image src="{{item.answerFileUrl}}" class="slide-image" bindtap='tapBanner'  data-indexurl='{{item}}' ></image>  
+								<image src="{{item.answerFileUrl}}" class="slide-image" data-src="{{item}}" bindload="imageLoad" style="height:{{imgheights[index]}}px;width:100%;" bindtap="previewImage"></image>  
 							</swiper-item>
 						</block>
 					</swiper>

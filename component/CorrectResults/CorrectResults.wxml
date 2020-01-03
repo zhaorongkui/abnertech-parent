@@ -65,7 +65,7 @@
         <!-- <block wx:for="{{background}}" wx:key="*this"> -->
         <block wx:for="{{infos.homeworkStudentAnswer.studentAnswerFiles}}" wx:key="*this">
           <swiper-item class="swiper-slide">
-            <image src="{{item.answerFileUrlStr}}" class="slide-image" bindtap='tapBanner' data-indexurl='{{item}}'></image>
+            <image src="{{item.answerFileUrlStr}}" class="slide-image" data-src="{{item}}" bindload="imageLoad" style="height:{{imgheights[index]}}px;width:100%;" bindtap="previewImage"></image>  
           </swiper-item>
         </block>
       </swiper>
