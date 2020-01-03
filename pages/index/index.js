@@ -188,7 +188,7 @@ Page({
       studentUnReadResourceList: [],
       historyHomeworkData: [], //作业任务
       homeworkData: [], //作业任务
-      correctworkData:[]
+      correctworkData: []
     })
 
     if (app.globalData.isShow) {
@@ -210,7 +210,9 @@ Page({
       wx.navigateTo({
         url: '../correct-detail/correct-detail?id=' + e.currentTarget.dataset.id
       })
+      return false
     } else {
+
       if (this.data.currentTime > e.currentTarget.dataset.time) {
         if (e.currentTarget.dataset.id == 1 || e.currentTarget.dataset.id == 2) {
           wx.navigateTo({
@@ -625,7 +627,7 @@ Page({
               isShowline: false,
               currentTime: res.currentTime
             })
-            var data = this.data.correctworkData
+            var data = _self.data.correctworkData
 
             _self.setData({
               correctworkData: data.concat(res.infos.revisionStudentInfoList),
@@ -638,13 +640,24 @@ Page({
               })
             }
           } else {
+            var data = _self.data.correctworkData
             _self.setData({
+              correctworkData: data,
+              homework_null: true,
               correctworkDataNull: true,
               loading1: false,
               isShowline: true,
-              correctworkData: [],
-              homework_null: true
             })
+            if(data.length != 0){
+              _self.setData({
+                correctworkDataNull: false
+              })
+            }else{
+              _self.setData({
+                correctworkDataNull: true
+              })
+            }
+            
           }
 
 
