@@ -1,14 +1,14 @@
 // component/JudgeQuestionAnswer/judgeQuestionAnswer.js
 Component({
   properties: {
-    infos:Array
+    infos:Object
   },
   /**
    * 组件的初始数据
    */
   data: {
+    infos: {},
     stemObj: {},
-    
   },
   lifetimes: {
     attached() {
@@ -18,6 +18,9 @@ Component({
       // 在组件在视图层布局完成后执行
       // 父组件传过来的data,用this.data.res接收
       // console.log(this)
+      this.setData({
+        infos: this.data.infos
+      })
     }
   }
 })

@@ -138,7 +138,7 @@ p:nth-child(1) {
 
 .swiper-pagination {
   position: absolute;
-  right: 20rpx;
+  right: 50rpx;
   bottom: 20rpx;
   padding: 2px 20rpx;
   background: rgba(0, 0, 0, 0.4);

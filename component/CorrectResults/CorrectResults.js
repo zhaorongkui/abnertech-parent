@@ -37,11 +37,14 @@ Component({
       // console.log(this.data.res)
       // 在组件在视图层布局完成后执行
       // 父组件传过来的data,用this.data.res接收
-      this.setData({
-        infos: this.data.res.infos
-        // parmres: this.data.lookres
-      })
-      if (this.data.infos.questionProperty === 1) {
+      if(this.data.res) {
+        this.setData({
+          infos: this.data.res.infos
+          // parmres: this.data.lookres
+        })
+      }
+      
+      if (this.data.infos && this.data.infos.questionProperty && this.data.infos.questionProperty === 1) {
         if (this.data.infos.homeworkStudentAnswer && this.data.infos.homeworkStudentAnswer.studentAnswerFiles) {
           this.data.infos.homeworkStudentAnswer.studentAnswerFiles.forEach(item => {
             this.data.imageUrls.push(item.answerFileUrlStr)
