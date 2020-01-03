@@ -42,7 +42,7 @@
     <view class="judge-questions-answer" wx:if="{{infos.homeworkStudentAnswer.answerContent === 'Y'}}">
       正确
     </view>
-    <view class="judge-questions-answer" wx:if="{{infos.homeworkStudentAnswer.answerContent=== 'N'}}">
+    <view class="judge-questions-answer" wx:if="{{infos.homeworkStudentAnswer.answerContent === 'N'}}">
       错误
     </view>
   </view>
