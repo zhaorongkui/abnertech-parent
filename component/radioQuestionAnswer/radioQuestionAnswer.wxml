@@ -8,11 +8,11 @@
             wx:for="{{infos.questionOptionsList}}"
             :key="index"
 
-            class="choseItem  {{infos.answerContent != infos.questionAnswer ? infos.answerContent == item.questionOption ? 'error' : '' : infos.answerContent == item.questionOption ? 'right' : ''}}"
+            class="choseItem  {{infos.revisionStudentAnswer.answerContent != infos.questionAnswer ? infos.revisionStudentAnswer.answerContent == item.questionOption ? 'error' : '' : infos.revisionStudentAnswer.answerContent == item.questionOption ? 'right' : ''}}"
           >
           
             <view
-              class="el-p {{infos.answerContent == infos.questionAnswer &&infos.answerContent == item.questionOption ? 'colors' : ''}}"
+              class="el-p {{infos.revisionStudentAnswer.answerContent == infos.questionAnswer &&infos.revisionStudentAnswer.answerContent == item.questionOption ? 'colors' : ''}}"
             >
             
               {{ item.questionOption }}、
@@ -22,7 +22,7 @@
               style="width:90%"
               
             >
-             <rich-text nodes="{{item.questionContent}}"></rich-text>  
+             <rich-text nodes="{{item.questionContent}}" class="{{infos.revisionStudentAnswer.answerContent == infos.questionAnswer &&infos.revisionStudentAnswer.answerContent == item.questionOption ? 'colors' : ''}}"></rich-text>  
             </view>
             
             <view
@@ -37,7 +37,7 @@
               />
             </view>
             <view
-             wx:if="{{infos.answerContent == item.questionOption &&infos.answerContent != infos.questionAnswer}}"
+             wx:if="{{infos.revisionStudentAnswer.answerContent == item.questionOption &&infos.revisionStudentAnswer.answerContent != infos.questionAnswer}}"
             >
             
               <image

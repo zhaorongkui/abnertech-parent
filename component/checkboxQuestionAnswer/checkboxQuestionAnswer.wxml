@@ -1,64 +1,39 @@
 <view class="radioBoday">
-    <view class="answersBody" wx:if="{{infos.questionTypeCode == 2}}">
-      <view class="content">
-        <!-- 选择多选题答案详情 -->
-        <view class="oneChoice">
-          <view
-            class="choseItem"
-            wx:for="{{infos.questionOptionsList}}"
-            wx:for-item="item"
-            
-          >
-            <view wx:for="{{mergeArr}}" wx:for-item = 'i'>
-              <text
-                
-                :class="{{i.bgflag == true ? 'right' : ''}}"
-                wx:if="el-span {{item.questionOption == i.tem}}"
-              ></text>
-              <text
-                
-                :class="el-span {{i.bgflag == false ? 'error' : ''}}"
-                wx:if="{{item.questionOption == i.tem}}"
-              ></text>
+  <view class="answersBody">
+    <view class="content">
+      <!-- 选择多选题答案详情 -->
+      <view class="oneChoice">
+        <view class="choseItem" wx:for="{{infos.questionOptionsList}}" wx:for-item="item">
+          <view wx:for="{{mergeArr}}" wx:for-item='i'>
+            <view wx:if="{{item.questionOption == i.tem}}">
+              <text class="el-span {{i.bgflag == true ? 'right' : ''}}"></text>
             </view>
-
-            <view
-              
-              :class="el-p {{colorArr[index].bgflag == true ? 'colors' : ''}}"
-            >
-              {{ item.questionOption }}、
+            <view wx:if="{{item.questionOption == i.tem}}">
+              <text class="el-span {{i.bgflag == false ? 'error' : ''}}"></text>
             </view>
+          </view>
 
-            <view
-              
-              style="width:90%"
-              :class="{{colorArr[index].bgflag == true ? 'colors' : ''}}"
-            > 
-             <rich-text nodes="{{item.questionContent}}"></rich-text>
+          <view class="el-p {{colorArr[index].bgflag == true ? 'colors' : ''}}">
+            {{ item.questionOption }}、
+          </view>
+
+          <view style="width:90%" class="{{colorArr[index].bgflag == true ? 'colors' : ''}}">
+            <rich-text nodes="{{item.questionContent}}"></rich-text>
+          </view>
+
+          <view class="p" wx:for="{{questionAnswer}}" wx:for-item='items'>
+            <view wx:if="{{items == item.questionOption}}">
+              <image src="../../assets/img/icon_right.png" alt="" class="right-pic"  />
             </view>
-
-            <view class="p"
-              wx:for="{{questionAnswer}}"
-              wx:for-item = 'items'
-            >
-              <image
-                src="../../assets/img/icon_right.png"
-                alt=""
-                class="right-pic"
-                wx:if="{{items == item.questionOption}}"
-              />
-            </view> 
-            <view class="p" >
-              <image
-                src="../../assets/img/icon_wrong.png"
-                alt=""
-                class="wrong-pic"
-                wx:if="{{items.bgflag == false && items.tem == item.questionOption}}"
-              />
+          </view>
+          
+          <view class="p" wx:for="{{mergeArr}}" wx:for-item='items'>
+            <view wx:if="{{items.bgflag == false && items.tem == item.questionOption}}">
+              <image src="../../assets/img/icon_wrong.png" alt="" class="wrong-pic"  />
             </view>
           </view>
         </view>
       </view>
     </view>
   </view>
-
+</view>
