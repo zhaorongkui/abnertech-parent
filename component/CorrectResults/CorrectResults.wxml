@@ -1,88 +1,91 @@
 <!--component/CorrectResults/CorrectResults.wxml-->
-	<view class="header">
-		<view class="headerSourcetip">作业中的作答结果</view>
-	</view>
-	<!-- 单选 -->
-	<view class="choice-questions-answer" wx:if="{{infos.questionTypeCode == 1}}">
-		<view class="answer-x">
-			<view>{{ infos.questionAnswer }}、</view>
-			<view style="display:inline-block" wx:for="{{infos.questionOptionsList}}" data-item="{{item}}">
-				<view wx:if="{{item.questionOption == infos.questionAnswer}}">
-					<rich-text nodes="{{item.questionContent}}"></rich-text>
-				</view>
-			</view>
-		</view>
-	</view>
-	<!-- 题组 -->
-	<view class="choice-questions-answer" wx:if="{{infos.questionTypeCode == 4}}">
-		<view class="answer-x">
-			<view>
-				{{ infos.childQuestionList[activeIndex].questionAnswer }}、
-			</view>
-			<view style="display:inline-block" wx:for="(index)" :key="index">
-				<view wx:if="1==1" wx:html="i.questionContent"></view>
-			</view>
-		</view>
-	</view>
-	<!-- 多选 -->
-	<view class="choice-questions-answer" wx:if="{{infos.questionTypeCode == 2}}">
-		<view class="answer-m-x">
-			<view wx:for="j" :key="index">
-				<view>{{ itemAnswer }}、</view>
-				<view wx:for="i" :key="index">
-					<view wx:if="i.questionOption == itemAnswer" wx:html="i.questionContent"></view>
-				</view>
-			</view>
-		</view>
-	</view>
-	<!-- 判断 -->
-	<view wx:if="{{infos.questionTypeCode == 3}}">
-		<view class="judge-questions-answer" wx:if="{{infos.homeworkStudentAnswer.answerContent === 'Y'}}">
-			正确
-		</view>
-		<view class="judge-questions-answer" wx:if="{{infos.homeworkStudentAnswer.answerContent === 'N'}}">
-			错误
-		</view>
-	</view>
+<wxs src="../../utils/filter.wxs" module="filter" />
+<view class="look-answer">
+  <view class="header">
+    <view class="headerSourcetip">作业中的作答结果</view>
+  </view>
+  <!-- 单选 -->
+  <view class="choice-questions-answer" wx:if="{{infos.questionTypeCode == 1}}">
+    <view class="answer-x">
+      <view>{{ infos.questionAnswer }}、</view>
+      <view style="display:inline-block" wx:for="{{infos.questionOptionsList}}" data-item="{{item}}">
+        <view wx:if="{{item.questionOption == infos.questionAnswer}}">
+          <rich-text nodes="{{item.questionContent}}"></rich-text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 题组 -->
+  <view class="choice-questions-answer" wx:if="{{infos.questionTypeCode == 4}}">
+    <view class="answer-x">
+      <view>
+        {{ infos.childQuestionList[activeIndex].questionAnswer }}、
+      </view>
+      <view style="display:inline-block" wx:for="(index)" :key="index">
+        <view wx:if="1==1" wx:html="i.questionContent"></view>
+      </view>
+    </view>
+  </view>
+  <!-- 多选 -->
+  <view class="choice-questions-answer" wx:if="{{infos.questionTypeCode == 2}}">
+    <view class="answer-m-x">
+      <view wx:for="j" :key="index">
+        <view>{{ itemAnswer }}、</view>
+        <view wx:for="i" :key="index">
+          <view wx:if="i.questionOption == itemAnswer" wx:html="i.questionContent"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 判断 -->
+  <view wx:if="{{infos.questionTypeCode == 3}}">
+    <view class="judge-questions-answer" wx:if="{{infos.homeworkStudentAnswer.answerContent === 'Y'}}">
+      正确
+    </view>
+    <view class="judge-questions-answer" wx:if="{{infos.homeworkStudentAnswer.answerContent === 'N'}}">
+      错误
+    </view>
+  </view>
 
-	<!-- 主观 -->
-	<view wx:if="{{infos.questionProperty == 1}}">
-		<view class="unable" wx:if="{{!infos.homeworkStudentAnswer.studentAnswerFiles}}">
-			<view class="imgbox">
-				<image class="unableImg" src="../../assets/img/unable.png" alt="" />
-				<view>
-					此题标记为不会
-				</view>
-				<view class="secondp">
-					革命尚未成功，同学要认真学习哦~
-				</view>
-			</view>
-		</view>
-		<view class="page-section page-section-spacing swiper-container swiper" wx:if="{{infos.homeworkStudentAnswer.studentAnswerFiles}}">
-			<swiper class="swiper-wrapper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="onSliderChangeEnd" bindtransition="hotSwiperTransition">
-				<!-- <block wx:for="{{background}}" wx:key="*this"> -->
-				<block wx:for="{{infos.homeworkStudentAnswer.studentAnswerFiles}}" wx:key="*this">
-					<swiper-item class="swiper-slide">
-						<image src="{{item.answerFileUrlStr}}" class="slide-image" bindtap='tapBanner' data-indexurl='{{item}}'></image>
-					</swiper-item>
-				</block>
-			</swiper>
-			<view class="swiper-pagination swiprRem">
-				{{ current + 1}}/{{infos.homeworkStudentAnswer.studentAnswerFiles.length}}
-			</view>
-		</view>
-	</view>
+  <!-- 主观 -->
+  <view wx:if="{{infos.questionProperty == 1}}">
+    <view class="unable" wx:if="{{!infos.homeworkStudentAnswer.studentAnswerFiles}}">
+      <view class="imgbox">
+        <image class="unableImg" src="../../assets/img/unable.png" alt="" />
+        <view>
+          此题标记为不会
+        </view>
+        <view class="secondp">
+          革命尚未成功，同学要认真学习哦~
+        </view>
+      </view>
+    </view>
+    <view class="page-section page-section-spacing swiper-container swiper" wx:if="{{infos.homeworkStudentAnswer.studentAnswerFiles}}">
+      <swiper class="swiper-wrapper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="onSliderChangeEnd" bindtransition="hotSwiperTransition">
+        <!-- <block wx:for="{{background}}" wx:key="*this"> -->
+        <block wx:for="{{infos.homeworkStudentAnswer.studentAnswerFiles}}" wx:key="*this">
+          <swiper-item class="swiper-slide">
+            <image src="{{item.answerFileUrlStr}}" class="slide-image" bindtap='tapBanner' data-indexurl='{{item}}'></image>
+          </swiper-item>
+        </block>
+      </swiper>
+      <view class="swiper-pagination swiprRem">
+        {{ current + 1}}/{{infos.homeworkStudentAnswer.studentAnswerFiles.length}}
+      </view>
+    </view>
+  </view>
 
-	<view class="tipFooter">
-		<view>
-			<view class="sourcetip">{{filter.time(infos.revisionStudentAnswer.submitTime)}}</view>
-		</view>
-		<view class="page">
-			批阅结果来源：
-			<text>{{
+  <view class="tipFooter">
+    <view>
+      <view class="sourcetip">{{filter.time(infos.revisionStudentAnswer.submitTime)}}</view>
+    </view>
+    <view class="page">
+      批阅结果来源：
+      <text>{{
             infos.workbookChapterPage != undefined
               ? infos.workbookChapterPage
               : '--'
           }}</text>
-		</view>
-	</view>
+    </view>
+  </view>
+</view>
