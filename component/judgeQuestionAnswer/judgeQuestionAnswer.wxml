@@ -5,7 +5,7 @@
 			<view wx:if="{{infos.questionTypeCode == 3}}" class="judge">
 				<view class="liItem {{infos.revisionStudentAnswer.answerContent === 'Y' ? (infos.questionAnswer === infos.revisionStudentAnswer.answerContent ? 'right' : 'error') :''}}" >
 					正确
-					<view class="imageBox" wx:if="{{infos.revisionStudentAnswer.answerContent === 'Y' && infos.questionAnswer === infos.revisionStudentAnswer.answerContent || infos.revisionStudentAnswer.answerContent === 'N' && infos.questionAnswer !== infos.answerContent}}">
+					<view class="imageBox" wx:if="{{infos.revisionStudentAnswer.answerContent === 'Y' && infos.questionAnswer === infos.revisionStudentAnswer.answerContent || infos.revisionStudentAnswer.answerContent === 'N' && infos.questionAnswer !== infos.revisionStudentAnswer.answerContent}}">
 						<image src="../../assets/img/icon_right.png" alt="" />
 					</view>
 					<view class="imageBox" wx:if="{{infos.revisionStudentAnswer.answerContent === 'Y' && infos.questionAnswer !== infos.revisionStudentAnswer.answerContent}}">
@@ -14,7 +14,7 @@
 				</view>
 				<view class="liItem {{infos.revisionStudentAnswer.answerContent === 'N'?(infos.questionAnswer === infos.revisionStudentAnswer.answerContent ?'right' : 'error'):''}}" >
 					错误
-					<view class="imageBox" wx:if="{{infos.revisionStudentAnswer.answerContent === 'N' && infos.questionAnswer === infos.revisionStudentAnswer.answerContent || infos.revisionStudentAnswer.answerContent === 'Y' && infos.questionAnswer !== infos.answerContent}}">
+					<view class="imageBox" wx:if="{{infos.revisionStudentAnswer.answerContent === 'N' && infos.questionAnswer === infos.revisionStudentAnswer.answerContent || infos.revisionStudentAnswer.answerContent === 'Y' && infos.questionAnswer !== infos.revisionStudentAnswer.answerContent}}">
 						<image src="../../assets/img/icon_right.png" alt="" />
 					</view>
 					<view class="imageBox" wx:if="{{infos.revisionStudentAnswer.answerContent === 'N' && infos.questionAnswer !== infos.revisionStudentAnswer.answerContent}}">

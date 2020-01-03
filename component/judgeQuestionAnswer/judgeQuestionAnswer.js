@@ -7,7 +7,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-    stemObj: {}
+    stemObj: {},
+    
   },
   lifetimes: {
     attached() {
