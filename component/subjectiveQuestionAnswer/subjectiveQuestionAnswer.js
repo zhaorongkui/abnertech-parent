@@ -56,9 +56,12 @@ Component({
         infos: this.data.res.infos,
         parmres: this.data.lookres
       })
-      this.data.infos.revisionStudentAnswer.studentAnswerFiles.forEach(item => {
-        this.data.imageUrls.push(item.answerFileUrl)
-      })
+      if (this.data.infos.revisionStudentAnswer && this.data.infos.revisionStudentAnswer.studentAnswerFiles) {
+        this.data.infos.revisionStudentAnswer.studentAnswerFiles.forEach(item => {
+          this.data.imageUrls.push(item.answerFileUrl)
+        })
+      }
+      
       // if (this.data.infos.questionTypeCode === 5) {
       //   let a = ''
       //   let b = []
@@ -86,7 +89,6 @@ Component({
       that.setData({
         current: e.detail.current
       })
-      console.log(that.data.current)
     },
     /*** 预览图片****/
     previewImage: function (e) {
