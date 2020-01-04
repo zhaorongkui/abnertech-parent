@@ -71,11 +71,14 @@ p {
 .swiper-wrapper {
   width: 650rpx;
   height: 290rpx;
+  text-align: center;
 }
-
-.swiper-slide image {
-  width:100%;
-  height: 100%;
+.swiper-wrapper {
+  line-height: 291rpx;
+}
+.swiper-slide .slide-image {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .swiper-pagination {
