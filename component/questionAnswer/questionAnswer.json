@@ -3,6 +3,6 @@
     "judge-question": "../../component/judgeQuestionAnswer/judgeQuestionAnswer",
     "radio-question": "../../component/radioQuestionAnswer/radioQuestionAnswer",
     "checkbox-question": "../../component/checkboxQuestionAnswer/checkboxQuestionAnswer",
-    "group-question": "../../component/groupQuestionAnswer/groupQuestionAnswer"
+    "group-question": "../../component/groupQuestionAnswers/groupQuestionAnswers"
   }
 }

@@ -19,11 +19,14 @@
 	<view class="choice-questions-answer" wx:if="{{infos.questionTypeCode == 4}}">
 		<view class="answer-x">
 			<view>
-				{{ infos.childQuestionList[activeIndex].questionAnswer }}.
+				{{ infos.childQuestionInfoList[currentIndex].questionAnswer }}、
 			</view>
-			<view style="display:inline-block" wx:for="">
-				<view wx:if="" wx:html="i.questionContent"></view>
+      <block wx:for="{{infos.childQuestionInfoList[currentIndex].questionOptionsList}}">
+			<view style="display:inline-block" wx:if="{{infos.childQuestionInfoList[currentIndex].questionAnswer == item.questionOption}}">
+       
+				<rich-text nodes="{{item.questionContent}}"></rich-text>
 			</view>
+      </block>
 		</view>
 	</view>
 	<!-- 多选 -->
@@ -91,8 +94,11 @@
 			<image src="../../assets/img/jxbg.png" />
 		</view>
 		<text class="span">解析</text>
-		<view class="questionDis">
+		<view class="questionDis" wx:if="{{infos.questionTypeCode != 4}}">
 			<rich-text nodes="{{infos.questionAnalysis}}"></rich-text>
+		</view>
+    <view class="questionDis" wx:if="{{infos.questionTypeCode == 4}}">
+			<rich-text nodes="{{infos.childQuestionInfoList[currentIndex].questionAnalysis}}"></rich-text>
 		</view>
 	</view>
 </view>

@@ -222,7 +222,7 @@
         <view wx:if="{{taskType == 2}}">
           <block wx:for="{{correctworkData}}">
 
-            <view class="i-homework-subject" bindtap='navTo'  data-id="{{item.revisionId}}"
+            <view class="i-homework-subject" capture-bind:tap='navTo'  data-id="{{item.revisionId}}"
               data-ztype="0" data-submitType="{{item.submitType}}">
             
               <view class="i-homework-tip">
