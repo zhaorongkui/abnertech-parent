@@ -58,7 +58,7 @@ Component({
         let a = ''
         let b = []
         let c = []
-        if (this.data.infos.questionAnswer) {
+        if (this.data.infos && this.data.infos.questionAnswer) {
           JSON.parse(this.infos.questionAnswer).forEach((item, index) => {
             item.answer.forEach(items => {})
             a = item.answer.join('或')
