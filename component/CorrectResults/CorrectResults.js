@@ -2,6 +2,7 @@
 Component({
   properties: {
     res: Object, // 简化的定义方式
+    currentIndex: Number
   },
   /**
    * 组件的初始数据

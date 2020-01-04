@@ -19,24 +19,28 @@
   <view class="choice-questions-answer" wx:if="{{infos.questionTypeCode == 4}}">
     <view class="answer-x">
       <view>
-        {{ infos.childQuestionList[activeIndex].questionAnswer }}、
+        {{ infos.childQuestionInfoList[currentIndex].answerContent }}、
       </view>
-      <view style="display:inline-block" wx:for="(index)" :key="index">
-        <view wx:if="1==1" wx:html="i.questionContent"></view>
-      </view>
+      <block wx:for="{{infos.childQuestionInfoList[currentIndex].questionOptionsList}}">
+        <view style="display:inline-block" wx:if="{{infos.childQuestionInfoList[currentIndex].answerContent == item.questionOption}}">
+
+          <rich-text nodes="{{item.questionContent}}"></rich-text>
+        </view>
+      </block>
+
     </view>
   </view>
   <!-- 多选 -->
   <view class="choice-questions-answer" wx:if="{{infos.questionTypeCode == 2}}">
     <view class="answer-m-x">
       <view class="divs" wx:for="{{filter.splits(infos.questionAnswer)}}" data-item="{{item}}">
-				<view class="check">
-					<text  decode="{{true}}">{{item}}、</text>
+        <view class="check">
+          <text decode="{{true}}">{{item}}、</text>
         </view>
-				<view class="neir" wx:for="{{infos.questionOptionsList}}" wx:for-item = 'i'>
-					<rich-text nodes="{{i.questionContent}}" wx:if="{{i.questionOption == item}}"></rich-text>
-				</view>
-			</view>
+        <view class="neir" wx:for="{{infos.questionOptionsList}}" wx:for-item='i'>
+          <rich-text nodes="{{i.questionContent}}" wx:if="{{i.questionOption == item}}"></rich-text>
+        </view>
+      </view>
     </view>
   </view>
   <!-- 判断 -->
@@ -67,7 +71,7 @@
         <!-- <block wx:for="{{background}}" wx:key="*this"> -->
         <block wx:for="{{infos.homeworkStudentAnswer.studentAnswerFiles}}" wx:key="*this">
           <swiper-item class="swiper-slide">
-            <image src="{{item.answerFileUrlStr}}" class="slide-image" data-src="{{item}}" bindload="imageLoad" style="height:{{imgheights[index]}}px;width:100%;" bindtap="previewImage"></image>  
+            <image src="{{item.answerFileUrlStr}}" class="slide-image" data-src="{{item}}" bindload="imageLoad" style="height:{{imgheights[index]}}px;width:100%;" bindtap="previewImage"></image>
           </swiper-item>
         </block>
       </swiper>
@@ -82,11 +86,23 @@
       <view class="sourcetip">{{filter.time(infos.revisionStudentAnswer.submitTime)}}</view>
     </view>
     <view class="page">
-      批阅结果来源：
+      批阅结果来源:
+      <text wx:if="{{infos.homeworkStudentAnswer == undefined }}">{{'--'}}</text>
+  
+      <text wx:if="{{infos.homeworkStudentAnswer != undefined }}">{{
+           (infos.homeworkStudentAnswer.hasRewive == 1||infos.homeworkStudentAnswer.hasRewive == 4)
+              ? '老师批阅'
+              : ''
+          }}</text>
       <text>{{
-            infos.workbookChapterPage != undefined
-              ? infos.workbookChapterPage
-              : '--'
+             infos.homeworkStudentAnswer.hasRewive == 2
+              ? '学生批阅'
+              : ''
+          }}</text>
+      <text>{{
+            infos.homeworkStudentAnswer.hasRewive == 3
+              ? '系统批阅'
+              : ''
           }}</text>
     </view>
   </view>

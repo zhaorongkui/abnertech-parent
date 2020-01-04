@@ -14,7 +14,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    res: null,
+    currentIndex:0
   },
 
   /**
@@ -32,18 +33,9 @@ Page({
     })
       .then(res => {
         if (res.flag == 1) {
-          PublicFun._showToast('提醒成功');
-          this.data.correctworkData.forEach((item, index) => {
-            if (e.currentTarget.dataset.id == item.revisionId) {
-              item.revisionStu = 2
-              item.revisionEndTime = res.infos.time
-              let items = item
-              this.setData({
-                ["correctworkData[" + index + "]"]: items
-              })
-            }
+          this.setData({
+            res:res
           })
-
         }
       })
   },
@@ -53,7 +45,12 @@ Page({
   onReady: function() {
 
   },
-
+  handelIndex(e){
+    this.setData({
+      currentIndex: e.detail.passValue
+    })
+    
+  },
   /**
    * 生命周期函数--监听页面显示
    */
