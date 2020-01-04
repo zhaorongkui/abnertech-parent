@@ -17,12 +17,16 @@ Component({
     ready() {
       // 在组件在视图层布局完成后执行
       // 父组件传过来的data,用this.data.res接收
-      let upAnswerContent = (this.data.infos.revisionStudentAnswer.answerContent).toUpperCase()
       let answerContent = "infos.revisionStudentAnswer.answerContent"
       this.setData({
         infos: this.data.infos,
-        [answerContent]: upAnswerContent
       })
+      if (this.data.infos && this.data.infos.revisionStudentAnswer && this.data.infos.revisionStudentAnswer.answerContent) {
+        let upAnswerContent = (this.data.infos.revisionStudentAnswer.answerContent).toUpperCase()
+        this.setData({
+          [answerContent]: upAnswerContent
+        })
+      }
     }
   }
 })
