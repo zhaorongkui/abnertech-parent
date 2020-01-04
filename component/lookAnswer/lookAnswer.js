@@ -1,7 +1,8 @@
 // component/lookAnswer/lookAnswer.js
 Component({
   properties: {
-    // lookres: Object, // 简化的定义方式
+     lookres: Object, // 简化的定义方式
+     currentIndex:Number
   },
   /**
    * 组件的初始数据
@@ -52,7 +53,7 @@ Component({
         infos: this.data.lookres.infos,
         parmres: this.data.lookres
       })
-
+      
       if (this.data.infos.questionTypeCode === 5) {
         let a = ''
         let b = []

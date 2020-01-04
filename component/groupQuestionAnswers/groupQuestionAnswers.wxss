@@ -1,3 +1,4 @@
+/* component/groupQuestionAnswers/groupQuestionAnswers.wxss */
 /* component/groupQuestionAnswer/groupQuestionAnswer.wxss */
 
 .swiper-container, .swiper-wrapper, .swiper-slide {
@@ -32,7 +33,7 @@
   justify-content: start;
 }
 
-.tips  span {
+.tips > text:nth-child(1) {
   width: 8rpx;
   height: 26rpx;
   background: rgba(51, 170, 119, 1);
@@ -41,19 +42,20 @@
   margin-top: 10rpx;
 }
 
-.tips  p {
+.tips  rich-text {
   width: 93%;
   font-size: 32rpx;
   color: #333;
+  
 }
 
 
 .choseItem {
-  width: 650rpx;
+  width: 95%;
   margin: 20rpx auto 0;
 }
 
-.choseItem ol li {
+.choseItem .choice-item {
   width: 100%;
   height: auto;
   background: rgba(238, 238, 238, 1);
@@ -61,22 +63,34 @@
   margin-bottom: 20rpx;
   display: flex;
   justify-content: space-between;
-  padding: 18rpx;
+  padding: 18rpx 0;
+  
 }
 
-.choseItem ol li p {
+.choseItem .choice-item >view:nth-child(1) {
   font-size: 30rpx;
   color: #666;
-}
-
-.choseItem ol li > p:nth-child(1) {
   margin-left: 15rpx;
+  display:flex;
+  justify-content: flex-start;
+  align-items: center;
+  width:85%;
 }
-.choseItem ol li .tag image.right-img{
+.choseItem .choice-item >view:nth-child(1)  rich-text{
+  width:90%;
+  word-break: break-all;
+}
+.choseItem .choice-item .tag{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-right:20rpx;
+}
+.choseItem .choice-item .tag image.right-img{
   width:30rpx;
   height:24rpx;
 }
-.choseItem ol li .tag image.error-img{
+.choseItem .choice-item .tag image.error-img{
   width:26rpx;
   height:26rpx;
 }
@@ -169,26 +183,33 @@
   transform: rotate(180deg);
 }
 
-.groupButContent .rightBag {
+.groupButContent .index_tab .bottom_scroll .rightBag {
   color: #fff;
   background: #3a7;
   
 }
 
-.groupButContent .errorBag {
+.groupButContent .index_tab .bottom_scroll .errorBag {
   color: #fff;
-  background: #3a7;
+  background:  #ff6365;
 }
 
-.groupButContent  .errorBag {
-  background: #ff6365;
-}
 
-.groupButContent  .errorBorde {
+.groupButContent .index_tab .bottom_scroll  .errorBorde {
   border: 4rpx solid #ff6365;
 }
 
-.groupButContent   .rightBorde {
+.groupButContent  .index_tab .bottom_scroll  .rightBorde {
   border: 4rpx solid #3a7;
+}
+.choseItem  .right {
+  /* border: 1px solid #13a99f; */
+  background: #d0eeec;
+ 
+}
+.choseItem  .error {
+  /* border: 1px solid #ff6365; */
+  background: #ffe0e0;
+  
 }
 
