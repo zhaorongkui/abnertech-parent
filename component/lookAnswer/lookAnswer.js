@@ -1,7 +1,8 @@
 // component/lookAnswer/lookAnswer.js
 Component({
   properties: {
-    lookres: Object, // 简化的定义方式
+     lookres: Object, // 简化的定义方式
+     currentIndex:Number
   },
   /**
    * 组件的初始数据
@@ -48,14 +49,12 @@ Component({
       });
       // 在组件在视图层布局完成后执行
       // 父组件传过来的data,用this.data.res接收
-      if(this.data.lookres) {
-        this.setData({
-          // infos: this.data.lookres.infos,
-          parmres: this.data.lookres
-        })
-      }
-
-      if (this.data.infos && this.data.infos.questionTypeCode === 5) {
+      this.setData({
+        infos: this.data.lookres.infos,
+        parmres: this.data.lookres
+      })
+      
+      if (this.data.infos.questionTypeCode === 5) {
         let a = ''
         let b = []
         let c = []

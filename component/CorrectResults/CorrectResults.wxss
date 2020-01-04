@@ -36,11 +36,11 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  height: 80rpx;
+  height: auto;
   border-radius: 9rpx;
   color: #666;
   font-size: 30rpx;
-  padding: 0 20rpx;
+  padding: 18rpx 20rpx;
   width: 610rpx;
   margin: 20rpx auto 20rpx;
 }

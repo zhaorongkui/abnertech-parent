@@ -6,7 +6,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    infos: [],
+    infos: null,
     parmres: {}
   },
   lifetimes: {
@@ -26,6 +26,14 @@ Component({
      
       // console.log(this.data.infos)
       // console.log(this.data.parmres)
+    }
+  },
+  methods:{
+    handelIndex(e){
+      this.triggerEvent('handelIndex', {
+        passValue: e.detail.passValue
+      })
+      
     }
   }
 })

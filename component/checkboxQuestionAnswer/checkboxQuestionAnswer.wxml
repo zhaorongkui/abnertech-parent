@@ -4,7 +4,7 @@
       <!-- 选择多选题答案详情 -->
       <view class="oneChoice">
         <view class="choseItem" wx:for="{{infos.questionOptionsList}}" wx:for-item="item">
-          <view wx:for="{{mergeArr}}" wx:for-item='i'>
+          <view wx:for="{{mergeArr}}" wx:for-item='i' class="fc">
             <view wx:if="{{item.questionOption == i.tem}}">
               <text class="el-span {{i.bgflag == true ? 'right' : ''}}"></text>
             </view>

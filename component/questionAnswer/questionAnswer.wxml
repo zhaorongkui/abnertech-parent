@@ -7,11 +7,12 @@
 			<text class="play"  wx:if="{{infos.questionTypeCode == 2}}">（多选）</text>
 		</view>
 		<view class="content">
-			<judge-question infos="{{infos}}" wx:if="{{infos.questionTypeCode == 3}}">
+			 <judge-question infos="{{infos}}" wx:if="{{infos.questionTypeCode == 3}}">
 			</judge-question>
       <radio-question infos="{{infos}}" wx:if="{{infos.questionTypeCode == 1}}"></radio-question>
-      <checkbox-question infos="{{infos}}" wx:if="{{infos.questionTypeCode == 2}}"></checkbox-question>
-       <group-question groupres="{{infos}}" wx:if="{{infos.questionTypeCode == 4}}"></group-question> 
+      <checkbox-question infos="{{infos}}" wx:if="{{infos.questionTypeCode == 2}}"></checkbox-question> 
+       <group-question groupres="{{infos}}" wx:if="{{infos.questionTypeCode == 4}}"   bind:handelIndex="handelIndex"></group-question> 
+       
 		</view>
 	</view>
 </view>

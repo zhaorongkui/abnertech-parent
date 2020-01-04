@@ -1,0 +1,70 @@
+<view class="wrap-group">
+  <!-- <view class="title">最新订正结果
+    <span>本题包含多个子题</span> 
+  </view> -->
+  <view class="groupButContent">
+    <!-- 子题干按钮 -->
+    <view class="group-btn">
+      <image src="../../assets/img/ic_wrong_exercise_group_right.png" alt="" class="left-btn btns" bindtap="selectLeftBnt" wx:if="{{ list != undefined && list.length > 1 && currentIndex > 0 }}"/>
+      <image src="../../assets/img/ic_wrong_exercise_group_right _none.png" alt="" class="left-btn-none btns"  wx:if="{{(list != undefined &&list.length == 1) || currentIndex == 0 }}"  bindtap="selectLeftBnt"/>
+      <view class='index_tab'>
+        <scroll-view class="bottom_scroll" scroll-x="true" scroll-left="{{x}}" scroll-with-animation="{{true}}">
+          <view class="nav {{currentIndex == index &&item.answerContent == item.questionAnswer  ? 'rightBag' :''}} {{currentIndex == index &&item.answerContent != item.questionAnswer  ? 'errorBag' :''}}  {{ item.answerContent != item.questionAnswer ? 'errorBorde' :'rightBorde'}}" wx:for="{{list}}" bindtap='switchTap' data-index="{{index}}">
+            <view class="questionBut iniBorder">
+              <view>{{ index + 1 }}</view>
+              <view class="imgBox rightBag" wx:if="{{item.answerContent == item.questionAnswer}}">
+                <image src="../../assets/img/groupBut_right.png" alt="" class="imgage" />
+              </view>
+              <view class="imgBox errorBag " wx:if="{{item.answerContent != item.questionAnswer}}">
+                <image src="../../assets/img/groupBut_wrong.png" alt="" class="imgage" />
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+
+      <image src="../../assets/img/ic_wrong_exercise_group_right.png" alt="" class="right-btn btns" bindtap="selectRightBnt" wx:if="{{ list!= undefined &&list.length > 1 && currentIndex < list.length - 1}}" />
+      <image src="../../assets/img/ic_wrong_exercise_group_right _none.png" alt="" class="right-btn-none btns" wx:if="{{ list!= undefined &&list.length == 1 && currentIndex == list.length - 1}}" bindtap="selectRightBnt" />
+    </view>
+
+    <view class="swiper" style="height:{{height}}rpx">
+      <swiper bindchange="swiperChange" current="{{currentIndex}}" style="height:{{height}}rpx">
+        <block wx:for="{{list}}" wx:for-item='item' wx:for-index="groupindex">
+          <swiper-item>
+            <view class="tips">
+              <text></text>
+              <rich-text nodes="{{item.questionStem}}"></rich-text>
+
+            </view>
+            <view class="choseItem">
+              <block wx:for="{{list[groupindex].questionOptionsList}}" wx:for-item='items'>
+                <view class="choice-item {{ items.questionOption === item.answerContent && item.answerContent === item.questionAnswer ? 'right': ''}} {{ items.questionOption === item.answerContent &&item.answerContent !== item.questionAnswer ? 'error' : ''}}">
+                  <!-- @click="
+                    selectItems(index, items.questionOption, item.questionId)
+                  " -->
+                  <view>
+                    <text>{{ items.questionOption }}、</text>
+
+                    <rich-text nodes="{{items.questionContent}}"></rich-text>
+
+
+                  </view>
+
+                  <view class="tag">
+                    <block wx:if="{{items.questionOption === item.questionAnswer}}">
+                      <image src="../../assets/img/icon_right.png" alt="" class="right-img" />
+                    </block>
+                    <block wx:if="{{items.questionOption === item.answerContent &&item.answerContent !== item.questionAnswer}}">
+                      <image src="../../assets/img/icon_wrong.png" alt="" class="error-img" />
+                    </block>
+                  </view>
+                </view>
+              </block>
+            </view>
+
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+</view>
