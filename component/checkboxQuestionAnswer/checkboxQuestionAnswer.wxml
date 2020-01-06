@@ -21,8 +21,8 @@
             <rich-text nodes="{{item.questionContent}}"></rich-text>
           </view>
 
-          <view class="p" wx:for="{{questionAnswer}}" wx:for-item='items'>
-            <view wx:if="{{items == item.questionOption}}">
+          <view class="p" wx:for="{{questionAnswer}}" wx:for-item='tem'>
+            <view wx:if="{{tem == item.questionOption}}">
               <image src="../../assets/img/icon_right.png" alt="" class="right-pic"  />
             </view>
           </view>
