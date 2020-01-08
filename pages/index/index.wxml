@@ -335,12 +335,12 @@
     </i-tab-bar>
   </view>
   <i-message id="message " />
-  <!-- <cover-view class="i-sx-full-screen" bindtap='closeMask' wx:if="{{showMask}}">
+  <cover-view class="i-sx-full-screen" bindtap='closeMask' wx:if="{{showMask}}">
     <cover-view>点击或者下拉页面刷新</cover-view>
     <cover-image src="../../assets/xian.png"></cover-image>
-  </cover-view> -->
+  </cover-view>
 
-  <!-- <view class="toast" wx:if="{{toastFlag}}">
+  <view class="toast" wx:if="{{toastFlag}}">
    <text>{{toastText}}</text>
-  </view> -->
+  </view>
 </view>

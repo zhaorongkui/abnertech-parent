@@ -3,7 +3,7 @@
 /* component/questionTopic.wxss */
 
 .wrap-tipBody {
-  margin-top: 0.2rpx;
+  margin-top: 20rpx;
 }
 
 .tipBody {
