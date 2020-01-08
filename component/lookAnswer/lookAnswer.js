@@ -57,7 +57,7 @@ Component({
       if (this.data.infos.questionTypeCode === 5) {
         let a = ''
         let b = []
-        let d = ''
+        let c = ''
         if (this.data.infos && this.data.infos.questionAnswer) {
           JSON.parse(this.infos.questionAnswer).forEach((item, index) => {
             item.answer.forEach(items => {})
@@ -69,12 +69,12 @@ Component({
           })
           //重新组数组
           this.data.blanksArr.forEach((item, index) => {
-            d += `${index + 1}、${decodeURIComponent(
+            c += `${index + 1}、${decodeURIComponent(
               item
             )}<br/>;`
           })
           this.setData({
-            blanks: d
+            blanks: c
           })
         }
       }
