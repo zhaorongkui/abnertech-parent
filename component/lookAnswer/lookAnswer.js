@@ -105,7 +105,7 @@ Component({
       // let end = this.data.touchE
       // 参考答案
       if (
-        self.data.studentIndex === -1 &&
+        self.data.studentIndex === -1 && self.data.infos.studentShareUrlList &&
         self.data.infos.studentShareUrlList.length !== 0 &&
         self.data.touchS - self.data.touchE > 130
       ) {
