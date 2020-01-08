@@ -1,6 +1,6 @@
 <!--component/CorrectResults/CorrectResults.wxml-->
 <wxs src="../../utils/filter.wxs" module="filter" />
-<view class="look-answer">
+<view class="look-answer" >
   <view class="header">
     <view class="headerSourcetip">作业中的作答结果</view>
   </view>
