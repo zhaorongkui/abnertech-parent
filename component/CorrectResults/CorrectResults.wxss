@@ -45,7 +45,7 @@
   margin: 20rpx auto 20rpx;
 }
 
-.choice-questions-answer .answer-x >view:nth-child(1) {
+.choice-questions-answer .answer-x>view:nth-child(1) {
   margin-left: 15rpx;
 }
 
@@ -71,6 +71,31 @@ p:nth-child(1) {
   margin: 20rpx auto 20rpx;
 }
 
+.unable {
+  margin: 20rpx 0 0 30rpx;
+  width: 650rpx;
+  height: 291rpx;
+  background: #fff;
+  border-radius: 9rpx;
+  text-align: center;
+}
+
+.unableImg {
+  width: 227rpx;
+  height: 198rpx;
+}
+.unableP {
+  margin-top: 0.09rem;
+  color: #8493a8;
+  font-size: 0.3rem;
+}
+
+.secondp {
+  margin-top: 0.09rem;
+  color: #999999;
+  font-size: 0.26rem;
+}
+
 p {
   text-align: left;
 }
@@ -85,14 +110,18 @@ p {
   margin: 0 auto;
 }
 
-.swiper-container, .swiper-slide, .swiper-wrapper {
+.swiper-container,
+.swiper-slide,
+.swiper-wrapper {
   width: 650rpx;
   height: 291rpx;
   text-align: center;
 }
+
 .swiper-wrapper {
   line-height: 291rpx;
 }
+
 .swiper-slide .slide-image {
   max-width: 100%;
   max-height: 100%;

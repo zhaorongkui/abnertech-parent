@@ -1,8 +1,8 @@
 // component/lookAnswer/lookAnswer.js
 Component({
   properties: {
-     lookres: Object, // 简化的定义方式
-     currentIndex:Number
+    lookres: Object, // 简化的定义方式
+    currentIndex: Number
   },
   /**
    * 组件的初始数据
@@ -53,22 +53,28 @@ Component({
         infos: this.data.lookres.infos,
         parmres: this.data.lookres
       })
-      
+
       if (this.data.infos.questionTypeCode === 5) {
         let a = ''
         let b = []
-        let c = []
+        let c = ''
         if (this.data.infos && this.data.infos.questionAnswer) {
           JSON.parse(this.infos.questionAnswer).forEach((item, index) => {
             item.answer.forEach(items => {})
             a = item.answer.join('或')
-            this.data.blanksArr.push(a)
+            b.push(a)
+            this.setData({
+              blanksArr: b
+            })
           })
           //重新组数组
           this.data.blanksArr.forEach((item, index) => {
-            this.data.blanks += `${index + 1}、${decodeURIComponent(
+            c += `${index + 1}、${decodeURIComponent(
               item
-            )}&nbsp;&nbsp;&nbsp;&nbsp;`
+            )}<br/>;`
+          })
+          this.setData({
+            blanks: c
           })
         }
       }

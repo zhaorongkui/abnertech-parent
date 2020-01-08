@@ -22,10 +22,6 @@ Component({
           parmres: this.data.answerres
         })
       }
-      
-     
-      // console.log(this.data.infos)
-      // console.log(this.data.parmres)
     }
   },
   methods:{

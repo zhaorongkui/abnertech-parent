@@ -58,7 +58,7 @@
     <view class="unable" wx:if="{{!infos.homeworkStudentAnswer.studentAnswerFiles}}">
       <view class="imgbox">
         <image class="unableImg" src="../../assets/img/unable.png" alt="" />
-        <view>
+        <view  class="unableP">
           此题标记为不会
         </view>
         <view class="secondp">
