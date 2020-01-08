@@ -98,7 +98,7 @@ Page({
     subjectList: [],
     subjectType: -1,
     loading: true,
-    loading1: true,
+    loading1: false,
     homeworkType: '',
     homeworkClassId: '',
     timer: true,
@@ -156,9 +156,11 @@ Page({
               })
             }
           })
-
+         
         }
       })
+
+    return false
   },
   tapSub(e) {
     var self = this;
@@ -611,6 +613,9 @@ Page({
       })
   },
   correctwork: function(page, id) {
+    this.setData({
+      loading1: true
+    })
     var _self = this;
     Http.Get('/wechat/revision/revisionPageDataByStuId', {
         studentInfoId: id,
