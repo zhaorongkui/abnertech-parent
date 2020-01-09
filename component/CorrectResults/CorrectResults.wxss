@@ -49,13 +49,9 @@
   margin-left: 15rpx;
 }
 
-p {
+/* p {
   text-align: left;
-}
-
-p:nth-child(1) {
-  margin-left: 15rpx;
-}
+} */
 
 .choice-questions-answer .answer-m-x>.divs {
   background: #f7f7f7;
@@ -96,9 +92,7 @@ p:nth-child(1) {
   font-size: 0.26rem;
 }
 
-p {
-  text-align: left;
-}
+
 
 .zg-questions-answer {
   /* @include fj(); */
