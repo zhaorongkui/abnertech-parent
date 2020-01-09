@@ -2,7 +2,9 @@
 
 Component({
   properties: {
+
     stemres: Object
+
   },
   /**
    * 组件的初始数据

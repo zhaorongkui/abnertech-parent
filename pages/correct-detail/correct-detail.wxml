@@ -4,7 +4,7 @@
   <view class="cav-w" style="width:100%;height:0"></view>
   <view class="i-t-banner " >
     <view class="i-title-infos">
-      <text>{{filter.Time(revisionStudentInfo.revisionTime)}}{{filter.homeworkType(revisionStudentInfo.revisionType)}}的订正任务</text>
+      <text>{{filter.Time(revisionStudentInfo.revisionTime)}} {{revisionStudentInfo.homeworkName}} 的订正任务</text>
       <text class="question-num" wx:if="{{revisionStudentInfo.revisionStu ==3}}">{{revisionStudentInfo.revisionFinishNum}}</text>
       <text class="correct-question-num" wx:if="{{revisionStudentInfo.revisionStu ==3}}">订正题数</text>
       <view class="aa {{revisionStudentInfo.revisionStu ==2 ?'mar':''}}" wx:if="{{revisionStudentInfo.revisionStu ==1 || revisionStudentInfo.revisionStu ==2}}" >
@@ -29,8 +29,10 @@
       </view>
     </view>
     <view class="i-subject">
-      <text>{{filter.homeworkName(revisionStudentInfo.subjectAbbreviation)}}</text>
-       <text>{{filter.homeworkType(revisionStudentInfo.revisionType)}}</text>
+      <text wx:if="{{revisionStudentInfo.revisionType != 1}}">{{filter.homeworkName(revisionStudentInfo.subjectAbbreviation)}}</text>
+       <text wx:if="{{revisionStudentInfo.revisionType == 1}}" style="border-radius:0 8px 8px 0">{{filter.homeworkName(revisionStudentInfo.subjectAbbreviation)}}</text>
+       <text wx:if="{{revisionStudentInfo.revisionType != 1}}">{{filter.homeworkType(revisionStudentInfo.revisionType)}}</text>
+       <text wx:if="{{revisionStudentInfo.revisionType == 1}}" style="padding:0;width:0;border:0"></text>
     </view>
     <!-- <image src="../../assets/shuaxin.png" class="i-shuaxin" bindtap="loadPage"></image> -->
     <view class="correct-state" wx:if="{{revisionStudentInfo.revisionStu ==1}}">
