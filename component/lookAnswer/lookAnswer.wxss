@@ -191,3 +191,8 @@ p:nth-child(1) {
   padding: 6rpx 6px;
   margin-left: 34rpx;
 }
+.blank {
+  word-break: normal;
+  line-height: 120%;
+  text-align: left;
+}

@@ -140,7 +140,7 @@ Page({
   //提醒订正
   updRevision(e) {
 
-    Http.Get('/wechat/revision/updRevisionTime', {
+    Http.Post('/wechat/revision/updRevisionTime', {
         revisionId: e.currentTarget.dataset.id
       })
       .then(res => {
