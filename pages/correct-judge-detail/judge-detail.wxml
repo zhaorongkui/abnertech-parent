@@ -1,6 +1,6 @@
 <!--pages/correct-judge-detail/judge-detail.wxml-->
-<question-topic res="{{res}}"></question-topic>
-<question-answer answerres="{{res}}"></question-answer>
+<question-topic res="{{res}}" wx:if="{{res != null}}"></question-topic>
+<question-answer answerres="{{res}}" wx:if="{{res != null}}"></question-answer>
 <!-- <subjective-Answer></subjective-Answer> -->
-<look-answer lookres="{{res}}"></look-answer>
-<Correct-Results res="{{res}}"></Correct-Results>
+<look-answer lookres="{{res}}" wx:if="{{res != null}}"></look-answer>
+<Correct-Results res="{{res}}" wx:if="{{res != null}}"></Correct-Results>

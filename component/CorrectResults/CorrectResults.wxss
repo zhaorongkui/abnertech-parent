@@ -36,7 +36,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  height: auto;
+  min-height: 44rpx;
   border-radius: 9rpx;
   color: #666;
   font-size: 30rpx;
@@ -62,7 +62,7 @@ p:nth-child(1) {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  height: 80rpx;
+  min-height:80rpx;
   border-radius: 9rpx;
   color: #666;
   font-size: 30rpx;
@@ -85,15 +85,15 @@ p:nth-child(1) {
   height: 198rpx;
 }
 .unableP {
-  margin-top: 0.09rem;
+  margin-top: 9rpx;
   color: #8493a8;
-  font-size: 0.3rem;
+  font-size: 30rpx;
 }
 
 .secondp {
-  margin-top: 0.09rem;
+  margin-top: 9rpx;
   color: #999999;
-  font-size: 0.26rem;
+  font-size: 26rpx;
 }
 
 p {
@@ -114,8 +114,9 @@ p {
 .swiper-slide,
 .swiper-wrapper {
   width: 650rpx;
-  height: 291rpx;
+  height: auto;
   text-align: center;
+  background:#f7f7f7;
 }
 
 .swiper-wrapper {
@@ -159,7 +160,7 @@ p {
   width: 650rpx;
   height: 87rpx;
   margin-left: 29rpx;
-  border-top: 1px #ddd dashed;
+  margin-top:20rpx;
   display: flex;
   justify-content: space-between;
   align-items: center;

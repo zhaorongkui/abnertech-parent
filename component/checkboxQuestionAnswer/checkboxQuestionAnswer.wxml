@@ -22,13 +22,13 @@
           </view>
 
           <view class="p" wx:for="{{questionAnswer}}" wx:for-item='tem'>
-            <view wx:if="{{tem == item.questionOption}}">
+            <view wx:if="{{infos.revisionStudentAnswer != undefined && tem == item.questionOption}}">
               <image src="../../assets/img/icon_right.png" alt="" class="right-pic"  />
             </view>
           </view>
           
           <view class="p" wx:for="{{mergeArr}}" wx:for-item='items'>
-            <view wx:if="{{items.bgflag == false && items.tem == item.questionOption}}">
+            <view wx:if="{{infos.revisionStudentAnswer != undefined && items.bgflag == false && items.tem == item.questionOption}}">
               <image src="../../assets/img/icon_wrong.png" alt="" class="wrong-pic"  />
             </view>
           </view>

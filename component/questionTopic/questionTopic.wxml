@@ -9,7 +9,7 @@
 			</view>
 		</view>
 		<view class="content1">
-			<question-stem stemres="{{parmres}}"></question-stem>
+			<question-stem stemres="{{parmres}}" wx:if="{{parmres != null}}"></question-stem>
 		</view>
 		<view class="tipFooter">
 			<view class="sourcebox">
