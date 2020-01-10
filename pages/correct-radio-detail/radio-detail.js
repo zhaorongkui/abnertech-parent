@@ -77,7 +77,6 @@ Page({
     Http.Get('/wechat/revision/questionDetail', obj)
       .then(res => {
         if (res.flag == 1) {
-          wx.stopPullDownRefresh()
           this.setData({
             res: res
           })

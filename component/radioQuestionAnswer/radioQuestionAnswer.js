@@ -14,6 +14,7 @@ Component({
       // 在组件实例进入页面节点树时执行
     },
     ready() {
+      console.log(this.data.infos)
       this.setData({
         infos: this.data.infos
       })

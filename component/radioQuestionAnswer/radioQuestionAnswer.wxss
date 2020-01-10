@@ -58,11 +58,11 @@
   margin-bottom:20rpx;
   margin-top:20rpx;
   align-items: center;
-  height:80rpx;
+  min-height: 44rpx;
   border-radius:9rpx;
   color:#666;
   font-size:30rpx;
-  padding:0 20rpx;
+  padding:18rpx 20rpx;
 }
 
 .green {

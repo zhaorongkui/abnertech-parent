@@ -13,18 +13,19 @@ Component({
   data: {
     currentIndex: 0,
     list: [],
-    height:0
+    heights:1000
   },
 
   lifetimes: {
     attached() {
+      
+      // 在组件实例进入页面节点树时执行
+    },
+    ready() {
       var self = this
       this.setData({
         list: this.data.groupres.childQuestionInfoList
       })
-      // 在组件实例进入页面节点树时执行
-    },
-    ready() {
       this.domHeight(this.data.currentIndex)
     }
   },
@@ -56,20 +57,24 @@ Component({
       this.setData({
         x: scrollX
       })
+      this.domHeight(this.data.currentIndex)
     },
 
     selectLeftBnt() {
       var index = this.data.currentIndex
       index--
-      this.setData({
-        currentIndex: index
-      })
+      
       if (index <= 0){
         index = 0
          this.setData({
            currentIndex : index
          })
+      }else{
+        this.setData({
+          currentIndex: index
+        })
       }
+     
 
       this.triggerEvent('handelIndex', {
         passValue: index
@@ -89,16 +94,20 @@ Component({
       this.setData({
         x: scrollX
       })
+
+      this.domHeight(this.data.currentIndex)
     },
     selectRightBnt() {
       
       var index = this.data.currentIndex
       index++
-      this.setData({
-        currentIndex: index
-      })
+
       if (index > this.data.list.length - 1) {
         index = this.data.list.length - 1
+        this.setData({
+          currentIndex: index
+        })
+      }else{
         this.setData({
           currentIndex: index
         })
@@ -122,6 +131,7 @@ Component({
       this.setData({
         x: scrollX
       })
+      this.domHeight(this.data.currentIndex)
     },
 
     switchTap(e) {
@@ -138,13 +148,9 @@ Component({
 
       let { index, type } = e.currentTarget.dataset;
 
-
-
-      const { nav_list } = this.data;
-
       let scrollX = itemWidth * index - itemWidth * 2;
 
-      let maxScrollX = (nav_list.length + 1) * itemWidth;
+      let maxScrollX = (this.data.list.length + 1) * itemWidth;
 
       if (scrollX < 0) {
         scrollX = 0;
@@ -155,6 +161,7 @@ Component({
       this.setData({
         x: scrollX
       })
+      this.domHeight(this.data.currentIndex)
     },
     domHeight(index) {
       var height = 0
@@ -164,10 +171,11 @@ Component({
       query.selectAll('.choseItem').boundingClientRect()
       query.exec(function (res) {
         height =  Number(res[0][index].height) + Number(res[1][index].height)
-        
+        console.log(height)
         self.setData({
-          height: height*2 + 50
+          heights: height*2 + 30
         })
+       
       })
     }
   }

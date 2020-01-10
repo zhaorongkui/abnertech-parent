@@ -45,13 +45,13 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  height: 80rpx;
+  min-height: 44rpx;
   border-radius: 9rpx;
   color: #666;
   font-size: 30rpx;
-  padding: 0 20rpx;
   width: 610rpx;
   margin: 20rpx auto 20rpx;
+  padding:18rpx 20rpx;
 }
 
 .choice-questions-answer .answer-x>view:nth-child(1) {
@@ -72,7 +72,7 @@ p:nth-child(1) {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  height: 80rpx;
+  min-height: 80rpx;
   border-radius: 9rpx;
   color: #666;
   font-size: 30rpx;
@@ -131,6 +131,7 @@ p:nth-child(1) {
   height: 291rpx;
   margin: 0 auto;
   text-align: center;
+  background:#f7f7f7;
 }
 
 .swiper-wrapper {
@@ -189,7 +190,7 @@ p:nth-child(1) {
   font-size: 28rpx;
   overflow: hidden;
   padding: 6rpx 6px;
-  margin-left: 34rpx;
+  margin:0 auto;
 }
 .blank {
   word-break: normal;
