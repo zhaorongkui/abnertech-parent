@@ -83,7 +83,7 @@
 
   <view class="tipFooter">
     <view>
-      <view class="sourcetip">{{filter.time(infos.revisionStudentAnswer.submitTime)}}</view>
+      <view class="sourcetip">{{filter.time(infos.homeworkStudentAnswer.submitTime)}}</view>
     </view>
     <view class="page">
       批阅结果来源:

@@ -13,18 +13,19 @@ Component({
   data: {
     currentIndex: 0,
     list: [],
-    height:0
+    heights:0
   },
 
   lifetimes: {
     attached() {
+      
+      // 在组件实例进入页面节点树时执行
+    },
+    ready() {
       var self = this
       this.setData({
         list: this.data.groupres.childQuestionInfoList
       })
-      // 在组件实例进入页面节点树时执行
-    },
-    ready() {
       this.domHeight(this.data.currentIndex)
     }
   },
@@ -166,7 +167,7 @@ Component({
         height =  Number(res[0][index].height) + Number(res[1][index].height)
         
         self.setData({
-          height: height*2 + 50
+          heights: height*2 + 50
         })
       })
     }

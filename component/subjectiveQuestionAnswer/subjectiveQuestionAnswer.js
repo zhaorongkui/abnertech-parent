@@ -23,7 +23,7 @@ Page({
       duration: 500,
       current: 0,
       infos: {},
-      parmres: {},
+  
       studentIndex: -1,
       studentShareUrlList: [],
       subjctShowe: true,
@@ -41,6 +41,7 @@ Page({
         // 在组件实例进入页面节点树时执行
       },
       ready() {
+        console.log(this.data.res.infos.revisionStudentAnswer)
         var that = this;
         wx.getSystemInfo({
           success: function (res) {
@@ -52,12 +53,12 @@ Page({
         });
         // 在组件在视图层布局完成后执行
         // 父组件传过来的data,用this.data.res接收
-        if (this.data.res) {
+        
           this.setData({
             infos: this.data.res.infos,
-            parmres: this.data.lookres
+     
           })
-        }
+        
         if (this.data.infos && this.data.infos.revisionStudentAnswer && this.data.infos.revisionStudentAnswer.studentAnswerFiles) {
           this.data.infos.revisionStudentAnswer.studentAnswerFiles.forEach(item => {
             this.data.imageUrls.push(item.answerFileUrl)

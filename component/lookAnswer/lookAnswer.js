@@ -59,7 +59,7 @@ Component({
         let b = []
         let c = ''
         if (this.data.infos && this.data.infos.questionAnswer) {
-          JSON.parse(this.infos.questionAnswer).forEach((item, index) => {
+          JSON.parse(this.data.infos.questionAnswer).forEach((item, index) => {
             item.answer.forEach(items => {})
             a = item.answer.join('或')
             b.push(a)
@@ -69,9 +69,9 @@ Component({
           })
           //重新组数组
           this.data.blanksArr.forEach((item, index) => {
-            c += `${index + 1}、${decodeURIComponent(
+            c += `${index + 1}.${decodeURIComponent(
               item
-            )}<br/>;`
+            )}  `
           })
           this.setData({
             blanks: c
