@@ -106,7 +106,7 @@ Component({
         })
       })
 
-      thiis.setData({
+      this.setData({
         colorArr: sortArr.slice()
       })
       //this.data.colorArr = sortArr.slice()

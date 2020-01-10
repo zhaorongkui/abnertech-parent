@@ -24,13 +24,13 @@
       </view>
 
       <image src="../../assets/img/ic_wrong_exercise_group_right.png" alt="" class="right-btn btns" bindtap="selectRightBnt" wx:if="{{ list!= undefined &&list.length > 1 && currentIndex < list.length - 1}}" />
-      <image src="../../assets/img/ic_wrong_exercise_group_right _none.png" alt="" class="right-btn-none btns" wx:if="{{ list!= undefined &&list.length == 1 && currentIndex == list.length - 1}}" bindtap="selectRightBnt" />
+      <image src="../../assets/img/ic_wrong_exercise_group_right _none.png" alt="" class="right-btn-none btns" wx:if="{{ list!= undefined &&list.length == 1 || currentIndex == list.length - 1}}" bindtap="selectRightBnt" />
     </view>
 
-    <view class="swiper" style="height:{{height}}rpx">
-      <swiper bindchange="swiperChange" current="{{currentIndex}}" style="height:{{height}}rpx">
+    <view class="swiper" style="height:{{heights}}rpx">
+      <swiper bindchange="swiperChange" current="{{currentIndex}}" style="height:{{heights}}rpx">
         <block wx:for="{{list}}" wx:for-item='item' wx:for-index="groupindex">
-          <swiper-item>
+          <swiper-item >
             <view class="tips">
               <text></text>
               <rich-text nodes="{{item.questionStem}}"></rich-text>
@@ -51,10 +51,10 @@
                   </view>
 
                   <view class="tag">
-                    <block wx:if="{{items.questionOption === item.questionAnswer}}">
+                    <block wx:if="{{infos.revisionStudentAnswer != undefined && items.questionOption === item.questionAnswer}}">
                       <image src="../../assets/img/icon_right.png" alt="" class="right-img" />
                     </block>
-                    <block wx:if="{{items.questionOption === item.answerContent &&item.answerContent !== item.questionAnswer}}">
+                    <block wx:if="{{infos.revisionStudentAnswer != undefined && items.questionOption === item.answerContent &&item.answerContent !== item.questionAnswer}}">
                       <image src="../../assets/img/icon_wrong.png" alt="" class="error-img" />
                     </block>
                   </view>

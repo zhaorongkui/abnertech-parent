@@ -67,7 +67,7 @@
 				<swiper wx:if="{{infos.questionTypeCode === 5}}" current="{{current}}" class="swiper-wrapper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="onSliderChangeEnd" bindtransition="hotSwiperTransition">
 					<block>
 						<swiper-item class="swiper-slide blanks" bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd'>
-							<rich-text nodes="{{blanks}}"></rich-text>
+							<rich-text nodes="{{blanks}}" style=""></rich-text>
 						</swiper-item>
 					</block>
 				</swiper>
@@ -100,10 +100,11 @@
 			<image src="../../assets/img/jxbg.png" />
 		</view>
 		<text class="span">解析</text>
-		<view class="questionDis" wx:if="{{infos.questionTypeCode != 4}}">
+		<view class="questionDis" wx:if="{{infos.questionTypeCode != 4}}" style="margin-left:24rpx;">
 			<rich-text nodes="{{infos.questionAnalysis}}"></rich-text>
 		</view>
-    <view class="questionDis" wx:if="{{infos.questionTypeCode == 4}}">
+    <view class="questionDis" wx:if="{{infos.questionTypeCode == 4}}" style="margin-left:45rpx;"
+>
 			<rich-text nodes="{{infos.childQuestionInfoList[currentIndex].questionAnalysis}}"></rich-text>
 		</view>
 	</view>

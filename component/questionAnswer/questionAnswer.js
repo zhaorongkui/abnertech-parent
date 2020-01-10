@@ -16,12 +16,12 @@ Component({
     ready() {
       // 在组件在视图层布局完成后执行
       // 父组件传过来的data,用this.data.res接收
-      if(this.data.answerres) {
+      
         this.setData({
           infos: this.data.answerres.infos,
           parmres: this.data.answerres
         })
-      }
+      
     }
   },
   methods:{

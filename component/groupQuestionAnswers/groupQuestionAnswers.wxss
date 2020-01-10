@@ -53,6 +53,7 @@
 .choseItem {
   width: 95%;
   margin: 20rpx auto 0;
+  min-height: 44rpx;
 }
 
 .choseItem .choice-item {

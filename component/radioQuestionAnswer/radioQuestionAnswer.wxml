@@ -26,7 +26,7 @@
             </view>
             
             <view
-              wx:if="{{infos.questionAnswer == item.questionOption}}"
+              wx:if="{{infos.revisionStudentAnswer != undefined && infos.questionAnswer == item.questionOption}}"
 
               class=""
             >
@@ -37,7 +37,7 @@
               />
             </view>
             <view
-             wx:if="{{infos.revisionStudentAnswer.answerContent == item.questionOption &&infos.revisionStudentAnswer.answerContent != infos.questionAnswer}}"
+             wx:if="{{infos.revisionStudentAnswer != undefined &&infos.revisionStudentAnswer.answerContent == item.questionOption &&infos.revisionStudentAnswer.answerContent != infos.questionAnswer}}"
             >
             
               <image

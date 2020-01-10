@@ -5,10 +5,9 @@
 
 .answersBody {
   background: #fff;
-  margin: 0 auto;
   border-radius: 15rpx;
   padding-bottom: 20rpx;
-  margin: 20rpx 0 0 0;
+  margin: 20rpx auto 0;
 }
 
 .header {
@@ -19,7 +18,6 @@
 
 .sourcetip {
   padding-left: 29rpx;
-  color: #999999;
   margin-left: 2rpx;
   display: inline-block;
   color: #586878;
@@ -45,15 +43,15 @@
   height: 198rpx;
 }
 .unableP {
-  margin-top: 0.09rem;
+  margin-top: 9rpx;
   color: #8493a8;
-  font-size: 0.3rem;
+  font-size: 30rpx;
 }
 
 .secondp {
-  margin-top: 0.09rem;
+  margin-top: 9rpx;
   color: #999999;
-  font-size: 0.26rem;
+  font-size: 26rpx;
 }
 
 .zg-questions-answer {
@@ -71,6 +69,7 @@
   width: 650rpx;
   height: 290rpx;
   text-align: center;
+  background:#f7f7f7;
 }
 
 .swiper-wrapper {

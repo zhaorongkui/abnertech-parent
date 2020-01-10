@@ -1,11 +1,11 @@
-<view class="sbjectiveBoday">
-	<view class="answersBody" wx:if="infos.questionProperty == 1">
+<view class="sbjectiveBoday" wx:if="{{infos.revisionStudentAnswer != undefined}}">
+	<view class="answersBody" wx:if="{{infos.questionProperty == 1}}">
 		<!-- 主观题头部 -->
 		<view class="header">
 			<view class="sourcetip">最新订正结果</view>
 		</view>
 		<view class="content">
-			<view class="unable" wx:if="{{!infos.revisionStudentAnswer.studentAnswerFiles}}">
+			<view class="unable" wx:if="{{!infos.revisionStudentAnswer.studentAnswerFiles && (isTrue == 1 || !isTrue)}}">
 				<view class="imgbox">
 					<image class="unableImg" src="../../assets/img/unable.png" alt="" />
 					<view class="unableP">
@@ -17,7 +17,7 @@
 				</view>
 			</view>
 			<!-- 没有批阅的原图 -->
-			<view wx:if="{{infos.revisionStudentAnswer.studentAnswerFiles}}" class="zg-questions-answer">
+			<view wx:if="{{infos.revisionStudentAnswer.studentAnswerFiles }}" class="zg-questions-answer">
           <!-- 小程序swiper -->
 				<view class="page-section page-section-spacing swiper-container swiper">
 					<swiper class="swiper-wrapper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"

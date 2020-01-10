@@ -1,4 +1,4 @@
- <question-topic res="{{res}}"></question-topic> 
-<question-answer answerres="{{res}}" bind:handelIndex="handelIndex"></question-answer>
-<look-answer lookres="{{res}}" currentIndex="{{currentIndex}}"></look-answer>
-<Correct-Results res="{{res}}" currentIndex="{{currentIndex}}"></Correct-Results>
+ <question-topic res="{{res}}" wx:if="{{res != null}}"></question-topic> 
+<question-answer answerres="{{res}}" bind:handelIndex="handelIndex" wx:if="{{res != null}}"></question-answer>
+<look-answer lookres="{{res}}" currentIndex="{{currentIndex}}" wx:if="{{res != null}}"></look-answer>
+<Correct-Results res="{{res}}" currentIndex="{{currentIndex}}" wx:if="{{res != null}}"></Correct-Results>
